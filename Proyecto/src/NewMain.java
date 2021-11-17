@@ -1,7 +1,4 @@
 
-package proyecto;
-
-
 public class NewMain {
 
     

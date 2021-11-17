@@ -1,8 +1,8 @@
 
-package proyecto;
+package modelo;
 
 
-public class Concursos {
+public class Concurso {
     public String nombre;
     public String fechaEvento;
     public String horaEvento;
