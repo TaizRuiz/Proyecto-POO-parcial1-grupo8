@@ -1,6 +1,7 @@
 
 package modelo;
 
+import enums.TiposAnimal;
 import java.time.*;
 import java.util.ArrayList;
 

@@ -1,6 +1,7 @@
 
 package modelo;
 
+import enums.TiposAnimal;
 import java.time.LocalDate;
 
 public class Mascota {
