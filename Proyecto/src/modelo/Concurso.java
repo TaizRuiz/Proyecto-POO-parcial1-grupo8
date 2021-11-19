@@ -19,4 +19,10 @@ public class Concurso {
     public ArrayList<Auspiciante> auspiciantes;
     public TiposAnimal dirigidoA;
     
+    
+    
+    public String crearCodConc(String fechaEvento, String ciudad, String lugar){
+        return 
+    
+    }
 }
