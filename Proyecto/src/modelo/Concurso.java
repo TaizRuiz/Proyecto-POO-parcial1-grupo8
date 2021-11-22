@@ -26,7 +26,7 @@ public class Concurso {
     
     //}
 
-    public Concurso(String n, LocalDate fe, LocalTime he, LocalDate fi, LocalDate ff, Ciudad ci, String lu, String cod, Premio pr,ArrayList<Auspiciante> arr, TiposAnimal ta){
+    public Concurso(String n, LocalDate fe, LocalTime he, LocalDate fi, LocalDate ff, Ciudad ci, String lu ){//Premio pr,ArrayList<Auspiciante> arr, TiposAnimal ta){
         nombre= n;
         fechaEvento=fe;
         horaEvento=he;
@@ -34,22 +34,14 @@ public class Concurso {
         fechaFinInscripcion=ff;
         ciudad=ci;
         lugar=lu;
-        CodConcurso=cod;
-        premio=pr;
-        auspiciantes=arr;
-        dirigidoA=ta;
+        //premio=pr;
+        //auspiciantes=arr;
+        //dirigidoA=ta;
 
         
     }
 
-    public Concurso(String n, String l,LocalDate fe, Ciudad c){
-        nombre=n;
-        lugar=l;
-        fechaEvento=fe;
-        ciudad=c;
-    }
-
     public String toString(){
-        return "nombre: "+nombre+" lugar: "+lugar;
+        return "nombre: "+nombre+" lugar: "+lugar+" "+ciudad+" "+fechaEvento+" "+horaEvento;
     }
 }

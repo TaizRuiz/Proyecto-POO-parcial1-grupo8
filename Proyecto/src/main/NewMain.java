@@ -10,9 +10,10 @@ public class NewMain {
     static Ciudad ciudad1= new Ciudad("Guayaquil","Guayas");
     
     
+    
 
     public static void MenuPrincipal(){
-        System.out.println("Menú principal: \n 1.Administrar Concursos \n 2.Administrar Dueños \n 3.Administrar Mascotas");
+        System.out.println("Menú principal: \n 1.Administrar Concursos \n 2.Administrar Dueños \n 3.Administrar Mascotas \n 4.Administrar Auspiciantes");
         
         Scanner sc= new Scanner(System.in);
 
@@ -30,6 +31,9 @@ public class NewMain {
             
             case 3: AdminMascotas.MenuMascotas();
                     break;
+
+            case 4: AdminAuspiciantes.MenuAuspiciantes();
+                    break;
             
             default: System.out.println("Opción no existente");
                     MenuPrincipal();
@@ -41,6 +45,7 @@ public class NewMain {
 
         arrCiudades.add(ciudad1);
         MenuPrincipal();
+        
           
     
 }

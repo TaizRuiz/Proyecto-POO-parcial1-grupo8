@@ -1,10 +1,11 @@
 
 package admins;
 
-import java.time.LocalDate;
+import java.time.*;
 import java.util.*;
 import modelo.*;
 import main.*;
+import admins.*;
 
 public class AdminConcursos {
 
@@ -48,7 +49,7 @@ public class AdminConcursos {
                 System.out.println(c.nombre);
              }
             
-             System.out.print("Elige una ciudad de la lista: ");
+             System.out.print("Escoga una ciudad de la lista: ");
 
              int indiceciudad=sc.nextInt();
              sc.nextLine();
@@ -57,10 +58,26 @@ public class AdminConcursos {
              System.out.println("Ingrese la fecha del evento (YYYY-MM-DD)");
                 String fechaString=sc.nextLine();
                 LocalDate fechaevento=LocalDate.parse(fechaString);
-            
 
-             Concurso concurso=new Concurso(nombre,lugar,fechaevento,ciudad);
+             System.out.println("Ingrese la hora del evento (HH:MM:SS)");
+                String horaString=sc.nextLine();
+                LocalTime horaevento=LocalTime.parse(horaString);
+
+             System.out.println("Ingrese la fecha de inicio de inscripciones (YYYY-MM-DD)");
+                String fechaInicioString=sc.nextLine();
+                LocalDate fechaInicio=LocalDate.parse(fechaInicioString);
+
+             System.out.println("Ingrese la fecha de fin de inscripciones (YYYY-MM-DD)");
+                String fechaFinString=sc.nextLine();
+                LocalDate fechaFin=LocalDate.parse(fechaFinString);
+
+             System.out.println("Creación de la lista de premios \n Ingrese la descripción y auspiciantes correspondientes para cada premio del concurso, del Primer al Tercer lugar");
+             
+             //System.out.print(AdminAuspiciantes.auspiciante1);
+
+             Concurso concurso=new Concurso(nombre,fechaevento,horaevento,fechaInicio,fechaFin,ciudad,lugar);
              arrConcursos.add(concurso);
+             System.out.print(concurso);
              System.out.println("Concurso "+ concurso.nombre+" creado exitosamente");
 
              System.out.println(" 1.Regresar al menú concurso \n 2.Regresar al menú principal ");
@@ -82,7 +99,7 @@ public class AdminConcursos {
             case 3: NewMain.MenuPrincipal();
 
             default: System.out.println("Opción no existente");
-                    MenuConcursos();    
+            MenuConcursos();    
         }
 
     }
