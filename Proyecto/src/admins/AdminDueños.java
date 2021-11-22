@@ -14,6 +14,6 @@ public class AdminDueños {
     
     }
     
-    System.out.println("Menu de Opciones: ");   
+       
 }
 
