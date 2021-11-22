@@ -13,4 +13,7 @@ public class AdminDueños {
         System.out.println("Dueños de Mascotas existentes: ");
     
     }
+    
+    System.out.println("Menu de Opciones: ");   
 }
+
