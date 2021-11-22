@@ -1,6 +1,7 @@
 
 package admins;
 
+import java.time.LocalDate;
 import java.util.*;
 import modelo.*;
 import main.*;
@@ -38,28 +39,27 @@ public class AdminConcursos {
             case 1: 
              System.out.print("Ingrese el nombre del concurso: ");
                 String nombre= sc.nextLine();
-             System.out.print("Ingrese el lugar del concurso: ");
+             
+                System.out.print("Ingrese el lugar del concurso: ");
                 String lugar= sc.nextLine();
 
              System.out.println("Lista de ciudades inscritas: ");
              for (Ciudad c: NewMain.arrCiudades){
                 System.out.println(c.nombre);
              }
-
             
              System.out.print("Elige una ciudad de la lista: ");
 
              int indiceciudad=sc.nextInt();
              sc.nextLine();
              Ciudad ciudad=NewMain.arrCiudades.get(indiceciudad);
+
+             System.out.println("Ingrese la fecha del evento (YYYY-MM-DD)");
+                String fechaString=sc.nextLine();
+                LocalDate fechaevento=LocalDate.parse(fechaString);
             
 
-             
-           
-            
-            
-
-             Concurso concurso=new Concurso(nombre,lugar,ciudad);
+             Concurso concurso=new Concurso(nombre,lugar,fechaevento,ciudad);
              arrConcursos.add(concurso);
              System.out.println("Concurso "+ concurso.nombre+" creado exitosamente");
 
@@ -80,6 +80,9 @@ public class AdminConcursos {
             case 2: System.out.print("Fin del menú");
 
             case 3: NewMain.MenuPrincipal();
+
+            default: System.out.println("Opción no existente");
+                    MenuConcursos();    
         }
 
     }

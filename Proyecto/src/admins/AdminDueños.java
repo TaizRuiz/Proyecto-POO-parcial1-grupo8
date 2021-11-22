@@ -1,5 +1,6 @@
 package admins;
 
+
 import java.util.*;
 import modelo.*;
 import main.*;
@@ -11,9 +12,8 @@ public class AdminDueños {
     public static void MenuDueños(){
         
         System.out.println("Dueños de Mascotas existentes: ");
-    
+
     }
-    
        
 }
 
