@@ -5,27 +5,23 @@ import java.util.*;
 import main.*;
 
 public class AdminAuspiciantes {
-    static ArrayList<Auspiciante> arrAuspiciantes= new ArrayList<Auspiciante>();
-    
+      
         
     
     public static void MenuAuspiciantes(){
-        Auspiciante auspiciante1= new Auspiciante("José","Centro",991114665,"Guayaquil","jose123@hotmail.com","www.jose123.com");
         
-        arrAuspiciantes.add(auspiciante1);
-        //auspiciante1.generarCodAuspiciante();
         
         System.out.println("Auspiciantes registrados: ");
     
         
-        if (arrAuspiciantes.size()==0){
+        if (NewMain.arrAuspiciantes.size()==0){
             
             System.out.println("No hay auspiciantes registrados");
         }
         else{
 
-            for (int i=0;i<arrAuspiciantes.size();i++){
-                System.out.println(arrAuspiciantes.get(i).nombre);
+            for (int i=0;i<NewMain.arrAuspiciantes.size();i++){
+                System.out.println(NewMain.arrAuspiciantes.get(i).nombre);
         }
         }
 
@@ -61,10 +57,22 @@ public class AdminAuspiciantes {
             String webpage= sc.nextLine();
 
 
+
             Auspiciante auspiciante= new Auspiciante(nombre,direccion,telefono,ciudad,email,webpage);
-            arrAuspiciantes.add(auspiciante);
+            NewMain.arrAuspiciantes.add(auspiciante);
 
             System.out.println("Auspiciante registrado");
+
+            System.out.println(" 1.Regresar al menú auspiciantes \n 2.Regresar al menú principal ");
+             System.out.print("Elige una opción: ");
+             opcion= sc.nextInt();
+             sc.nextLine();
+                if (opcion==1){
+                    AdminAuspiciantes.MenuAuspiciantes();
+                }
+                else if (opcion==2){
+                    NewMain.MenuPrincipal();
+                }
 
             break;
 
@@ -74,7 +82,7 @@ public class AdminAuspiciantes {
             default: System.out.println("Opción no existente");
             MenuAuspiciantes();   
 
-
+            sc.close();
 
         }
 

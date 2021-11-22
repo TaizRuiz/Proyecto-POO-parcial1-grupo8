@@ -1,8 +1,6 @@
 
 package modelo;
 
-import java.util.Arrays;
-
 public class Auspiciante extends Persona{
 
     public String webpage;
@@ -14,6 +12,8 @@ public class Auspiciante extends Persona{
         webpage=w;
         
     }
+
+    
 
     public String toString(){
         return "nombre: "+nombre+" código: "+codAuspiciante;

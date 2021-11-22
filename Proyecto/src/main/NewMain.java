@@ -8,6 +8,8 @@ public class NewMain {
 
     public static ArrayList<Ciudad> arrCiudades= new ArrayList<Ciudad>();
     static Ciudad ciudad1= new Ciudad("Guayaquil","Guayas");
+    public static ArrayList<Auspiciante> arrAuspiciantes= new ArrayList<Auspiciante>();
+    static Auspiciante auspiciante1= new Auspiciante("José","Centro",991114665,"Guayaquil","jose123@hotmail.com","www.jose123.com");
     
     
     
@@ -37,6 +39,8 @@ public class NewMain {
             
             default: System.out.println("Opción no existente");
                     MenuPrincipal();
+
+            sc.close();
         }
     }
 
@@ -44,6 +48,7 @@ public class NewMain {
     public static void main(String[] args) {
 
         arrCiudades.add(ciudad1);
+        arrAuspiciantes.add(auspiciante1);
         MenuPrincipal();
         
           

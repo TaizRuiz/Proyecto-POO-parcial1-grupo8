@@ -5,7 +5,8 @@ import java.time.*;
 import java.util.*;
 import modelo.*;
 import main.*;
-import admins.*;
+import enums.Puesto;
+import enums.TiposAnimal;
 
 public class AdminConcursos {
 
@@ -73,11 +74,74 @@ public class AdminConcursos {
 
              System.out.println("Creación de la lista de premios \n Ingrese la descripción y auspiciantes correspondientes para cada premio del concurso, del Primer al Tercer lugar");
              
-             //System.out.print(AdminAuspiciantes.auspiciante1);
+             Premio[] arrPremios= new Premio[3];
+             
+             for(int i=0;i<3;i++){
 
-             Concurso concurso=new Concurso(nombre,fechaevento,horaevento,fechaInicio,fechaFin,ciudad,lugar);
+                Puesto puesto=Puesto.values()[i];
+                
+                System.out.println("Ingrese la descripción del premio para el "+(i+1)+"º lugar");
+                String descripcion= sc.nextLine();
+
+                System.out.println("Seleccione los auspiciantes para el "+(i+1)+"º lugar");
+
+                for (Auspiciante a: NewMain.arrAuspiciantes){
+                    System.out.println(a.nombre);
+                 }
+
+                int indiceAuspiciante=sc.nextInt();
+                sc.nextLine();
+                Auspiciante auspiciante=NewMain.arrAuspiciantes.get(indiceAuspiciante);
+
+                Premio premio=new Premio(puesto,descripcion,auspiciante);
+                arrPremios[i]=premio;
+
+             }
+
+                System.out.println("Seleccione los auspiciantes para el concurso");
+
+                ArrayList<Auspiciante> arrDeAuspiciantes= new ArrayList<Auspiciante>();
+
+                for (Auspiciante a: NewMain.arrAuspiciantes){
+                    System.out.println(a.nombre);
+                 }
+
+                System.out.print("Elige una opción: ");
+                int indiceAuspicianteC=sc.nextInt();
+                sc.nextLine();
+                Auspiciante auspicianteConcurso=NewMain.arrAuspiciantes.get(indiceAuspicianteC);
+                arrDeAuspiciantes.add(auspicianteConcurso);
+
+
+                System.out.println("A quién está dirigido el concurso? \n 1.Para todos \n 2.Solo perros \n 3.Solo gatos");
+
+                System.out.print("Elige una opción: ");
+                int opciontipo=sc.nextInt();
+                sc.nextLine();
+
+                TiposAnimal dirigidoA=TiposAnimal.Vacio;
+        
+                if (opciontipo==1){
+                    dirigidoA=TiposAnimal.Todos;
+                }
+
+                else if (opciontipo==2){
+                    dirigidoA=TiposAnimal.SoloPerros;
+                }
+                else if (opciontipo==3){
+                    dirigidoA=TiposAnimal.SoloGatos;
+                }
+                
+                else{
+                    System.out.println("Opción no válida");
+                }
+
+                
+                
+             
+             Concurso concurso=new Concurso(nombre,fechaevento,horaevento,fechaInicio,fechaFin,ciudad,lugar,arrPremios,arrDeAuspiciantes,dirigidoA);
              arrConcursos.add(concurso);
-             System.out.print(concurso);
+             
              System.out.println("Concurso "+ concurso.nombre+" creado exitosamente");
 
              System.out.println(" 1.Regresar al menú concurso \n 2.Regresar al menú principal ");
@@ -100,7 +164,9 @@ public class AdminConcursos {
 
             default: System.out.println("Opción no existente");
             MenuConcursos();    
+
+            sc.close();
         }
 
-    }
+    }     
 }

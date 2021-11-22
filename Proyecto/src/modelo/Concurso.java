@@ -15,18 +15,13 @@ public class Concurso {
     public Ciudad ciudad;
     public String lugar;
     public String CodConcurso;
-    public Premio premio;
+    public Premio[] premio;
     public ArrayList<Auspiciante> auspiciantes;
     public TiposAnimal dirigidoA;
     
     
-    
-    //public String crearCodConc(String fechaEvento, String ciudad, String lugar){
-        //return 
-    
-    //}
 
-    public Concurso(String n, LocalDate fe, LocalTime he, LocalDate fi, LocalDate ff, Ciudad ci, String lu ){//Premio pr,ArrayList<Auspiciante> arr, TiposAnimal ta){
+    public Concurso(String n, LocalDate fe, LocalTime he, LocalDate fi, LocalDate ff, Ciudad ci, String lu, Premio[] pr, ArrayList<Auspiciante> arr,TiposAnimal ta){
         nombre= n;
         fechaEvento=fe;
         horaEvento=he;
@@ -34,9 +29,9 @@ public class Concurso {
         fechaFinInscripcion=ff;
         ciudad=ci;
         lugar=lu;
-        //premio=pr;
-        //auspiciantes=arr;
-        //dirigidoA=ta;
+        premio=pr;
+        auspiciantes=arr;
+        dirigidoA=ta;
 
         
     }
