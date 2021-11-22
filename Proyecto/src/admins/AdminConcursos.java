@@ -47,17 +47,16 @@ public class AdminConcursos {
              for (Ciudad c: NewMain.arrCiudades){
                 System.out.println(c.nombre);
              }
-
-             System.out.println("Ingrese la fecha del evento (YYYY/MM/DD)");
-                String fechaString=sc.nextLine();
-                LocalDate fechaevento=LocalDate.parse(fechaString);
-
             
              System.out.print("Elige una ciudad de la lista: ");
 
              int indiceciudad=sc.nextInt();
              sc.nextLine();
              Ciudad ciudad=NewMain.arrCiudades.get(indiceciudad);
+
+             System.out.println("Ingrese la fecha del evento (YYYY-MM-DD)");
+                String fechaString=sc.nextLine();
+                LocalDate fechaevento=LocalDate.parse(fechaString);
             
 
              Concurso concurso=new Concurso(nombre,lugar,fechaevento,ciudad);
