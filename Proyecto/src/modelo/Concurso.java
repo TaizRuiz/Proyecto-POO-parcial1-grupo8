@@ -42,9 +42,10 @@ public class Concurso {
         
     }
 
-    public Concurso(String n, String l, Ciudad c){
+    public Concurso(String n, String l,LocalDate fe, Ciudad c){
         nombre=n;
         lugar=l;
+        fechaEvento=fe;
         ciudad=c;
     }
 

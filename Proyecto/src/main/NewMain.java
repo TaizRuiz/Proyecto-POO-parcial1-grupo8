@@ -1,4 +1,3 @@
-
 package main;
 
 import java.util.*;
@@ -26,7 +25,14 @@ public class NewMain {
             case 1: AdminConcursos.MenuConcursos();
                     break;
 
-            case 2: System.out.println("Fin del menú");
+            case 2: AdminDueños.MenuDueños();
+                    break;
+            
+            case 3: AdminMascotas.MenuMascotas();
+                    break;
+            
+            default: System.out.println("Opción no existente");
+                    MenuPrincipal();
         }
     }
 
@@ -35,13 +41,7 @@ public class NewMain {
 
         arrCiudades.add(ciudad1);
         MenuPrincipal();
-        
-        
-        
-
-       
-
-        
+          
     
 }
 }
