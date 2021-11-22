@@ -8,10 +8,9 @@ public class Ciudad {
     public String provincia;
     public String CodCiudad;
 
-    public Ciudad (String n, String p, String cod){
+    public Ciudad (String n, String p){
         nombre=n;
         provincia=p;
-        CodCiudad=cod;
     }
     
 }

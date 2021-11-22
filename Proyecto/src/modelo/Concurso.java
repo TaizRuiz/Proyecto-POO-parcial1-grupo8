@@ -41,4 +41,14 @@ public class Concurso {
 
         
     }
+
+    public Concurso(String n, String l, Ciudad c){
+        nombre=n;
+        lugar=l;
+        ciudad=c;
+    }
+
+    public String toString(){
+        return "nombre: "+nombre+" lugar: "+lugar;
+    }
 }
