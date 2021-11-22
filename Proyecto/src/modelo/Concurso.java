@@ -21,10 +21,10 @@ public class Concurso {
     
     
     
-    public String crearCodConc(String fechaEvento, String ciudad, String lugar){
-        return 
+    //public String crearCodConc(String fechaEvento, String ciudad, String lugar){
+        //return 
     
-    }
+    //}
 
     public Concurso(String n, LocalDate fe, LocalTime he, LocalDate fi, LocalDate ff, Ciudad ci, String lu, String cod, Premio pr,ArrayList<Auspiciante> arr, TiposAnimal ta){
         nombre= n;
