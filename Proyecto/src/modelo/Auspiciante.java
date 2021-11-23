@@ -15,6 +15,8 @@ public class Auspiciante extends Persona{
 
     
 
+    
+
     public String toString(){
         return "nombre: "+nombre+" código: "+codAuspiciante;
     }

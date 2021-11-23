@@ -18,8 +18,11 @@ public class Concurso {
     public Premio[] premio;
     public ArrayList<Auspiciante> auspiciantes;
     public TiposAnimal dirigidoA;
+    public ArrayList<Mascota> participantes;
     
-    
+    public Concurso(String c){
+        CodConcurso=c;
+    }
 
     public Concurso(String n, LocalDate fe, LocalTime he, LocalDate fi, LocalDate ff, Ciudad ci, String lu, Premio[] pr, ArrayList<Auspiciante> arr,TiposAnimal ta){
         nombre= n;
@@ -36,7 +39,42 @@ public class Concurso {
         
     }
 
+    public boolean equals(Object obj){
+        if (this==obj){
+            return true;
+        }
+
+        if (obj !=null && obj instanceof Concurso){
+            Concurso other= (Concurso) obj;
+            return CodConcurso.equals(other.CodConcurso);
+        }
+
+        return false;
+    }
+
+    public void generarCodConcurso(){
+
+        String codConcurso="";
+        String nombreSinEspacios=nombre.replace(" ", "");
+        
+        String [] arrNombre= nombreSinEspacios.split("");
+        int tamaño=arrNombre.length;
+        for (int i=0;i<2;i++){
+            double ind= Math.floor(Math.random()*tamaño);
+            String letraAleatoria=arrNombre[(int)ind];
+            codConcurso=codConcurso+letraAleatoria;
+        }
+
+        for (int i=0;i<2;i++){
+            String numero= String.valueOf((int) (Math.random()*10));
+            codConcurso=codConcurso+numero;
+        }
+
+        CodConcurso=codConcurso.toUpperCase();;
+    }
+    
+
     public String toString(){
-        return "nombre: "+nombre+" lugar: "+lugar+" "+ciudad+" "+fechaEvento+" "+horaEvento;
+        return "nombre: "+nombre+" lugar: "+lugar+" "+fechaEvento+" "+horaEvento;
     }
 }
