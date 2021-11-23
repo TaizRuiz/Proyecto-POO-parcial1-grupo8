@@ -183,9 +183,9 @@ public class AdminConcursos {
 
             System.out.println("Ingrese el código del participante que será inscrito en el concurso: "+concursoElegido.nombre);
 
-            String codigoUsuarioMascota= sc.nextLine();
-            Mascota busquedaMascota= new Mascota(codigoUsuarioMascota);
-            Mascota mascotaRegistrar=new Mascota("Vacio");
+            String codigoUsuarioMascota = sc.nextLine();
+            Mascota busquedaMascota = new Mascota(codigoUsuarioMascota);
+            Mascota mascotaRegistrar = new Mascota("Vacio");
 
             if (AdminMascotas.arrMascotas.contains(busquedaMascota)){
                 int ind=AdminMascotas.arrMascotas.indexOf(busquedaMascota);
