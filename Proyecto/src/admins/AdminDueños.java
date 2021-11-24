@@ -4,7 +4,7 @@ package admins;
 
 import java.util.*;
 import modelo.*;
-import main.*;
+
 
 public class AdminDueños { 
     
