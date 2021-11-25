@@ -53,17 +53,9 @@ public class AdminDueños {
                 String direccion= sc.nextLine();
                 System.out.println("Ingrese un numero de telefono:  ");
                 double telefono= sc.nextDouble();
-                System.out.println("Lista de ciudades inscritas: ");
-                for (Ciudad c: NewMain.arrCiudades){
-                    System.out.println(c.nombre);
-                }
-            
-                System.out.print("Elige una ciudad de la lista: ");
-
-                    int indiceciudad=sc.nextInt();
-                    sc.nextLine();
-                    Ciudad ciudad=NewMain.arrCiudades.get(indiceciudad);
-
+                System.out.println("Ingrese la ciudad:  ");
+                String ciudad= sc.nextLine();
+               
                 System.out.println("Ingrese un E-mail:  ");
                 String correo= sc.nextLine();
                 
