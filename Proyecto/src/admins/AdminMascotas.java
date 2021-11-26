@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.*;
 import modelo.*;
 import enums.*;
+import main.NewMain;
 
 public class AdminMascotas {
 
@@ -60,8 +61,30 @@ public class AdminMascotas {
                 
                 System.out.print("Ingrese el dueño de la mascota: ");
                 String dueño = sc.nextLine();
+                Object ob = (Object)dueño;
+                DueñoMascota d = (DueñoMascota)ob;
                 
-                // Mascota m1 = new Mascota(nomMa)
+                Mascota m1 = new Mascota(nomMasc,DiriA,raza,fechaNac,d);
+                
+                System.out.print("Generando código para "+nomMasc+" ... ");
+                m1.generarCodMascota();
+                
+                System.out.println("Mascota "+nomMasc+" creada exitosamente! ");
+                
+                System.out.println(" 1.Regresar al menú mascota \n 2.Regresar al menú principal ");
+                System.out.print("Elige una opción: ");
+                int opcion= sc.nextInt();
+                sc.nextLine();
+                if (opcion==1){
+                    AdminMascotas.MenuMascotas();
+                }
+                else if (opcion==2){
+                    NewMain.MenuPrincipal();
+                }
+            
+             break;
+                
+                
         }
     }
     

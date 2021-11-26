@@ -1,13 +1,13 @@
 
 package modelo;
 
-import enums.TiposAnimal;
+import enums.TipoEspecie;
 import java.time.LocalDate;
 
 public class Mascota {
     
     public String nombre;
-    public TiposAnimal mascota;
+    public TipoEspecie mascota;
     public String raza;
     public LocalDate fechaNacimiento;
     public DueñoMascota dueño;
@@ -17,12 +17,12 @@ public class Mascota {
         CodMascota=c;
     }
 
-    public Mascota(String n,TiposAnimal m){
+    public Mascota(String n,TipoEspecie m){
         nombre=n;
 
     }
 
-    public Mascota(String n, TiposAnimal m, String r, LocalDate fn, DueñoMascota d){
+    public Mascota(String n, TipoEspecie m, String r, LocalDate fn, DueñoMascota d){
         nombre=n;
         mascota=m;
         raza=r;

@@ -2,7 +2,7 @@ package main;
 
 import java.util.*;
 import admins.*;
-import enums.TiposAnimal;
+import enums.*;
 import modelo.*;
 
 public class NewMain {
@@ -15,7 +15,7 @@ public class NewMain {
     static Auspiciante auspiciante1= new Auspiciante("José","Centro",991114665,"Guayaquil","jose123@hotmail.com","www.jose123.com");
     static Auspiciante auspiciante2= new Auspiciante("Martha","Centro",991114665,"Guayaquil","jose123@hotmail.com","www.jose123.com");
     
-    public static Mascota mascota1=new Mascota("Minnie",TiposAnimal.SoloPerros);
+    public static Mascota mascota1=new Mascota("Minnie",TipoEspecie.Perro);
 
     public static void MenuPrincipal(){
         System.out.println("Menú principal: \n 1.Administrar Concursos \n 2.Administrar Dueños \n 3.Administrar Mascotas \n 4.Administrar Auspiciantes");
