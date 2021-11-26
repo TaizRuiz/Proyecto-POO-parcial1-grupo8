@@ -3,6 +3,7 @@ package admins;
 import java.time.LocalDate;
 import java.util.*;
 import modelo.*;
+import enums.*;
 
 public class AdminMascotas {
 
@@ -11,7 +12,7 @@ public class AdminMascotas {
     public static void MenuMascotas(){
         System.out.println("Mascotas existentes: ");
         
-        if (arrMascotas.size()==0){
+        if (arrMascotas.isEmpty()){
             
             System.out.println("No hay mascotas registrados");
         }
@@ -37,8 +38,19 @@ public class AdminMascotas {
                 System.out.print("Ingrese el nombre de la mascota: ");
                 String nomMasc = sc.nextLine();
                 
-                // System.out.print("Escoja el tipo de animal: "); 
+                System.out.print("Escoja el tipo de animal: \n 1. Perro \n 2. Gato \n"); 
+                int opEspecie = sc.nextInt();
+                sc.nextLine();
                 
+                TipoEspecie DiriA = TipoEspecie.Vacio;
+                
+                if (opEspecie==1){
+                    DiriA = TipoEspecie.Perro;
+                }
+                else if(opEspecie==2){
+                    DiriA = TipoEspecie.Gato;
+                }
+                                
                 System.out.print("Ingrese la raza de la mascota: ");
                 String raza = sc.nextLine();
                 
@@ -49,7 +61,7 @@ public class AdminMascotas {
                 System.out.print("Ingrese el dueño de la mascota: ");
                 String dueño = sc.nextLine();
                 
-                Mascota m1 = new Mascota(nomMa)
+                // Mascota m1 = new Mascota(nomMa)
         }
     }
     
