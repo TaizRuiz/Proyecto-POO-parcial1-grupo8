@@ -21,6 +21,8 @@ public class Concurso {
     public ArrayList<Auspiciante> auspiciantes;
     public TiposAnimal dirigidoA;
     public ArrayList<Mascota> participantes;
+    public boolean abiertoInscripciones;
+    public boolean concursoEnCurso;
 
     public Concurso(){};
     

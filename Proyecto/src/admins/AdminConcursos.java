@@ -28,7 +28,7 @@ public class AdminConcursos {
         }
         }
         
-        System.out.println("Menú de opciones de concursos: \n 1.Crear concurso \n 2.Inscribir participante \n 3.Regresar al menú principal");
+        System.out.println("Menú de opciones de concursos: \n 1.Crear concurso \n 2.Estado de concursos \n 3.Inscribir participante \n 4.Regresar al menú principal");
         
         Scanner sc= new Scanner(System.in);
 
@@ -126,6 +126,8 @@ public class AdminConcursos {
 
              Concurso concurso=new Concurso(nombre,fechaevento,horaevento,fechaInicio,fechaFin,ciudad,lugar,arrPremios,arrDeAuspiciantes,dirigidoA);
              concurso.generarCodConcurso();
+             concurso.abiertoInscripciones=true;
+             concurso.concursoEnCurso=true;
              
              arrConcursos.add(concurso);
              
@@ -147,7 +149,10 @@ public class AdminConcursos {
             
             break;
 
-            case 2: 
+            case 2: AdminEstadoConcursos.MenuEstadoConcursos();
+            break;
+
+            case 3: 
 
              if (arrConcursos.size()==0){
             
@@ -198,7 +203,7 @@ public class AdminConcursos {
             break;
 
 
-            case 3: NewMain.MenuPrincipal();
+            case 4: NewMain.MenuPrincipal();
             break;
 
             default: System.out.println("Opción no existente");
