@@ -8,6 +8,12 @@ public class Persona {
     public String ciudad;
     public String email;
 
+    public Persona(){}
+
+    public Persona(String n){
+        nombre=n;
+    }
+
     public Persona(String nombre, String direccion, double telefono, String ciudad, String email) {
         this.nombre = nombre;
         this.direccion = direccion;

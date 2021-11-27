@@ -5,6 +5,8 @@ import enums.TiposAnimal;
 import java.time.*;
 import java.util.ArrayList;
 
+import admins.AdminConcursos;
+
 
 public class Concurso {
     public String nombre;
@@ -19,6 +21,8 @@ public class Concurso {
     public ArrayList<Auspiciante> auspiciantes;
     public TiposAnimal dirigidoA;
     public ArrayList<Mascota> participantes;
+
+    public Concurso(){};
     
     public Concurso(String c){
         CodConcurso=c;
@@ -71,6 +75,19 @@ public class Concurso {
         }
 
         CodConcurso=codConcurso.toUpperCase();;
+    }
+
+    public static Concurso busquedaConcurso(String codigoConcurso){
+
+        Concurso concursoBusqueda=new Concurso(codigoConcurso);
+        Concurso concursoEncontrado= new Concurso();
+
+        if (AdminConcursos.arrConcursos.contains(concursoBusqueda)){
+            int indConcurso=AdminConcursos.arrConcursos.indexOf(concursoBusqueda);
+            concursoEncontrado= AdminConcursos.arrConcursos.get(indConcurso);
+        }
+
+        return concursoEncontrado;
     }
     
 

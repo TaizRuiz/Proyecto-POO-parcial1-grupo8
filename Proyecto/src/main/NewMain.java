@@ -14,8 +14,8 @@ public class NewMain {
     public static ArrayList<Auspiciante> arrAuspiciantes= new ArrayList<Auspiciante>();
     static Auspiciante auspiciante1= new Auspiciante("José","Centro",991114665,"Guayaquil","jose123@hotmail.com","www.jose123.com");
     static Auspiciante auspiciante2= new Auspiciante("Martha","Centro",991114665,"Guayaquil","jose123@hotmail.com","www.jose123.com");
+    public static Mascota mascota1= new Mascota("Minnie","Chihuahua");
     
-    public static Mascota mascota1=new Mascota("Minnie",TipoEspecie.Perro);
 
     public static void MenuPrincipal(){
         System.out.println("Menú principal: \n 1.Administrar Concursos \n 2.Administrar Dueños \n 3.Administrar Mascotas \n 4.Administrar Auspiciantes");
@@ -55,8 +55,8 @@ public class NewMain {
         arrCiudades.add(ciudad3);
         arrAuspiciantes.add(auspiciante1);
         arrAuspiciantes.add(auspiciante2);
-        AdminMascotas.arrMascotas.add(mascota1);
         mascota1.generarCodMascota();
+        AdminMascotas.arrMascotas.add(mascota1);
         MenuPrincipal();
         
           

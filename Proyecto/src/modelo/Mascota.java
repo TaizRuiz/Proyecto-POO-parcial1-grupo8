@@ -3,6 +3,7 @@ package modelo;
 
 import enums.TipoEspecie;
 import java.time.LocalDate;
+import admins.*;
 
 public class Mascota {
     
@@ -13,13 +14,15 @@ public class Mascota {
     public DueñoMascota dueño;
     public String CodMascota;
 
-    public Mascota (String c){
-        CodMascota=c;
+    public Mascota(){}
+
+    public Mascota(String n,String r){
+        nombre=n;
+        raza=r;
     }
 
-    public Mascota(String n,TipoEspecie m){
-        nombre=n;
-
+    public Mascota (String c){
+        CodMascota=c;
     }
 
     public Mascota(String n, TipoEspecie m, String r, LocalDate fn, DueñoMascota d){
@@ -41,14 +44,13 @@ public class Mascota {
             double ind= Math.floor(Math.random()*tamaño);
             String letraAleatoria=arrNombre[(int)ind];
             codMascota=codMascota+letraAleatoria;
-
         }
 
         for (int i=0;i<2;i++){
             String numero= String.valueOf((int) (Math.random()*10));
             codMascota=codMascota+numero;
         }
-
+        
         CodMascota=codMascota.toUpperCase();;
     }
 
@@ -63,6 +65,18 @@ public class Mascota {
         }
 
         return false;
+    }
+
+    public static Mascota busquedMascota(String codMascota){
+        Mascota busquedaMascota = new Mascota(codMascota);
+        Mascota mascotaRegistrar = new Mascota();
+
+        if (AdminMascotas.arrMascotas.contains(busquedaMascota)){
+            int ind=AdminMascotas.arrMascotas.indexOf(busquedaMascota);
+            mascotaRegistrar= AdminMascotas.arrMascotas.get(ind);
+        }
+
+        return mascotaRegistrar;
     }
     
 }

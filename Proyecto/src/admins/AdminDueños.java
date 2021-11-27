@@ -44,7 +44,7 @@ public class AdminDueños {
             case 1:
                 System.out.println("Ingrese la cedula del Dueño: ");
                 double cedula = sc.nextDouble();
-                
+                sc.nextLine();
                 System.out.println("Ingrese los nombres: ");
                 String nombre = sc.nextLine();
                 System.out.println("Ingrese los apellidos:  ");
@@ -53,6 +53,7 @@ public class AdminDueños {
                 String direccion= sc.nextLine();
                 System.out.println("Ingrese un numero de telefono:  ");
                 double telefono= sc.nextDouble();
+                sc.nextLine();
                 System.out.println("Ingrese la ciudad:  ");
                 String ciudad= sc.nextLine();
                
