@@ -61,6 +61,8 @@ public class AdminMascotas {
                 
                 System.out.print("Ingrese el dueño de la mascota: ");
                 String dueño = sc.nextLine();
+                
+                // downcasting x2
                 Object ob = (Object)dueño;
                 DueñoMascota d = (DueñoMascota)ob;
                 
@@ -69,7 +71,11 @@ public class AdminMascotas {
                 System.out.print("Generando código para "+nomMasc+" ... ");
                 m1.generarCodMascota();
                 
+                // mascota añadida a la lista
+                arrMascotas.add(m1);
+                
                 System.out.println("Mascota "+nomMasc+" creada exitosamente! ");
+                
                 
                 System.out.println(" 1.Regresar al menú mascota \n 2.Regresar al menú principal ");
                 System.out.print("Elige una opción: ");
@@ -84,7 +90,37 @@ public class AdminMascotas {
             
              break;
                 
+            case 2:
+                System.out.print("Ingrese id de la mascota a eliminar: ");
+                String codigo = sc.nextLine();
+                Mascota buscarMascota = new Mascota(codigo);
+                for(int i=0;i<arrMascotas.size();i++){
+                    if(arrMascotas.get(i).equals(buscarMascota)){
+                        arrMascotas.remove(i);
+                    }
+                }
+                System.out.println("Mascota con id: "+codigo+" eliminada con éxito!");
                 
+                System.out.println(" 1.Regresar al menú mascota \n 2.Regresar al menú principal ");
+                System.out.print("Elige una opción: ");
+                int opcion2= sc.nextInt();
+                sc.nextLine();
+                if (opcion2==1){
+                    AdminMascotas.menuMascotas();
+                }
+                else if (opcion2==2){
+                    NewMain.menuPrincipal();
+                }
+            
+             break;
+             
+            case 3:
+                System.out.println("Regresando al menú principal...");
+                NewMain.menuPrincipal();
+                
+            default:
+                System.out.println(">>> Opción no existente <<<");
+                menuMascotas();
         }
 
         sc.close();
