@@ -5,7 +5,7 @@ import modelo.*;
 
 public class AdminEstadoConcursos {
 
-    public static void MenuEstadoConcursos(){
+    public static void menuEstadoConcursos(){
 
         System.out.println("Menú de opciones del estado de concursos: \n 1.Cambiar estado de un concurso \n 2.Consultar ganadores de un concurso \n 3.Regresar al menú concurso");
         
@@ -66,10 +66,10 @@ public class AdminEstadoConcursos {
              opcion= sc.nextInt();
              sc.nextLine();
                 if (opcion==1){
-                    AdminEstadoConcursos.MenuEstadoConcursos();
+                    AdminEstadoConcursos.menuEstadoConcursos();
                 }
                 else if (opcion==2){
-                    AdminConcursos.MenuConcursos();
+                    AdminConcursos.menuConcursos();
                 }
             }
             break;
@@ -77,12 +77,12 @@ public class AdminEstadoConcursos {
             case 2:
             
 
-            case 3:AdminConcursos.MenuConcursos();
+            case 3:AdminConcursos.menuConcursos();
             break;
 
         }
 
-            
+        sc.close();   
     }
     
 }

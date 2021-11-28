@@ -42,7 +42,11 @@ public class Premio {
 
          }
 
+         sc.close();
+
         return arrPremios;
+
+        
     }
 
     public String toString(){

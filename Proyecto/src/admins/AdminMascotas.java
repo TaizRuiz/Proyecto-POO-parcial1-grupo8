@@ -10,7 +10,7 @@ public class AdminMascotas {
 
     public static ArrayList<Mascota> arrMascotas= new ArrayList<Mascota>();
 
-    public static void MenuMascotas(){
+    public static void menuMascotas(){
         System.out.println("Mascotas existentes: ");
         
         if (arrMascotas.isEmpty()){
@@ -76,16 +76,18 @@ public class AdminMascotas {
                 int opcion= sc.nextInt();
                 sc.nextLine();
                 if (opcion==1){
-                    AdminMascotas.MenuMascotas();
+                    AdminMascotas.menuMascotas();
                 }
                 else if (opcion==2){
-                    NewMain.MenuPrincipal();
+                    NewMain.menuPrincipal();
                 }
             
              break;
                 
                 
         }
+
+        sc.close();
     }
     
 }

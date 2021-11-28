@@ -1,17 +1,14 @@
 package admins;
 
-
-
 import java.util.*;
 import modelo.*;
 import main.*;
-import enums.*;
 
 public class AdminDueños { 
     
     static ArrayList<DueñoMascota> arrDueño= new ArrayList<DueñoMascota>();
     
-    public static void MenuDueños(){
+    public static void menuDueños(){
         
         System.out.println("Dueños de Mascotas existentes: ");
         
@@ -70,10 +67,10 @@ public class AdminDueños {
                 opcion= sc.nextInt();
                 sc.nextLine();
                 if (opcion==1){
-                    AdminDueños.MenuDueños();
+                    AdminDueños.menuDueños();
                 }
                 else if (opcion==2){
-                    NewMain.MenuPrincipal();
+                    NewMain.menuPrincipal();
                 }
             
              break;
@@ -81,15 +78,17 @@ public class AdminDueños {
 
             case 2: System.out.print("Fin del menú");
 
-            case 3: NewMain.MenuPrincipal();
+            case 3: NewMain.menuPrincipal();
 
             default: System.out.println("Opción no existente");
-                    MenuDueños();  
+                    menuDueños();  
                     
                     
 
         
         } 
+
+        sc.close();
     }
     
         

@@ -8,7 +8,7 @@ public class AdminAuspiciantes {
       
         
     
-    public static void MenuAuspiciantes(){
+    public static void menuAuspiciantes(){
         
         
         System.out.println("Auspiciantes registrados: ");
@@ -68,19 +68,19 @@ public class AdminAuspiciantes {
              opcion= sc.nextInt();
              sc.nextLine();
                 if (opcion==1){
-                    AdminAuspiciantes.MenuAuspiciantes();
+                    AdminAuspiciantes.menuAuspiciantes();
                 }
                 else if (opcion==2){
-                    NewMain.MenuPrincipal();
+                    NewMain.menuPrincipal();
                 }
 
             break;
 
-            case 2: NewMain.MenuPrincipal();
+            case 2: NewMain.menuPrincipal();
                     break;
 
             default: System.out.println("Opción no existente");
-            MenuAuspiciantes();   
+            menuAuspiciantes();   
 
             sc.close();
 

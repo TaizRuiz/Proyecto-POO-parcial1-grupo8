@@ -2,7 +2,6 @@ package main;
 
 import java.util.*;
 import admins.*;
-import enums.*;
 import modelo.*;
 
 public class NewMain {
@@ -17,7 +16,7 @@ public class NewMain {
     public static Mascota mascota1= new Mascota("Minnie","Chihuahua");
     
 
-    public static void MenuPrincipal(){
+    public static void menuPrincipal(){
         System.out.println("Menú principal: \n 1.Administrar Concursos \n 2.Administrar Dueños \n 3.Administrar Mascotas \n 4.Administrar Auspiciantes");
         
         Scanner sc= new Scanner(System.in);
@@ -28,20 +27,20 @@ public class NewMain {
 
         switch(opcion){
 
-            case 1: AdminConcursos.MenuConcursos();
+            case 1: AdminConcursos.menuConcursos();
                     break;
 
-            case 2: AdminDueños.MenuDueños();
+            case 2: AdminDueños.menuDueños();
                     break;
             
-            case 3: AdminMascotas.MenuMascotas();
+            case 3: AdminMascotas.menuMascotas();
                     break;
 
-            case 4: AdminAuspiciantes.MenuAuspiciantes();
+            case 4: AdminAuspiciantes.menuAuspiciantes();
                     break;
             
             default: System.out.println("Opción no existente");
-                    MenuPrincipal();
+                    menuPrincipal();
 
             sc.close();
         }
@@ -57,7 +56,7 @@ public class NewMain {
         arrAuspiciantes.add(auspiciante2);
         mascota1.generarCodMascota();
         AdminMascotas.arrMascotas.add(mascota1);
-        MenuPrincipal();
+        menuPrincipal();
         
           
     

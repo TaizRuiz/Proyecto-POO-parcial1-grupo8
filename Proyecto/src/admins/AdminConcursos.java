@@ -12,7 +12,7 @@ public class AdminConcursos {
 
     public static ArrayList<Concurso> arrConcursos= new ArrayList<Concurso>();
     
-    public static void MenuConcursos(){
+    public static void menuConcursos(){
 
         
         System.out.println("Concursos existentes: ");
@@ -56,11 +56,11 @@ public class AdminConcursos {
 
              System.out.print("Ingrese la fecha del evento (YYYY-MM-DD): ");
                 String fechaString=sc.nextLine();
-                LocalDate fechaevento=LocalDate.parse(fechaString);
+                LocalDate fechaEvento=LocalDate.parse(fechaString);
 
              System.out.print("Ingrese la hora del evento (HH:MM:SS): ");
                 String horaString=sc.nextLine();
-                LocalTime horaevento=LocalTime.parse(horaString);
+                LocalTime horaEvento=LocalTime.parse(horaString);
 
              System.out.print("Ingrese la fecha de inicio de inscripciones (YYYY-MM-DD): ");
                 String fechaInicioString=sc.nextLine();
@@ -103,20 +103,20 @@ public class AdminConcursos {
              System.out.println("A quién está dirigido el concurso? \n 1.Para todos \n 2.Solo perros \n 3.Solo gatos");
 
              System.out.print("Elige una opción: ");
-             int opciontipo=sc.nextInt();
+             int opcionTipo=sc.nextInt();
              sc.nextLine();
 
              TiposAnimal dirigidoA=TiposAnimal.Vacio;
         
-             if (opciontipo==1){
+             if (opcionTipo==1){
                 dirigidoA=TiposAnimal.Todos;
              }
 
-             else if (opciontipo==2){
+             else if (opcionTipo==2){
                 dirigidoA=TiposAnimal.SoloPerros;
              }
 
-             else if (opciontipo==3){
+             else if (opcionTipo==3){
                 dirigidoA=TiposAnimal.SoloGatos;
              }
                 
@@ -124,7 +124,7 @@ public class AdminConcursos {
                 System.out.println("Opción no válida");
              }
 
-             Concurso concurso=new Concurso(nombre,fechaevento,horaevento,fechaInicio,fechaFin,ciudad,lugar,arrPremios,arrDeAuspiciantes,dirigidoA);
+             Concurso concurso=new Concurso(nombre,fechaEvento,horaEvento,fechaInicio,fechaFin,ciudad,lugar,arrPremios,arrDeAuspiciantes,dirigidoA);
              concurso.generarCodConcurso();
              concurso.abiertoInscripciones=true;
              concurso.concursoEnCurso=true;
@@ -141,15 +141,15 @@ public class AdminConcursos {
              opcion= sc.nextInt();
              sc.nextLine();
                 if (opcion==1){
-                    AdminConcursos.MenuConcursos();
+                    AdminConcursos.menuConcursos();
                 }
                 else if (opcion==2){
-                    NewMain.MenuPrincipal();
+                    NewMain.menuPrincipal();
                 }
             
             break;
 
-            case 2: AdminEstadoConcursos.MenuEstadoConcursos();
+            case 2: AdminEstadoConcursos.menuEstadoConcursos();
             break;
 
             case 3: 
@@ -194,20 +194,20 @@ public class AdminConcursos {
              opcion= sc.nextInt();
              sc.nextLine();
                 if (opcion==1){
-                    AdminConcursos.MenuConcursos();
+                    AdminConcursos.menuConcursos();
                 }
                 else if (opcion==2){
-                    NewMain.MenuPrincipal();
+                    NewMain.menuPrincipal();
                 }
 
             break;
 
 
-            case 4: NewMain.MenuPrincipal();
+            case 4: NewMain.menuPrincipal();
             break;
 
             default: System.out.println("Opción no existente");
-             MenuConcursos();    
+             menuConcursos();    
             
 
              sc.close();
