@@ -25,7 +25,7 @@ public class AdminMascotas {
             
         }
         
-        System.out.println("Menú de opciones de mascotas: \n 1. Crear mascota: \n 2. Eliminar mascota: \n 3. Regresar al menú principal.");
+        System.out.println("Menú de opciones de mascotas: \n 1. Crear mascota \n 2. Eliminar mascota \n 3. Regresar al menú principal");
         
         Scanner sc = new Scanner(System.in);
         
@@ -61,14 +61,11 @@ public class AdminMascotas {
                 
                 System.out.print("Ingrese el dueño de la mascota: ");
                 String dueño = sc.nextLine();
+                DueñoMascota dño = new DueñoMascota(dueño);
                 
-                // downcasting x2
-                Object ob = (Object)dueño;
-                DueñoMascota d = (DueñoMascota)ob;
+                Mascota m1 = new Mascota(nomMasc,DiriA,raza,fechaNac,dño);
                 
-                Mascota m1 = new Mascota(nomMasc,DiriA,raza,fechaNac,d);
-                
-                System.out.print("Generando código para "+nomMasc+" ... ");
+                System.out.println("Generando código para "+nomMasc+" ... ");
                 m1.generarCodMascota();
                 
                 // mascota añadida a la lista
