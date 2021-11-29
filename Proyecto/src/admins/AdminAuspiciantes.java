@@ -6,7 +6,7 @@ import main.*;
 
 public class AdminAuspiciantes {
       
-        
+    public static ArrayList<Auspiciante> arrAuspiciantes= new ArrayList<Auspiciante>();
     
     public static void menuAuspiciantes(){
         
@@ -14,14 +14,14 @@ public class AdminAuspiciantes {
         System.out.println("Auspiciantes registrados: ");
     
         
-        if (NewMain.arrAuspiciantes.size()==0){
+        if (arrAuspiciantes.size()==0){
             
             System.out.println("No hay auspiciantes registrados");
         }
         else{
 
-            for (int i=0;i<NewMain.arrAuspiciantes.size();i++){
-                System.out.println(NewMain.arrAuspiciantes.get(i).nombre);
+            for (int i=0;i<arrAuspiciantes.size();i++){
+                System.out.println(arrAuspiciantes.get(i).nombre);
         }
         }
 
@@ -59,7 +59,7 @@ public class AdminAuspiciantes {
 
 
             Auspiciante auspiciante= new Auspiciante(nombre,direccion,telefono,ciudad,email,webpage);
-            NewMain.arrAuspiciantes.add(auspiciante);
+            arrAuspiciantes.add(auspiciante);
 
             System.out.println("Auspiciante registrado");
 

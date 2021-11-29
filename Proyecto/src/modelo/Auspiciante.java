@@ -1,7 +1,7 @@
 
 package modelo;
 
-import main.*;
+import admins.AdminAuspiciantes;
 
 public class Auspiciante extends Persona{
 
@@ -105,9 +105,9 @@ public class Auspiciante extends Persona{
         Auspiciante auspicianteBusqueda=new Auspiciante(nombreAuspiciante);
         Auspiciante auspicianteEncontrado= new Auspiciante();
 
-        if (NewMain.arrAuspiciantes.contains(auspicianteBusqueda)){
-            int indAuspiciante=NewMain.arrAuspiciantes.indexOf(auspicianteBusqueda);
-            auspicianteEncontrado= NewMain.arrAuspiciantes.get(indAuspiciante);
+        if (AdminAuspiciantes.arrAuspiciantes.contains(auspicianteBusqueda)){
+            int indAuspiciante=AdminAuspiciantes.arrAuspiciantes.indexOf(auspicianteBusqueda);
+            auspicianteEncontrado= AdminAuspiciantes.arrAuspiciantes.get(indAuspiciante);
         }
 
         return auspicianteEncontrado;

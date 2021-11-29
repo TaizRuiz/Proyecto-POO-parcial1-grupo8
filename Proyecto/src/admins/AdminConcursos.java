@@ -46,7 +46,7 @@ public class AdminConcursos {
                 String lugar= sc.nextLine();
 
              System.out.println("Lista de ciudades inscritas: ");
-                for (Ciudad c: NewMain.arrCiudades){
+                for (Ciudad c: AdminCiudades.arrCiudades){
                     System.out.println("-"+c.getNombre());
                 }
 
@@ -84,7 +84,7 @@ public class AdminConcursos {
 
              System.out.println("De la siguente lista seleccione los auspiciantes para el concurso");
 
-                for (Auspiciante a: NewMain.arrAuspiciantes){
+                for (Auspiciante a: AdminAuspiciantes.arrAuspiciantes){
                     System.out.println("-"+a.nombre);
                  }
 

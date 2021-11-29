@@ -1,11 +1,13 @@
 package admins;
 
 
-import java.util.Scanner;
+import java.util.*;
 import main.NewMain;
 import modelo.Ciudad;
 
 public class AdminCiudades {
+
+    public static ArrayList<Ciudad> arrCiudades= new ArrayList<Ciudad>();
     
     public static void menuCiudades(){
 
@@ -13,7 +15,7 @@ public class AdminCiudades {
 
         System.out.println("Lista de ciudades registradas: ");
 
-        for (Ciudad ciudad: NewMain.arrCiudades){
+        for (Ciudad ciudad: arrCiudades){
             System.out.println(ciudad.getNombre());
         }
 

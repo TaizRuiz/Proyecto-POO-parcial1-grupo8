@@ -3,6 +3,8 @@ package main;
 import java.time.*;
 import java.util.*;
 
+import admins.AdminAuspiciantes;
+import admins.AdminCiudades;
 import admins.AdminConcursos;
 import admins.AdminDueños;
 import admins.AdminMascotas;
@@ -42,13 +44,13 @@ public class CargarObjetos {
 
      
      //Creación de mascotas
-     LocalDate fechaNacimiento1=LocalDate.parse("2020-02-30");
+     LocalDate fechaNacimiento1=LocalDate.parse("2020-02-15");
      Mascota mascota1= new Mascota("Minnie",TipoEspecie.Perro,"Chihuahua",fechaNacimiento1,dueño1);
      mascota1.generarCodMascota();
      LocalDate fechaNacimiento2=LocalDate.parse("2020-05-03");
      Mascota mascota2= new Mascota("Chester",TipoEspecie.Perro,"Pastor Alemán",fechaNacimiento2,dueño2);
      mascota2.generarCodMascota();
-     LocalDate fechaNacimiento3=LocalDate.parse("2010-02-31");
+     LocalDate fechaNacimiento3=LocalDate.parse("2010-02-27");
      Mascota mascota3= new Mascota("Manchas",TipoEspecie.Perro,"Dálmata",fechaNacimiento3,dueño3);
      mascota3.generarCodMascota();
      LocalDate fechaNacimiento4=LocalDate.parse("2015-08-13");
@@ -60,7 +62,7 @@ public class CargarObjetos {
      LocalDate fechaNacimiento6=LocalDate.parse("2010-12-24");
      Mascota mascota6= new Mascota("Manchas",TipoEspecie.Gato,"Persa",fechaNacimiento6,dueño6);
      mascota6.generarCodMascota();
-     LocalDate fechaNacimiento7=LocalDate.parse("2010-02-31");
+     LocalDate fechaNacimiento7=LocalDate.parse("2010-02-10");
      Mascota mascota7= new Mascota("Coco",TipoEspecie.Gato,"Siamés",fechaNacimiento7,dueño7);
      mascota7.generarCodMascota();
      LocalDate fechaNacimiento8=LocalDate.parse("2010-07-13");
@@ -90,17 +92,17 @@ public class CargarObjetos {
      Ciudad ciudad2= new Ciudad("Quito","Pichincha");
      Ciudad ciudad3= new Ciudad("Cuenca","Azuay");
      
-     NewMain.arrCiudades.add(ciudad1);
-     NewMain.arrCiudades.add(ciudad2);
-     NewMain.arrCiudades.add(ciudad3);
+     AdminCiudades.arrCiudades.add(ciudad1);
+     AdminCiudades.arrCiudades.add(ciudad2);
+     AdminCiudades.arrCiudades.add(ciudad3);
 
      //Creación de auspiciantes
      Auspiciante auspiciante1= new Auspiciante("José Morales","Centro",993904665,"Guayaquil","josemor123@hotmail.com","www.josemorales.com");
      Auspiciante auspiciante2= new Auspiciante("Martha Gutierrez","Norte",991128065,"Guayaquil","marthgurrez@hotmail.com","www.marthagutierrez.com");
      Auspiciante auspiciante3= new Auspiciante("Héctor Pazmiño","Sur",918534665,"Quito","hectpazmño@hotmail.com","www.hectorpazmiño.com");
-     NewMain.arrAuspiciantes.add(auspiciante1);
-     NewMain.arrAuspiciantes.add(auspiciante2);
-     NewMain.arrAuspiciantes.add(auspiciante3);
+     AdminAuspiciantes.arrAuspiciantes.add(auspiciante1);
+     AdminAuspiciantes.arrAuspiciantes.add(auspiciante2);
+     AdminAuspiciantes.arrAuspiciantes.add(auspiciante3);
 
      //Creación del concurso terminado
      LocalDate fechaConcurso= LocalDate.parse("2021-08-01");
@@ -117,7 +119,6 @@ public class CargarObjetos {
 
      Concurso concursoTerminado= new Concurso("Concurso de perros",fechaConcurso,horaConcurso,fechaInscripciones,fechaFinInscripciones,ciudad1,"Estadio Central",arrPremiosC1,arrAuspiciantesC1,TiposAnimal.SoloPerros);
      concursoTerminado.generarCodConcurso();
-     Ganador.generarGanadores(concursoTerminado);
      AdminConcursos.arrConcursos.add(concursoTerminado);
      concursoTerminado.setAbiertoInscripciones(false);
      concursoTerminado.setConcursoEnCurso(false);

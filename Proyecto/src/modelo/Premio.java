@@ -1,8 +1,9 @@
 package modelo;
 
 import java.util.*;
+
+import admins.AdminAuspiciantes;
 import enums.Puesto;
-import main.*;
 
 public class Premio {
     private Puesto puesto;
@@ -60,7 +61,7 @@ public class Premio {
 
             System.out.println("Seleccione los auspiciantes de la siguiente lista para el "+(i+1)+"º lugar");
 
-            for (Auspiciante a: NewMain.arrAuspiciantes){
+            for (Auspiciante a: AdminAuspiciantes.arrAuspiciantes){
                 System.out.println("-"+a.nombre);
             }
             

@@ -1,7 +1,7 @@
 
 package modelo;
 
-import main.*;
+import admins.AdminCiudades;
 
 
 public class Ciudad {
@@ -73,9 +73,9 @@ public class Ciudad {
         Ciudad ciudadBusqueda=new Ciudad(nombreCiudad);
         Ciudad ciudadEncontrada= new Ciudad();
 
-        if (NewMain.arrCiudades.contains(ciudadBusqueda)){
-            int indCiudad=NewMain.arrCiudades.indexOf(ciudadBusqueda);
-            ciudadEncontrada= NewMain.arrCiudades.get(indCiudad);
+        if (AdminCiudades.arrCiudades.contains(ciudadBusqueda)){
+            int indCiudad=AdminCiudades.arrCiudades.indexOf(ciudadBusqueda);
+            ciudadEncontrada= AdminCiudades.arrCiudades.get(indCiudad);
         }
 
         return ciudadEncontrada;

@@ -2,7 +2,6 @@ package admins;
 
 import java.util.*;
 import modelo.*;
-import enums.*;
 import main.NewMain;
 
 public class AdminDueños { 
@@ -161,7 +160,10 @@ public class AdminDueños {
 
         
         } 
+
+        sc.close();
     }
+
     
         
 }
