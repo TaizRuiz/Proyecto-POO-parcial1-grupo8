@@ -8,7 +8,7 @@ public class Ciudad {
 
     public String nombre;
     public String provincia;
-    public String CodCiudad;
+    public String codCiudad;
 
     public Ciudad(){}
 
@@ -46,6 +46,24 @@ public class Ciudad {
         }
 
         return ciudadEncontrada;
+    }
+
+    public void generarCodCiudad(){
+        
+        String [] arrNombre= nombre.split("");
+        int tamaño=arrNombre.length;
+        for (int i=0;i<2;i++){
+            double ind= Math.floor(Math.random()*tamaño);
+            String letraAleatoria=arrNombre[(int)ind];
+            codCiudad=codCiudad+letraAleatoria;
+        }
+
+        for (int i=0;i<2;i++){
+            String numero= String.valueOf((int) (Math.random()*10));
+            codCiudad=codCiudad+numero;
+        }
+
+        codCiudad=codCiudad.toUpperCase();;
     }
     
 }

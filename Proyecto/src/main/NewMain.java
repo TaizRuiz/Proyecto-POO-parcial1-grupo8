@@ -17,7 +17,7 @@ public class NewMain {
     
 
     public static void menuPrincipal(){
-        System.out.println("Menú principal: \n 1.Administrar Concursos \n 2.Administrar Dueños \n 3.Administrar Mascotas \n 4.Administrar Auspiciantes");
+        System.out.println("Menú principal: \n 1.Administrar Concursos \n 2.Administrar Dueños \n 3.Administrar Mascotas \n 4.Administrar Auspiciantes \n 5.Administrar Ciudades");
         
         Scanner sc= new Scanner(System.in);
 
@@ -38,6 +38,8 @@ public class NewMain {
 
             case 4: AdminAuspiciantes.menuAuspiciantes();
                     break;
+
+            case 5: AdminCiudades.menuCiudades();
             
             default: System.out.println("Opción no existente");
                     menuPrincipal();
