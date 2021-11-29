@@ -24,7 +24,7 @@ public class AdminConcursos {
         else{
 
             for (int i=0;i<arrConcursos.size();i++){
-                System.out.println("-Nombre: "+arrConcursos.get(i).nombre+" Código: "+arrConcursos.get(i).CodConcurso);
+                System.out.println("-Nombre: "+arrConcursos.get(i).getNombre()+" Código: "+arrConcursos.get(i).getCodConcurso());
         }
         }
         
@@ -47,7 +47,7 @@ public class AdminConcursos {
 
              System.out.println("Lista de ciudades inscritas: ");
                 for (Ciudad c: NewMain.arrCiudades){
-                    System.out.println("-"+c.nombre);
+                    System.out.println("-"+c.getNombre());
                 }
 
              System.out.print("Escoga una ciudad de la lista: ");
@@ -126,15 +126,15 @@ public class AdminConcursos {
 
              Concurso concurso=new Concurso(nombre,fechaEvento,horaEvento,fechaInicio,fechaFin,ciudad,lugar,arrPremios,arrDeAuspiciantes,dirigidoA);
              concurso.generarCodConcurso();
-             concurso.abiertoInscripciones=true;
-             concurso.concursoEnCurso=true;
+             concurso.setAbiertoInscripciones(true);
+             concurso.setConcursoEnCurso(true);
              
              arrConcursos.add(concurso);
              
              ArrayList<Mascota> arrMascotas= new ArrayList<Mascota>();
-             concurso.participantes=arrMascotas;
+             concurso.setParticipantes(arrMascotas);
 
-             System.out.println("Concurso "+ concurso.nombre+" creado exitosamente");
+             System.out.println("Concurso "+nombre+" creado exitosamente");
 
              System.out.println(" 1.Regresar al menú concurso \n 2.Regresar al menú principal ");
              System.out.print("Elige una opción: ");
@@ -161,7 +161,7 @@ public class AdminConcursos {
              else{
     
                 for (int i=0;i<arrConcursos.size();i++){
-                    System.out.println("-Nombre: "+arrConcursos.get(i).nombre+" Código: "+arrConcursos.get(i).CodConcurso);
+                    System.out.println("-Nombre: "+arrConcursos.get(i).getNombre()+" Código: "+arrConcursos.get(i).getCodConcurso());
              }
              }
 
@@ -169,25 +169,25 @@ public class AdminConcursos {
              String codigoConcurso= sc.nextLine();
              Concurso concursoInscribir=Concurso.busquedaConcurso(codigoConcurso);
 
-             System.out.println("Lista de mascotas inscritas en el concurso "+concursoInscribir.nombre);
+             System.out.println("Lista de mascotas inscritas en el concurso "+concursoInscribir.getNombre());
 
-             if (concursoInscribir.participantes.size()==0){
+             if (concursoInscribir.getParticipantes().size()==0){
                  System.out.println("No hay mascotas registradas");
              }
 
              else{
-             for (Mascota m: concursoInscribir.participantes){
-                 System.out.println("- Nombre de la mascota: "+m.nombre+" Código: "+m.CodMascota);
+             for (Mascota m: concursoInscribir.getParticipantes()){
+                 System.out.println("- Nombre de la mascota: "+m.getNombre()+" Código: "+m.getCodMascota());
              }
             }
 
-             System.out.println("Ingrese el código del participante que será inscrito en el concurso: "+concursoInscribir.nombre);
+             System.out.println("Ingrese el código del participante que será inscrito en el concurso: "+concursoInscribir.getNombre());
              String codMascota= sc.nextLine();
              Mascota mascotaRegistrar=Mascota.busquedMascota(codMascota);
 
-             concursoInscribir.participantes.add(mascotaRegistrar);
+             concursoInscribir.getParticipantes().add(mascotaRegistrar);
 
-             System.out.println("Se ha registrado a "+mascotaRegistrar.nombre+" en el concurso "+concursoInscribir.nombre);
+             System.out.println("Se ha registrado a "+mascotaRegistrar.getNombre()+" en el concurso "+concursoInscribir.getNombre());
              
              System.out.println(" 1.Regresar al menú concurso \n 2.Regresar al menú principal ");
              System.out.print("Elige una opción: ");

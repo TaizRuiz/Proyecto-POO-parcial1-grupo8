@@ -7,7 +7,6 @@ import modelo.Ciudad;
 
 public class AdminCiudades {
     
-
     public static void menuCiudades(){
 
         Scanner sc=new Scanner(System.in);
@@ -15,7 +14,7 @@ public class AdminCiudades {
         System.out.println("Lista de ciudades registradas: ");
 
         for (Ciudad ciudad: NewMain.arrCiudades){
-            System.out.println(ciudad.nombre);
+            System.out.println(ciudad.getNombre());
         }
 
         System.out.println("Desea registrar una nueva ciudad? S/N");

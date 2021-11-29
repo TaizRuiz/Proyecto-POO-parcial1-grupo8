@@ -20,7 +20,7 @@ public class AdminMascotas {
         else{
 
             for (Mascota m: arrMascotas){
-                System.out.println("-Nombre: "+m.nombre+" Código: "+m.CodMascota);
+                System.out.println("-Nombre: "+m.getNombre()+" Código: "+m.getCodMascota());
         }
             
         }

@@ -8,13 +8,46 @@ public class Premio {
     private Puesto puesto;
     private String descripcion;
     private Auspiciante auspiciante;
-
+    
+    
+    // constructor
+    
     public Premio(Puesto p, String d,Auspiciante a){
         puesto=p;
         descripcion=d;
         auspiciante=a;
     }
 
+    
+    // getters and setters
+
+    public Puesto getPuesto() {
+        return puesto;
+    }
+
+    public void setPuesto(Puesto puesto) {
+        this.puesto = puesto;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Auspiciante getAuspiciante() {
+        return auspiciante;
+    }
+
+    public void setAuspiciante(Auspiciante auspiciante) {
+        this.auspiciante = auspiciante;
+    }
+    
+    
+    // metodos
+    
     public static Premio[] generarListaPremios(Premio[] arrPremios){
 
         Scanner sc=new Scanner(System.in);
@@ -39,20 +72,13 @@ public class Premio {
 
             Premio premio=new Premio(puesto,descripcion,auspiciante);
             arrPremios[i]=premio;
-
          }
-
          sc.close();
-
         return arrPremios;
-
-        
     }
 
     public String toString(){
         return puesto+" Lugar: "+descripcion+" , "+auspiciante;
     }
-    
-
-    
+     
 }

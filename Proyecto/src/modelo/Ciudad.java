@@ -6,10 +6,13 @@ import main.*;
 
 public class Ciudad {
 
-    public String nombre;
-    public String provincia;
-    public String codCiudad;
+    private String nombre;
+    private String provincia;
+    private String codCiudad;
 
+    
+    // constructor
+    
     public Ciudad(){}
 
     public Ciudad(String n){
@@ -21,6 +24,36 @@ public class Ciudad {
         provincia=p;
     }
 
+    
+    // getters y setters
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getProvincia() {
+        return provincia;
+    }
+
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
+    }
+
+    public String getCodCiudad() {
+        return codCiudad;
+    }
+
+    public void setCodCiudad(String codCiudad) {
+        this.codCiudad = codCiudad;
+    }
+    
+    
+    // metodos
+    
     public boolean equals(Object obj){
         if (this==obj){
             return true;

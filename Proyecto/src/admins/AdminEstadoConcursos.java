@@ -29,16 +29,16 @@ public class AdminEstadoConcursos {
                 System.out.println("Lista de concursos con inscripciones abiertas: ");
                 
                 for (Concurso c: AdminConcursos.arrConcursos){
-                    if(c.abiertoInscripciones==true){
-                        System.out.println("- Nombre: "+c.nombre+" Código: "+c.CodConcurso);
+                    if(c.isAbiertoInscripciones()==true){
+                        System.out.println("- Nombre: "+c.getNombre()+" Código: "+c.getCodConcurso());
                     }
                 }
 
                 System.out.print("Escribe el codigo del concurso al que se cerraran las inscripciones: ");
                 String codigoConcurso= sc.nextLine();
                 Concurso concursoCerrarInscripciones=Concurso.busquedaConcurso(codigoConcurso);
-                concursoCerrarInscripciones.abiertoInscripciones=false;
-                System.out.print("Se han cerrado inscripciones del concurso "+concursoCerrarInscripciones.nombre);
+                concursoCerrarInscripciones.setAbiertoInscripciones(false);
+                System.out.print("Se han cerrado inscripciones del concurso "+concursoCerrarInscripciones.getNombre());
 
             }
 
@@ -47,16 +47,16 @@ public class AdminEstadoConcursos {
                 System.out.println("Lista de concursos en curso: ");
                 
                 for (Concurso c: AdminConcursos.arrConcursos){
-                    if(c.concursoEnCurso==true){
-                        System.out.println("- Nombre: "+c.nombre+" Código: "+c.CodConcurso);
+                    if(c.isConcursoEnCurso()==true){
+                        System.out.println("- Nombre: "+c.getNombre()+" Código: "+c.getCodConcurso());
                     }
                 }
 
                 System.out.print("Escribe el codigo del concurso que desea finalizar: ");
                 String codigoConcurso= sc.nextLine();
                 Concurso concursoFinalizar=Concurso.busquedaConcurso(codigoConcurso);
-                concursoFinalizar.concursoEnCurso=false;
-                System.out.println("Concurso "+concursoFinalizar.nombre+" finalizado");
+                concursoFinalizar.setConcursoEnCurso(false);
+                System.out.println("Concurso "+concursoFinalizar.getNombre()+" finalizado");
                 System.out.println("Generando lista de ganadores");
 
                 //Para este caso los ganadores serán elegidos de forma aleatoria
@@ -80,8 +80,8 @@ public class AdminEstadoConcursos {
             System.out.println("Lista de concursos finalizados: ");
 
             for (Concurso conc: AdminConcursos.arrConcursos){
-                if(conc.concursoEnCurso==false){
-                    System.out.print("- Nombre: "+conc.nombre+" Código: "+conc.CodConcurso);
+                if(conc.isConcursoEnCurso()==false){
+                    System.out.print("- Nombre: "+conc.getNombre()+" Código: "+conc.getCodConcurso());
                 }
             }
 
@@ -90,7 +90,7 @@ public class AdminEstadoConcursos {
             String codConcurso= sc.nextLine();
             Concurso concursoConsultar=Concurso.busquedaConcurso(codConcurso);
 
-            for (Ganador ganador: concursoConsultar.arrGanadores){
+            for (Ganador ganador: concursoConsultar.getArrGanadores()){
                 System.out.println(ganador);
             }
 

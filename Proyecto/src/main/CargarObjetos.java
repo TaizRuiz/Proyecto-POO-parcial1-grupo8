@@ -119,8 +119,8 @@ public class CargarObjetos {
      concursoTerminado.generarCodConcurso();
      Ganador.generarGanadores(concursoTerminado);
      AdminConcursos.arrConcursos.add(concursoTerminado);
-     concursoTerminado.abiertoInscripciones=false;
-     concursoTerminado.concursoEnCurso=false;
+     concursoTerminado.setAbiertoInscripciones(false);
+     concursoTerminado.setConcursoEnCurso(false);
      
 
     }

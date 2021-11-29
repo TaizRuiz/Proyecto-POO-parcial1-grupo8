@@ -22,7 +22,4 @@ public abstract class Persona {
         this.email = email;
     }
     
-    
-    
-    
 }

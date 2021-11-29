@@ -7,13 +7,16 @@ import admins.*;
 
 public class Mascota {
     
-    public String nombre;
-    public TipoEspecie mascota;
-    public String raza;
-    public LocalDate fechaNacimiento;
-    public DueñoMascota dueño;
-    public String CodMascota;
+    private String nombre;
+    private TipoEspecie mascota;
+    private String raza;
+    private LocalDate fechaNacimiento;
+    private DueñoMascota dueño;
+    private String CodMascota;
 
+    
+    // constructor
+    
     public Mascota(){}
 
     public Mascota(String n,String r){
@@ -32,7 +35,61 @@ public class Mascota {
         fechaNacimiento=fn;
         dueño=d;
     }
+    
+    
+    // getters and setters
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public TipoEspecie getMascota() {
+        return mascota;
+    }
+
+    public void setMascota(TipoEspecie mascota) {
+        this.mascota = mascota;
+    }
+
+    public String getRaza() {
+        return raza;
+    }
+
+    public void setRaza(String raza) {
+        this.raza = raza;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public DueñoMascota getDueño() {
+        return dueño;
+    }
+
+    public void setDueño(DueñoMascota dueño) {
+        this.dueño = dueño;
+    }
+
+    public String getCodMascota() {
+        return CodMascota;
+    }
+
+    public void setCodMascota(String CodMascota) {
+        this.CodMascota = CodMascota;
+    }
+    
+        
+    // metodos
+    
     public void generarCodMascota(){
 
         String codMascota="";
