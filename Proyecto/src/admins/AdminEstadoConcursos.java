@@ -2,6 +2,7 @@ package admins;
 
 import java.util.*;
 import modelo.*;
+import enums.*;
 
 public class AdminEstadoConcursos {
 
@@ -58,10 +59,22 @@ public class AdminEstadoConcursos {
                 System.out.println("Concurso "+concursoFinalizar.nombre+" finalizado");
                 System.out.println("Generando lista de ganadores");
 
-                //Generar lista ganadores
+                //Para este caso los ganadores serán elegidos de forma aleatoria
+                for(int i=0;i<3;i++){
+
+                    Random rand=new Random();
+
+                    int indAleatorio= rand.nextInt(concursoFinalizar.participantes.size()-1);
+                    Mascota mascotaGanadora=concursoFinalizar.participantes.get(indAleatorio);
+                    Premio premio=concursoFinalizar.premio[i];
+                    Puesto puesto=Puesto.values()[i];
+
+                    Ganador ganador= new Ganador(mascotaGanadora.nombre,premio,puesto);
+                    concursoFinalizar.arrGanadores[i]=ganador;
+                }
 
 
-             System.out.println(" 1.Regresar al menú estado de concursos \n 2.Regresar al concurso ");
+             System.out.println(" 1.Regresar al menú estado de concursos \n 2.Regresar al menú concurso ");
              System.out.print("Elige una opción: ");
              opcion= sc.nextInt();
              sc.nextLine();
@@ -75,7 +88,35 @@ public class AdminEstadoConcursos {
             break;
 
             case 2:
+            System.out.println("Lista de concursos finalizados: ");
+
+            for (Concurso conc: AdminConcursos.arrConcursos){
+                if(conc.concursoEnCurso==false){
+                    System.out.print("- Nombre: "+conc.nombre+" Código: "+conc.CodConcurso);
+                }
+            }
+
+            System.out.print("Ingrese el código del concurso al que desea consultar los ganadores: ");
+
+            String codConcurso= sc.nextLine();
+            Concurso concursoConsultar=Concurso.busquedaConcurso(codConcurso);
+
+            for (Ganador ganador: concursoConsultar.arrGanadores){
+                System.out.println(ganador);
+            }
+
+            System.out.println(" 1.Regresar al menú estado de concursos \n 2.Regresar al menú concurso ");
+             System.out.print("Elige una opción: ");
+             opcion= sc.nextInt();
+             sc.nextLine();
+                if (opcion==1){
+                    AdminEstadoConcursos.menuEstadoConcursos();
+                }
+                else if (opcion==2){
+                    AdminConcursos.menuConcursos();
+                }
             
+            break;
 
             case 3:AdminConcursos.menuConcursos();
             break;

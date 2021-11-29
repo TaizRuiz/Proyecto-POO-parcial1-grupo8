@@ -23,6 +23,7 @@ public class Concurso {
     public ArrayList<Mascota> participantes;
     public boolean abiertoInscripciones;
     public boolean concursoEnCurso;
+    public Ganador[] arrGanadores;
 
     public Concurso(){};
     
