@@ -2,12 +2,12 @@ package admins;
 
 import java.util.*;
 import modelo.*;
-import main.*;
 import enums.*;
+import main.NewMain;
 
 public class AdminDueños { 
     
-    static ArrayList<DueñoMascota> arrDueño= new ArrayList<DueñoMascota>();
+    public static ArrayList<DueñoMascota> arrDueño= new ArrayList<DueñoMascota>();
     
     public static void MenuDueños(){
         
@@ -70,7 +70,7 @@ public class AdminDueños {
                     AdminDueños.MenuDueños();
                 }
                 else if (opcion==2){
-                    NewMain.MenuPrincipal();
+                    NewMain.menuPrincipal();
                 }
             
              break;
@@ -85,7 +85,7 @@ public class AdminDueños {
                         modificable = d;
                     }
                 }
-                
+//       se crea la opcion para modificar algun dato del un dueño          
                 System.out.println("1. Modificar nombre");
                 System.out.println("2. Modificar apellido");
                 System.out.println("3. Modificar direccion");
@@ -137,7 +137,7 @@ public class AdminDueños {
                         System.out.println("");
                     }
                 }
-                
+//     aqui aparece el menu de nuevo para elegir otra opcion para regresar a cualquier menu             
                 System.out.println(" 1.Regresar al menú Dueño");
                 System.out.println("2.Regresar al menú principal");
                 System.out.print("Elige una opción: ");
@@ -147,12 +147,12 @@ public class AdminDueños {
                     AdminDueños.MenuDueños();
                 }
                 else if (opcion==2){
-                    NewMain.MenuPrincipal();
+                    NewMain.menuPrincipal();
                 }
              break;
 
 
-            case 3: NewMain.MenuPrincipal();
+            case 3: NewMain.menuPrincipal();
 
             default: System.out.println("Opción no existente");
                     MenuDueños();  

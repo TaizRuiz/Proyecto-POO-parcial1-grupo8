@@ -23,7 +23,7 @@ public class NewMain {
             case 1: AdminConcursos.menuConcursos();
                     break;
 
-            case 2: AdminDueños.menuDueños();
+            case 2: AdminDueños.MenuDueños();
                     break;
             
             case 3: AdminMascotas.menuMascotas();
