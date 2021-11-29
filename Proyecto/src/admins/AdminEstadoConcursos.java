@@ -2,7 +2,7 @@ package admins;
 
 import java.util.*;
 import modelo.*;
-import enums.*;
+
 
 public class AdminEstadoConcursos {
 
@@ -60,18 +60,7 @@ public class AdminEstadoConcursos {
                 System.out.println("Generando lista de ganadores");
 
                 //Para este caso los ganadores serán elegidos de forma aleatoria
-                for(int i=0;i<3;i++){
-
-                    Random rand=new Random();
-
-                    int indAleatorio= rand.nextInt(concursoFinalizar.participantes.size()-1);
-                    Mascota mascotaGanadora=concursoFinalizar.participantes.get(indAleatorio);
-                    Premio premio=concursoFinalizar.premio[i];
-                    Puesto puesto=Puesto.values()[i];
-
-                    Ganador ganador= new Ganador(mascotaGanadora.nombre,premio,puesto);
-                    concursoFinalizar.arrGanadores[i]=ganador;
-                }
+                Ganador.generarGanadores(concursoFinalizar);
 
 
              System.out.println(" 1.Regresar al menú estado de concursos \n 2.Regresar al menú concurso ");

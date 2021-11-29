@@ -6,7 +6,7 @@ import main.*;
 
 public class AdminDueños { 
     
-    static ArrayList<DueñoMascota> arrDueño= new ArrayList<DueñoMascota>();
+    public static ArrayList<DueñoMascota> arrDueño= new ArrayList<DueñoMascota>();
     
     public static void menuDueños(){
         

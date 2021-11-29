@@ -41,6 +41,6 @@ public class AdminCiudades {
         }
 
 
-
+        sc.close();
     }
 }
