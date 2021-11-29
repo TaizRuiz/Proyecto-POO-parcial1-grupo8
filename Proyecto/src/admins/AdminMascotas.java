@@ -10,7 +10,7 @@ public class AdminMascotas {
 
     public static ArrayList<Mascota> arrMascotas= new ArrayList<Mascota>();
 
-    public static void MenuMascotas(){
+    public static void menuMascotas(){
         System.out.println("Mascotas existentes: ");
         
         if (arrMascotas.isEmpty()){
@@ -20,12 +20,12 @@ public class AdminMascotas {
         else{
 
             for (Mascota m: arrMascotas){
-                System.out.println("-Nombre: "+m.nombre+" Código: "+m.CodMascota);
+                System.out.println("-Nombre: "+m.getNombre()+" Código: "+m.getCodMascota());
         }
             
         }
         
-        System.out.println("Menú de opciones de mascotas: \n 1. Crear mascota: \n 2. Eliminar mascota: \n 3. Regresar al menú principal.");
+        System.out.println("Menú de opciones de mascotas: \n 1. Crear mascota \n 2. Eliminar mascota \n 3. Regresar al menú principal");
         
         Scanner sc = new Scanner(System.in);
         
@@ -61,31 +61,66 @@ public class AdminMascotas {
                 
                 System.out.print("Ingrese el dueño de la mascota: ");
                 String dueño = sc.nextLine();
-                Object ob = (Object)dueño;
-                DueñoMascota d = (DueñoMascota)ob;
+                DueñoMascota dño = new DueñoMascota(dueño);
                 
-                Mascota m1 = new Mascota(nomMasc,DiriA,raza,fechaNac,d);
+                Mascota m1 = new Mascota(nomMasc,DiriA,raza,fechaNac,dño);
                 
-                System.out.print("Generando código para "+nomMasc+" ... ");
+                System.out.println("Generando código para "+nomMasc+" ... ");
                 m1.generarCodMascota();
                 
+                // mascota añadida a la lista
+                arrMascotas.add(m1);
+                
                 System.out.println("Mascota "+nomMasc+" creada exitosamente! ");
+                
                 
                 System.out.println(" 1.Regresar al menú mascota \n 2.Regresar al menú principal ");
                 System.out.print("Elige una opción: ");
                 int opcion= sc.nextInt();
                 sc.nextLine();
                 if (opcion==1){
-                    AdminMascotas.MenuMascotas();
+                    AdminMascotas.menuMascotas();
                 }
                 else if (opcion==2){
-                    NewMain.MenuPrincipal();
+                    NewMain.menuPrincipal();
                 }
             
              break;
                 
+            case 2:
+                System.out.print("Ingrese id de la mascota a eliminar: ");
+                String codigo = sc.nextLine();
+                Mascota buscarMascota = new Mascota(codigo);
+                for(int i=0;i<arrMascotas.size();i++){
+                    if(arrMascotas.get(i).equals(buscarMascota)){
+                        arrMascotas.remove(i);
+                    }
+                }
+                System.out.println("Mascota con id: "+codigo+" eliminada con éxito!");
                 
+                System.out.println(" 1.Regresar al menú mascota \n 2.Regresar al menú principal ");
+                System.out.print("Elige una opción: ");
+                int opcion2= sc.nextInt();
+                sc.nextLine();
+                if (opcion2==1){
+                    AdminMascotas.menuMascotas();
+                }
+                else if (opcion2==2){
+                    NewMain.menuPrincipal();
+                }
+            
+             break;
+             
+            case 3:
+                System.out.println("Regresando al menú principal...");
+                NewMain.menuPrincipal();
+                
+            default:
+                System.out.println(">>> Opción no existente <<<");
+                menuMascotas();
         }
+
+        sc.close();
     }
     
 }

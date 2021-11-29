@@ -5,20 +5,30 @@ import enums.TiposAnimal;
 import java.time.*;
 import java.util.ArrayList;
 
+import admins.AdminConcursos;
+
 
 public class Concurso {
-    public String nombre;
-    public LocalDate fechaEvento;
-    public LocalTime horaEvento;
-    public LocalDate fechaInscripcion;
-    public LocalDate fechaFinInscripcion;
-    public Ciudad ciudad;
-    public String lugar;
-    public String CodConcurso;
-    public Premio[] premio;
-    public ArrayList<Auspiciante> auspiciantes;
-    public TiposAnimal dirigidoA;
-    public ArrayList<Mascota> participantes;
+    private String nombre;
+    private LocalDate fechaEvento;
+    private LocalTime horaEvento;
+    private LocalDate fechaInscripcion;
+    private LocalDate fechaFinInscripcion;
+    private Ciudad ciudad;
+    private String lugar;
+    private String CodConcurso;
+    private Premio[] premio;
+    private ArrayList<Auspiciante> auspiciantes;
+    private TiposAnimal dirigidoA;
+    private ArrayList<Mascota> participantes;
+    private boolean abiertoInscripciones;
+    private boolean concursoEnCurso;
+    private Ganador[] arrGanadores;
+    
+    
+    // constructores
+    
+    public Concurso(){};
     
     public Concurso(String c){
         CodConcurso=c;
@@ -35,10 +45,134 @@ public class Concurso {
         premio=pr;
         auspiciantes=arr;
         dirigidoA=ta;
+    }
+    
+    
+    // getters y setters
 
-        
+    public String getNombre() {
+        return nombre;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public LocalDate getFechaEvento() {
+        return fechaEvento;
+    }
+
+    public void setFechaEvento(LocalDate fechaEvento) {
+        this.fechaEvento = fechaEvento;
+    }
+
+    public LocalTime getHoraEvento() {
+        return horaEvento;
+    }
+
+    public void setHoraEvento(LocalTime horaEvento) {
+        this.horaEvento = horaEvento;
+    }
+
+    public LocalDate getFechaInscripcion() {
+        return fechaInscripcion;
+    }
+
+    public void setFechaInscripcion(LocalDate fechaInscripcion) {
+        this.fechaInscripcion = fechaInscripcion;
+    }
+
+    public LocalDate getFechaFinInscripcion() {
+        return fechaFinInscripcion;
+    }
+
+    public void setFechaFinInscripcion(LocalDate fechaFinInscripcion) {
+        this.fechaFinInscripcion = fechaFinInscripcion;
+    }
+
+    public Ciudad getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(Ciudad ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
+    }
+
+    public String getCodConcurso() {
+        return CodConcurso;
+    }
+
+    public void setCodConcurso(String CodConcurso) {
+        this.CodConcurso = CodConcurso;
+    }
+
+    public Premio[] getPremio() {
+        return premio;
+    }
+
+    public void setPremio(Premio[] premio) {
+        this.premio = premio;
+    }
+
+    public ArrayList<Auspiciante> getAuspiciantes() {
+        return auspiciantes;
+    }
+
+    public void setAuspiciantes(ArrayList<Auspiciante> auspiciantes) {
+        this.auspiciantes = auspiciantes;
+    }
+
+    public TiposAnimal getDirigidoA() {
+        return dirigidoA;
+    }
+
+    public void setDirigidoA(TiposAnimal dirigidoA) {
+        this.dirigidoA = dirigidoA;
+    }
+
+    public ArrayList<Mascota> getParticipantes() {
+        return participantes;
+    }
+
+    public void setParticipantes(ArrayList<Mascota> participantes) {
+        this.participantes = participantes;
+    }
+
+    public boolean isAbiertoInscripciones() {
+        return abiertoInscripciones;
+    }
+
+    public void setAbiertoInscripciones(boolean abiertoInscripciones) {
+        this.abiertoInscripciones = abiertoInscripciones;
+    }
+
+    public boolean isConcursoEnCurso() {
+        return concursoEnCurso;
+    }
+
+    public void setConcursoEnCurso(boolean concursoEnCurso) {
+        this.concursoEnCurso = concursoEnCurso;
+    }
+
+    public Ganador[] getArrGanadores() {
+        return arrGanadores;
+    }
+
+    public void setArrGanadores(Ganador[] arrGanadores) {
+        this.arrGanadores = arrGanadores;
+    }
+        
+    
+    // métodos
+    
     public boolean equals(Object obj){
         if (this==obj){
             return true;
@@ -71,6 +205,19 @@ public class Concurso {
         }
 
         CodConcurso=codConcurso.toUpperCase();;
+    }
+
+    public static Concurso busquedaConcurso(String codigoConcurso){
+
+        Concurso concursoBusqueda=new Concurso(codigoConcurso);
+        Concurso concursoEncontrado= new Concurso();
+
+        if (AdminConcursos.arrConcursos.contains(concursoBusqueda)){
+            int indConcurso=AdminConcursos.arrConcursos.indexOf(concursoBusqueda);
+            concursoEncontrado= AdminConcursos.arrConcursos.get(indConcurso);
+        }
+
+        return concursoEncontrado;
     }
     
 

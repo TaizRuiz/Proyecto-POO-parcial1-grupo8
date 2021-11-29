@@ -3,23 +3,29 @@ package modelo;
 
 import enums.TipoEspecie;
 import java.time.LocalDate;
+import admins.*;
 
 public class Mascota {
     
-    public String nombre;
-    public TipoEspecie mascota;
-    public String raza;
-    public LocalDate fechaNacimiento;
-    public DueñoMascota dueño;
-    public String CodMascota;
+    private String nombre;
+    private TipoEspecie mascota;
+    private String raza;
+    private LocalDate fechaNacimiento;
+    private DueñoMascota dueño;
+    private String CodMascota;
+
+    
+    // constructor
+    
+    public Mascota(){}
+
+    public Mascota(String n,String r){
+        nombre=n;
+        raza=r;
+    }
 
     public Mascota (String c){
         CodMascota=c;
-    }
-
-    public Mascota(String n,TipoEspecie m){
-        nombre=n;
-
     }
 
     public Mascota(String n, TipoEspecie m, String r, LocalDate fn, DueñoMascota d){
@@ -29,7 +35,61 @@ public class Mascota {
         fechaNacimiento=fn;
         dueño=d;
     }
+    
+    
+    // getters and setters
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public TipoEspecie getMascota() {
+        return mascota;
+    }
+
+    public void setMascota(TipoEspecie mascota) {
+        this.mascota = mascota;
+    }
+
+    public String getRaza() {
+        return raza;
+    }
+
+    public void setRaza(String raza) {
+        this.raza = raza;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public DueñoMascota getDueño() {
+        return dueño;
+    }
+
+    public void setDueño(DueñoMascota dueño) {
+        this.dueño = dueño;
+    }
+
+    public String getCodMascota() {
+        return CodMascota;
+    }
+
+    public void setCodMascota(String CodMascota) {
+        this.CodMascota = CodMascota;
+    }
+    
+        
+    // metodos
+    
     public void generarCodMascota(){
 
         String codMascota="";
@@ -41,14 +101,13 @@ public class Mascota {
             double ind= Math.floor(Math.random()*tamaño);
             String letraAleatoria=arrNombre[(int)ind];
             codMascota=codMascota+letraAleatoria;
-
         }
 
         for (int i=0;i<2;i++){
             String numero= String.valueOf((int) (Math.random()*10));
             codMascota=codMascota+numero;
         }
-
+        
         CodMascota=codMascota.toUpperCase();;
     }
 
@@ -63,6 +122,18 @@ public class Mascota {
         }
 
         return false;
+    }
+
+    public static Mascota busquedMascota(String codMascota){
+        Mascota busquedaMascota = new Mascota(codMascota);
+        Mascota mascotaRegistrar = new Mascota();
+
+        if (AdminMascotas.arrMascotas.contains(busquedaMascota)){
+            int ind=AdminMascotas.arrMascotas.indexOf(busquedaMascota);
+            mascotaRegistrar= AdminMascotas.arrMascotas.get(ind);
+        }
+
+        return mascotaRegistrar;
     }
     
 }

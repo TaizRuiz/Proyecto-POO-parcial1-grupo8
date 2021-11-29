@@ -8,10 +8,12 @@ import main.*;
 import enums.*;
 
 public class AdminConcursos {
-
-    static ArrayList<Concurso> arrConcursos= new ArrayList<Concurso>();
     
-    public static void MenuConcursos(){
+
+    public static ArrayList<Concurso> arrConcursos= new ArrayList<Concurso>();
+    
+    public static void menuConcursos(){
+
         
         System.out.println("Concursos existentes: ");
         
@@ -22,12 +24,11 @@ public class AdminConcursos {
         else{
 
             for (int i=0;i<arrConcursos.size();i++){
-                System.out.println("-Nombre: "+arrConcursos.get(i).nombre+" Código: "+arrConcursos.get(i).CodConcurso);
+                System.out.println("-Nombre: "+arrConcursos.get(i).getNombre()+" Código: "+arrConcursos.get(i).getCodConcurso());
         }
         }
         
-        
-        System.out.println("Menú de opciones de concursos: \n 1.Crear concurso \n 2.Inscribir participante \n 3.Regresar al menú principal");
+        System.out.println("Menú de opciones de concursos: \n 1.Crear concurso \n 2.Estado de concursos \n 3.Inscribir participante \n 4.Regresar al menú principal");
         
         Scanner sc= new Scanner(System.in);
 
@@ -41,27 +42,25 @@ public class AdminConcursos {
              System.out.print("Ingrese el nombre del concurso: ");
                 String nombre= sc.nextLine();
              
-                System.out.print("Ingrese el lugar del concurso: ");
+             System.out.print("Ingrese el lugar del concurso: ");
                 String lugar= sc.nextLine();
 
              System.out.println("Lista de ciudades inscritas: ");
-             for (Ciudad c: NewMain.arrCiudades){
-                System.out.println("-"+c.nombre);
-             }
-            
-             System.out.print("Escoga una ciudad de la lista: ");
+                for (Ciudad c: NewMain.arrCiudades){
+                    System.out.println("-"+c.getNombre());
+                }
 
-             int indiceciudad=sc.nextInt();
-             sc.nextLine();
-             Ciudad ciudad=NewMain.arrCiudades.get(indiceciudad);
+             System.out.print("Escoga una ciudad de la lista: ");
+                String nombreCiudad=sc.nextLine();
+                Ciudad ciudad=Ciudad.busquedaCiudad(nombreCiudad);
 
              System.out.print("Ingrese la fecha del evento (YYYY-MM-DD): ");
                 String fechaString=sc.nextLine();
-                LocalDate fechaevento=LocalDate.parse(fechaString);
+                LocalDate fechaEvento=LocalDate.parse(fechaString);
 
              System.out.print("Ingrese la hora del evento (HH:MM:SS): ");
                 String horaString=sc.nextLine();
-                LocalTime horaevento=LocalTime.parse(horaString);
+                LocalTime horaEvento=LocalTime.parse(horaString);
 
              System.out.print("Ingrese la fecha de inicio de inscripciones (YYYY-MM-DD): ");
                 String fechaInicioString=sc.nextLine();
@@ -73,135 +72,145 @@ public class AdminConcursos {
 
              System.out.println("Creación de la lista de premios \nIngrese la descripción y auspiciantes correspondientes para cada premio del concurso, del Primer al Tercer lugar");
              
-             Premio[] arrPremios= new Premio[3];
+             Premio[] arrPremios=new Premio[3];
+             arrPremios=Premio.generarListaPremios(arrPremios);
              
-             for(int i=0;i<3;i++){
 
-                Puesto puesto=Puesto.values()[i];
-                
-                System.out.print("Ingrese la descripción del premio para el "+(i+1)+"º lugar: ");
-                String descripcion= sc.nextLine();
+             System.out.println("¿Cuántos auspiciantes desea inscribir para el concurso "+nombre+"?");
+             int cantAuspiciantes=sc.nextInt();
+             sc.nextLine();
 
-                System.out.println("Seleccione los auspiciantes de la siguiente lista para el "+(i+1)+"º lugar");
+             ArrayList<Auspiciante> arrDeAuspiciantes= new ArrayList<Auspiciante>();
+
+             System.out.println("De la siguente lista seleccione los auspiciantes para el concurso");
 
                 for (Auspiciante a: NewMain.arrAuspiciantes){
                     System.out.println("-"+a.nombre);
                  }
-                System.out.print("Nombre del auspiciante elegido: ");
 
-                int indiceAuspiciante=sc.nextInt();
-                sc.nextLine();
-                Auspiciante auspiciante=NewMain.arrAuspiciantes.get(indiceAuspiciante);
+             int x=0;
+             while (x<cantAuspiciantes){
 
-                Premio premio=new Premio(puesto,descripcion,auspiciante);
-                arrPremios[i]=premio;
+             System.out.print("Ingrese el nombre del "+(x+1)+"º auspiciante que desea elegir para el concurso: ");
+                
+             String nombreAuspiciante=sc.nextLine();
+                Auspiciante auspicianteConcurso=Auspiciante.busquedaAuspiciante(nombreAuspiciante);
+                arrDeAuspiciantes.add(auspicianteConcurso);
+                x++;
 
              }
 
-                System.out.println("De la siguente lista seleccione los auspiciantes para el concurso");
+             System.out.println("A quién está dirigido el concurso? \n 1.Para todos \n 2.Solo perros \n 3.Solo gatos");
 
-                ArrayList<Auspiciante> arrDeAuspiciantes= new ArrayList<Auspiciante>();
+             System.out.print("Elige una opción: ");
+             int opcionTipo=sc.nextInt();
+             sc.nextLine();
 
-                for (Auspiciante a: NewMain.arrAuspiciantes){
-                    System.out.println("-"+a.nombre);
-                 }
-
-                System.out.print("Elige una opción: ");
-                int indiceAuspicianteC=sc.nextInt();
-                sc.nextLine();
-                Auspiciante auspicianteConcurso=NewMain.arrAuspiciantes.get(indiceAuspicianteC);
-                arrDeAuspiciantes.add(auspicianteConcurso);
-
-
-                System.out.println("A quién está dirigido el concurso? \n 1.Para todos \n 2.Solo perros \n 3.Solo gatos");
-
-                System.out.print("Elige una opción: ");
-                int opciontipo=sc.nextInt();
-                sc.nextLine();
-
-                TiposAnimal dirigidoA=TiposAnimal.Vacio;
+             TiposAnimal dirigidoA=TiposAnimal.Vacio;
         
-                if (opciontipo==1){
-                    dirigidoA=TiposAnimal.Todos;
-                }
+             if (opcionTipo==1){
+                dirigidoA=TiposAnimal.Todos;
+             }
 
-                else if (opciontipo==2){
-                    dirigidoA=TiposAnimal.SoloPerros;
-                }
-                else if (opciontipo==3){
-                    dirigidoA=TiposAnimal.SoloGatos;
-                }
+             else if (opcionTipo==2){
+                dirigidoA=TiposAnimal.SoloPerros;
+             }
+
+             else if (opcionTipo==3){
+                dirigidoA=TiposAnimal.SoloGatos;
+             }
                 
-                else{
-                    System.out.println("Opción no válida");
-                }
+             else{
+                System.out.println("Opción no válida");
+             }
 
-             Concurso concurso=new Concurso(nombre,fechaevento,horaevento,fechaInicio,fechaFin,ciudad,lugar,arrPremios,arrDeAuspiciantes,dirigidoA);
-             arrConcursos.add(concurso);
+             Concurso concurso=new Concurso(nombre,fechaEvento,horaEvento,fechaInicio,fechaFin,ciudad,lugar,arrPremios,arrDeAuspiciantes,dirigidoA);
              concurso.generarCodConcurso();
+             concurso.setAbiertoInscripciones(true);
+             concurso.setConcursoEnCurso(true);
+             
+             arrConcursos.add(concurso);
+             
              ArrayList<Mascota> arrMascotas= new ArrayList<Mascota>();
-             concurso.participantes=arrMascotas;
+             concurso.setParticipantes(arrMascotas);
 
-             System.out.println("Concurso "+ concurso.nombre+" creado exitosamente");
+             System.out.println("Concurso "+nombre+" creado exitosamente");
 
              System.out.println(" 1.Regresar al menú concurso \n 2.Regresar al menú principal ");
              System.out.print("Elige una opción: ");
              opcion= sc.nextInt();
              sc.nextLine();
                 if (opcion==1){
-                    AdminConcursos.MenuConcursos();
+                    AdminConcursos.menuConcursos();
                 }
                 else if (opcion==2){
-                    NewMain.MenuPrincipal();
+                    NewMain.menuPrincipal();
                 }
             
-             break;
+            break;
 
+            case 2: AdminEstadoConcursos.menuEstadoConcursos();
+            break;
 
-            case 2: 
+            case 3: 
 
-            if (arrConcursos.size()==0){
+             if (arrConcursos.size()==0){
             
                 System.out.println("No hay concursos registrados");
-            }
-            else{
+             }
+             else{
     
                 for (int i=0;i<arrConcursos.size();i++){
-                    System.out.println("-Nombre: "+arrConcursos.get(i).nombre+" Código: "+arrConcursos.get(i).CodConcurso);
-            }
-            }
+                    System.out.println("-Nombre: "+arrConcursos.get(i).getNombre()+" Código: "+arrConcursos.get(i).getCodConcurso());
+             }
+             }
 
-            System.out.println("Ingrese el código del concurso al que quiere inscribir un participante: ");
-            String codigoUsuario= sc.nextLine();
-            Concurso busqueda= new Concurso(codigoUsuario);
-            Concurso concursoElegido=new Concurso("Vacio");
+             System.out.println("Ingrese el código del concurso al que quiere inscribir un participante: ");
+             String codigoConcurso= sc.nextLine();
+             Concurso concursoInscribir=Concurso.busquedaConcurso(codigoConcurso);
 
-            if (arrConcursos.contains(busqueda)){
-                int ind=arrConcursos.indexOf(busqueda);
-                concursoElegido= arrConcursos.get(ind);
-            }
+             System.out.println("Lista de mascotas inscritas en el concurso "+concursoInscribir.getNombre());
 
-            System.out.println("Ingrese el código del participante que será inscrito en el concurso: "+concursoElegido.nombre);
+             if (concursoInscribir.getParticipantes().size()==0){
+                 System.out.println("No hay mascotas registradas");
+             }
 
-            String codigoUsuarioMascota = sc.nextLine();
-            Mascota busquedaMascota = new Mascota(codigoUsuarioMascota);
-            Mascota mascotaRegistrar = new Mascota("Vacio");
-
-            if (AdminMascotas.arrMascotas.contains(busquedaMascota)){
-                int ind=AdminMascotas.arrMascotas.indexOf(busquedaMascota);
-                mascotaRegistrar= AdminMascotas.arrMascotas.get(ind);
+             else{
+             for (Mascota m: concursoInscribir.getParticipantes()){
+                 System.out.println("- Nombre de la mascota: "+m.getNombre()+" Código: "+m.getCodMascota());
+             }
             }
 
-            concursoElegido.participantes.add(mascotaRegistrar);
+             System.out.println("Ingrese el código del participante que será inscrito en el concurso: "+concursoInscribir.getNombre());
+             String codMascota= sc.nextLine();
+             Mascota mascotaRegistrar=Mascota.busquedMascota(codMascota);
 
-            System.out.println("Se ha registrado a "+mascotaRegistrar.nombre+" en el concurso "+concursoElegido.nombre);
+             concursoInscribir.getParticipantes().add(mascotaRegistrar);
 
-            case 3: NewMain.MenuPrincipal();
+             System.out.println("Se ha registrado a "+mascotaRegistrar.getNombre()+" en el concurso "+concursoInscribir.getNombre());
+             
+             System.out.println(" 1.Regresar al menú concurso \n 2.Regresar al menú principal ");
+             System.out.print("Elige una opción: ");
+             opcion= sc.nextInt();
+             sc.nextLine();
+                if (opcion==1){
+                    AdminConcursos.menuConcursos();
+                }
+                else if (opcion==2){
+                    NewMain.menuPrincipal();
+                }
+
+            break;
+
+
+            case 4: NewMain.menuPrincipal();
+            break;
 
             default: System.out.println("Opción no existente");
-            MenuConcursos();    
+             menuConcursos();    
+            
 
-            sc.close();
+             sc.close();
         }
 
     }     

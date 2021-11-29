@@ -1,7 +1,5 @@
 package admins;
 
-
-
 import java.util.*;
 import modelo.*;
 import main.*;
@@ -28,7 +26,7 @@ public class AdminDueños {
         }
         
         
-        System.out.println("Menú de opciones : ");
+        System.out.println("Menú de opciones de concursos: ");
         System.out.println(" 1.Crear dueño ");
         System.out.println(" 2. Editar dueño ");
         System.out.println(" 3.Regresar al menú principal ");
@@ -76,17 +74,18 @@ public class AdminDueños {
                 }
             
              break;
-//se crea la segunda opcion del menu administar dueños 
 
-            case 2: System.out.print("ingrese el id del dueño a modificar: ");
-            double id= sc.nextDouble();
-            DueñoMascota modificable = null;
-            for (DueñoMascota d: arrDueño){
-                if(d.getCedulaIdentidad()== id){
-                    modificable=d;
-                    
+
+            case 2: 
+                System.out.println("Ingrese el id del dueño que quiere modificar: ");
+                double id = sc.nextDouble();
+                DueñoMascota modificable = null;
+                for(DueñoMascota d: arrDueño){
+                    if (d.getCedulaIdentidad() == id){
+                        modificable = d;
+                    }
                 }
-                }
+                
                 System.out.println("1. Modificar nombre");
                 System.out.println("2. Modificar apellido");
                 System.out.println("3. Modificar direccion");
@@ -94,14 +93,14 @@ public class AdminDueños {
                 System.out.println("5. Modificar ciudad");
                 System.out.println("6. Modificar correo");
                 System.out.println("7. Terminar modificacion");
-//                se pone una opcion para entrar al ciclo y elegir una opcion del menu para modificar 
-                int op= 0;
-                while(op!=7){
-                    System.out.println("Elige una opcion: ");
-                    op= sc.nextInt();
+                
+                int op = 0;
+                while (op != 7){
+                    System.out.print("Elige una opción: ");
+                    op = sc.nextInt();
                     sc.nextLine();
                     if (modificable!=null){
-                     switch(op){
+                        switch(op){
                             case 1:
                                 System.out.println("Ingrese los nombres: ");
                                 String nombreM = sc.nextLine();
@@ -127,13 +126,18 @@ public class AdminDueños {
                                 String ciudadM= sc.nextLine();
                                 modificable.setCiudad(ciudadM);
                                 break;
-                             }
+                            case 6:
+                                System.out.println("Ingrese un E-mail:  ");
+                                String correoM= sc.nextLine();
+                                modificable.setEmail(correoM);
+                                break;
+                        }
                     }else{
                         System.out.println("Este usuario no se encontró");
                         System.out.println("");
                     }
                 }
-//         al momento de modificar aparece el menu para elegir otra opcion        
+                
                 System.out.println(" 1.Regresar al menú Dueño");
                 System.out.println("2.Regresar al menú principal");
                 System.out.print("Elige una opción: ");
@@ -161,4 +165,3 @@ public class AdminDueños {
     
         
 }
-

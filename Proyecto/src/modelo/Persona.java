@@ -1,12 +1,18 @@
 package modelo;
 
-public class Persona {
+public abstract class Persona {
 
     public String nombre;
     public String direccion;
     public double telefono;
     public String ciudad;
     public String email;
+
+    public Persona(){}
+
+    public Persona(String n){
+        nombre=n;
+    }
 
     public Persona(String nombre, String direccion, double telefono, String ciudad, String email) {
         this.nombre = nombre;
@@ -15,6 +21,7 @@ public class Persona {
         this.ciudad = ciudad;
         this.email = email;
     }
+
 
     public String getNombre() {
         return nombre;
@@ -57,3 +64,7 @@ public class Persona {
     }
 
 }
+
+    
+
+
