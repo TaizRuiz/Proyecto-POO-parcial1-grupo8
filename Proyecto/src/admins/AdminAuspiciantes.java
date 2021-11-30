@@ -11,7 +11,7 @@ public class AdminAuspiciantes {
     public static void menuAuspiciantes(){
         
         
-        System.out.println("Auspiciantes registrados: ");
+        System.out.println("\nAuspiciantes registrados: ");
     
         
         if (arrAuspiciantes.size()==0){
@@ -21,11 +21,11 @@ public class AdminAuspiciantes {
         else{
 
             for (int i=0;i<arrAuspiciantes.size();i++){
-                System.out.println(arrAuspiciantes.get(i).nombre);
+                System.out.println("-"+arrAuspiciantes.get(i).nombre);
         }
         }
 
-        System.out.println("Menú de opciones de auspiciantes: \n 1.Crear auspiciante \n 2.Regresar al menú principal");
+        System.out.println("\n-----Menú de opciones de auspiciantes----- \n 1.Crear auspiciante \n 2.Regresar al menú principal");
 
         Scanner sc= new Scanner(System.in);
 
@@ -36,7 +36,7 @@ public class AdminAuspiciantes {
         switch(opcion){
 
             case 1:
-            System.out.print("Ingrese el nombre del auspiciante: ");
+            System.out.print("\nIngrese el nombre del auspiciante: ");
             String nombre= sc.nextLine();
 
             System.out.print("Ingrese la dirección del auspiciante: ");
@@ -61,9 +61,9 @@ public class AdminAuspiciantes {
             Auspiciante auspiciante= new Auspiciante(nombre,direccion,telefono,ciudad,email,webpage);
             arrAuspiciantes.add(auspiciante);
 
-            System.out.println("Auspiciante registrado");
+            System.out.println("\n¡¡¡Auspiciante registrado!!!");
 
-            System.out.println(" 1.Regresar al menú auspiciantes \n 2.Regresar al menú principal ");
+            System.out.println("\n1.Regresar al menú auspiciantes \n2.Regresar al menú principal ");
              System.out.print("Elige una opción: ");
              opcion= sc.nextInt();
              sc.nextLine();

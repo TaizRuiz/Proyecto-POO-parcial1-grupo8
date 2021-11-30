@@ -56,7 +56,7 @@ public class Premio {
         for(int i=0;i<3;i++){
             Puesto puesto=Puesto.values()[i];
             
-            System.out.print("Ingrese la descripción del premio para el "+(i+1)+"º lugar: ");
+            System.out.print("\nIngrese la descripción del premio para el "+(i+1)+"º lugar: \n");
             String descripcion= sc.nextLine();
 
             System.out.println("Seleccione los auspiciantes de la siguiente lista para el "+(i+1)+"º lugar");
@@ -74,12 +74,14 @@ public class Premio {
             Premio premio=new Premio(puesto,descripcion,auspiciante);
             arrPremios[i]=premio;
          }
-         sc.close();
+         
         return arrPremios;
+        
     }
 
     public String toString(){
-        return puesto+" Lugar: "+descripcion+" , "+auspiciante;
+        return descripcion;
     }
+
      
 }

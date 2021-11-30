@@ -13,32 +13,49 @@ public class AdminCiudades {
 
         Scanner sc=new Scanner(System.in);
 
-        System.out.println("Lista de ciudades registradas: ");
+        System.out.println("\nLista de ciudades registradas: ");
 
         for (Ciudad ciudad: arrCiudades){
             System.out.println(ciudad.getNombre());
         }
 
-        System.out.println("Desea registrar una nueva ciudad? S/N");
+        System.out.print("\nDesea registrar una nueva ciudad? S/N: ");
 
         String respuesta=sc.nextLine();
 
-        if(respuesta=="S"){
+        switch (respuesta){
 
-            System.out.println("Ingrese el nombre de la ciudad: ");
-            String nombre=sc.nextLine();
+           case "S": System.out.print("\nIngrese el nombre de la ciudad: ");
+              String nombre=sc.nextLine();
 
-            System.out.println("Ingrese el nombre de la provincia de la ciudad?: ");
-            String provincia=sc.nextLine();
+              System.out.print("Ingrese el nombre de la provincia de la ciudad?: ");
+              String provincia=sc.nextLine();
 
-            Ciudad ciudad= new Ciudad(nombre,provincia);
-            ciudad.generarCodCiudad();
+              Ciudad ciudad= new Ciudad(nombre,provincia);
+              ciudad.generarCodCiudad();
+              arrCiudades.add(ciudad);
 
-        }
+              System.out.print("\n¡¡¡Ciudad registrada!!!");
 
-        else if(respuesta=="N"){
-            System.out.println("Regresando al menú principal...");
-            NewMain.menuPrincipal();
+              System.out.print("\n1.Regresar al menú principal \n2.Crear nueva ciudad ");
+              System.out.print("Elige una opción: ");
+              int opcion= sc.nextInt();
+              sc.nextLine();
+                if (opcion==1){
+                    NewMain.menuPrincipal();
+                }
+                else if (opcion==2){
+                    AdminCiudades.menuCiudades();
+                }
+            
+            break;
+
+        
+
+            case "N":
+             System.out.println("Regresando al menú principal...");
+             NewMain.menuPrincipal();
+             break;
         }
 
 

@@ -142,9 +142,14 @@ public class Concurso {
         return participantes;
     }
 
-    public void setParticipantes(ArrayList<Mascota> participantes) {
-        this.participantes = participantes;
+    public void setParticipantes(Mascota Mascotas) {
+        this.participantes.add(Mascotas);
     }
+
+    public void setArrParticipantes(ArrayList<Mascota> arrMascotas){
+        this.participantes=arrMascotas;
+    }
+
 
     public boolean isAbiertoInscripciones() {
         return abiertoInscripciones;
@@ -166,8 +171,12 @@ public class Concurso {
         return arrGanadores;
     }
 
-    public void setArrGanadores(Ganador[] arrGanadores) {
-        this.arrGanadores = arrGanadores;
+    public void setGanadores(Ganador ganador) {
+        this.arrGanadores[this.arrGanadores.length-1]=ganador;
+    }
+
+    public void setArrGanadores(Ganador[] arrGanador) {
+        this.arrGanadores=arrGanador;
     }
         
     

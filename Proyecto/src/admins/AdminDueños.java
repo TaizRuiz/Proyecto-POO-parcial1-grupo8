@@ -2,7 +2,8 @@ package admins;
 
 import java.util.*;
 import modelo.*;
-import main.NewMain;
+import main.*;
+import enums.*;
 
 public class AdminDueños { 
     
@@ -40,7 +41,7 @@ public class AdminDueños {
 
             case 1:
                 System.out.println("Ingrese la cedula del Dueño: ");
-                double cedula = sc.nextDouble();
+                int cedula = sc.nextInt();
                 
                 System.out.println("Ingrese los nombres: ");
                 String nombre = sc.nextLine();
@@ -84,7 +85,7 @@ public class AdminDueños {
                         modificable = d;
                     }
                 }
-//       se crea la opcion para modificar algun dato del un dueño          
+                
                 System.out.println("1. Modificar nombre");
                 System.out.println("2. Modificar apellido");
                 System.out.println("3. Modificar direccion");
@@ -131,13 +132,11 @@ public class AdminDueños {
                                 modificable.setEmail(correoM);
                                 break;
                         }
-                    }
-                    else{
+                    }else{
                         System.out.println("Este usuario no se encontró");
                         System.out.println("");
                     }
                 }
-//     aqui aparece el menu de nuevo para elegir otra opcion para regresar a cualquier menu  
                 System.out.println("Modificacion terminada.");
                 System.out.println(" 1.Regresar al menú Dueño");
                 System.out.println("2.Regresar al menú principal");
@@ -162,10 +161,7 @@ public class AdminDueños {
 
         
         } 
-
-        sc.close();
     }
-
     
         
 }

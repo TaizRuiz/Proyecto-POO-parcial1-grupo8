@@ -19,11 +19,6 @@ public class Mascota {
     
     public Mascota(){}
 
-    public Mascota(String n,String r){
-        nombre=n;
-        raza=r;
-    }
-
     public Mascota (String c){
         CodMascota=c;
     }
