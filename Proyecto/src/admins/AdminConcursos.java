@@ -15,7 +15,7 @@ public class AdminConcursos {
     public static void menuConcursos(){
 
         
-        System.out.println("Concursos existentes: ");
+        System.out.println("\n------------Menú concursos------------ \n \n Concursos existentes: ");
         
         if (arrConcursos.size()==0){
             
@@ -28,7 +28,7 @@ public class AdminConcursos {
         }
         }
         
-        System.out.println("Menú de opciones de concursos: \n 1.Crear concurso \n 2.Estado de concursos \n 3.Inscribir participante \n 4.Regresar al menú principal");
+        System.out.println("\n-----Menú de opciones de concursos---- \n 1.Crear concurso \n 2.Estado de concursos \n 3.Inscribir participante \n 4.Regresar al menú principal \n");
         
         Scanner sc= new Scanner(System.in);
 
@@ -39,13 +39,13 @@ public class AdminConcursos {
         switch(opcion){
 
             case 1: 
-             System.out.print("Ingrese el nombre del concurso: ");
+             System.out.print("\nIngrese el nombre del concurso: ");
                 String nombre= sc.nextLine();
              
              System.out.print("Ingrese el lugar del concurso: ");
                 String lugar= sc.nextLine();
 
-             System.out.println("Lista de ciudades inscritas: ");
+             System.out.println("\nLista de ciudades inscritas: ");
                 for (Ciudad c: AdminCiudades.arrCiudades){
                     System.out.println("-"+c.getNombre());
                 }
@@ -54,7 +54,7 @@ public class AdminConcursos {
                 String nombreCiudad=sc.nextLine();
                 Ciudad ciudad=Ciudad.busquedaCiudad(nombreCiudad);
 
-             System.out.print("Ingrese la fecha del evento (YYYY-MM-DD): ");
+             System.out.print("\nIngrese la fecha del evento (YYYY-MM-DD): ");
                 String fechaString=sc.nextLine();
                 LocalDate fechaEvento=LocalDate.parse(fechaString);
 
@@ -70,19 +70,19 @@ public class AdminConcursos {
                 String fechaFinString=sc.nextLine();
                 LocalDate fechaFin=LocalDate.parse(fechaFinString);
 
-             System.out.println("Creación de la lista de premios \nIngrese la descripción y auspiciantes correspondientes para cada premio del concurso, del Primer al Tercer lugar");
+             System.out.println("\n-Creación de la lista de premio \n(Ingrese la descripción y auspiciantes correspondientes para cada premio del concurso, del Primer al Tercer lugar)");
              
              Premio[] arrPremios=new Premio[3];
              arrPremios=Premio.generarListaPremios(arrPremios);
              
 
-             System.out.println("¿Cuántos auspiciantes desea inscribir para el concurso "+nombre+"?");
+             System.out.print("\n¿Cuántos auspiciantes desea inscribir para el concurso "+nombre+"?: ");
              int cantAuspiciantes=sc.nextInt();
              sc.nextLine();
 
              ArrayList<Auspiciante> arrDeAuspiciantes= new ArrayList<Auspiciante>();
 
-             System.out.println("De la siguente lista seleccione los auspiciantes para el concurso");
+             System.out.println("\nDe la siguente lista seleccione los auspiciantes para el concurso");
 
                 for (Auspiciante a: AdminAuspiciantes.arrAuspiciantes){
                     System.out.println("-"+a.nombre);
@@ -100,7 +100,7 @@ public class AdminConcursos {
 
              }
 
-             System.out.println("A quién está dirigido el concurso? \n 1.Para todos \n 2.Solo perros \n 3.Solo gatos");
+             System.out.println("\nA quién está dirigido el concurso? \n 1.Para todos \n 2.Solo perros \n 3.Solo gatos");
 
              System.out.print("Elige una opción: ");
              int opcionTipo=sc.nextInt();
@@ -132,11 +132,11 @@ public class AdminConcursos {
              arrConcursos.add(concurso);
              
              ArrayList<Mascota> arrMascotas= new ArrayList<Mascota>();
-             concurso.setParticipantes(arrMascotas);
+             concurso.setArrParticipantes(arrMascotas);
 
-             System.out.println("Concurso "+nombre+" creado exitosamente");
+             System.out.println("\n¡¡¡Concurso "+nombre+" creado exitosamente!!!");
 
-             System.out.println(" 1.Regresar al menú concurso \n 2.Regresar al menú principal ");
+             System.out.println("\n1.Regresar al menú concurso \n2.Regresar al menú principal ");
              System.out.print("Elige una opción: ");
              opcion= sc.nextInt();
              sc.nextLine();
@@ -156,40 +156,43 @@ public class AdminConcursos {
 
              if (arrConcursos.size()==0){
             
-                System.out.println("No hay concursos registrados");
+                System.out.println("\nNo hay concursos registrados");
              }
              else{
-    
-                for (int i=0;i<arrConcursos.size();i++){
-                    System.out.println("-Nombre: "+arrConcursos.get(i).getNombre()+" Código: "+arrConcursos.get(i).getCodConcurso());
+               
+                System.out.println("\nLista de concursos abiertos a inscripciones: ");
+                for (Concurso c: arrConcursos){
+                   if (c.isAbiertoInscripciones()==true){
+                    System.out.println("-Nombre: "+c.getNombre()+" Código: "+c.getCodConcurso());
+                   }
              }
              }
 
-             System.out.println("Ingrese el código del concurso al que quiere inscribir un participante: ");
+             System.out.print("\nIngrese el código del concurso al que quiere inscribir un participante: ");
              String codigoConcurso= sc.nextLine();
              Concurso concursoInscribir=Concurso.busquedaConcurso(codigoConcurso);
 
-             System.out.println("Lista de mascotas inscritas en el concurso "+concursoInscribir.getNombre());
+             System.out.println("\nLista de mascotas inscritas: ");
 
-             if (concursoInscribir.getParticipantes().size()==0){
+             if (AdminMascotas.arrMascotas.size()==0){
                  System.out.println("No hay mascotas registradas");
              }
 
              else{
-             for (Mascota m: concursoInscribir.getParticipantes()){
+             for (Mascota m: AdminMascotas.arrMascotas){
                  System.out.println("- Nombre de la mascota: "+m.getNombre()+" Código: "+m.getCodMascota());
              }
             }
 
-             System.out.println("Ingrese el código del participante que será inscrito en el concurso: "+concursoInscribir.getNombre());
+             System.out.println("\nIngrese el código del participante que será inscrito en el concurso: "+concursoInscribir.getNombre());
              String codMascota= sc.nextLine();
              Mascota mascotaRegistrar=Mascota.busquedMascota(codMascota);
 
              concursoInscribir.getParticipantes().add(mascotaRegistrar);
 
-             System.out.println("Se ha registrado a "+mascotaRegistrar.getNombre()+" en el concurso "+concursoInscribir.getNombre());
+             System.out.println("\n¡¡¡Se ha registrado a "+mascotaRegistrar.getNombre()+" en el concurso "+concursoInscribir.getNombre()+"!!!");
              
-             System.out.println(" 1.Regresar al menú concurso \n 2.Regresar al menú principal ");
+             System.out.println("\n1.Regresar al menú concurso \n2.Regresar al menú principal ");
              System.out.print("Elige una opción: ");
              opcion= sc.nextInt();
              sc.nextLine();
@@ -206,7 +209,7 @@ public class AdminConcursos {
             case 4: NewMain.menuPrincipal();
             break;
 
-            default: System.out.println("Opción no existente");
+            default: System.out.println("\nOpción no existente");
              menuConcursos();    
             
 

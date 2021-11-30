@@ -49,17 +49,23 @@ public class Ganador {
     // metodos
     
     public static void generarGanadores(Concurso concursoFinalizar){
+        
+        ArrayList<Integer> indGanadores=new ArrayList<Integer>();
+
         for(int i=0;i<3;i++){
 
             Random rand=new Random();
 
             int indAleatorio= rand.nextInt(concursoFinalizar.getParticipantes().size()-1);
+
+            if ((indGanadores.contains(indAleatorio)==false)){
             Mascota mascotaGanadora=concursoFinalizar.getParticipantes().get(indAleatorio);
             Premio premio=concursoFinalizar.getPremio()[i];
             Puesto puesto=Puesto.values()[i];
 
             Ganador ganador= new Ganador(mascotaGanadora.getNombre(),premio,puesto);
             concursoFinalizar.getArrGanadores()[i]=ganador;
+            }
         }
     }
     

@@ -8,7 +8,7 @@ public class AdminEstadoConcursos {
 
     public static void menuEstadoConcursos(){
 
-        System.out.println("Menú de opciones del estado de concursos: \n 1.Cambiar estado de un concurso \n 2.Consultar ganadores de un concurso \n 3.Regresar al menú concurso");
+        System.out.println("\n---Menú de opciones del estado de los concursos--- \n1.Cambiar estado de un concurso \n2.Consultar ganadores de un concurso \n3.Regresar al menú concurso");
         
         Scanner sc= new Scanner(System.in);
 
@@ -19,32 +19,45 @@ public class AdminEstadoConcursos {
         switch(opcion){
 
             case 1:
-            System.out.print(" 1.Cerrar inscripciones de un concurso \n 2.Terminar un concurso \n Seleccione una opción:");
+            System.out.print("\n¿Qué desea hacer? \n1.Cerrar inscripciones de un concurso \n2.Terminar un concurso \nSeleccione una opción: ");
 
             int opcionMenu= sc.nextInt();
             sc.nextLine();
             
             if (opcionMenu==1){
 
-                System.out.println("Lista de concursos con inscripciones abiertas: ");
+                System.out.println("\nLista de concursos con inscripciones abiertas: ");
                 
                 for (Concurso c: AdminConcursos.arrConcursos){
                     if(c.isAbiertoInscripciones()==true){
                         System.out.println("- Nombre: "+c.getNombre()+" Código: "+c.getCodConcurso());
+
                     }
                 }
 
-                System.out.print("Escribe el codigo del concurso al que se cerraran las inscripciones: ");
+
+                System.out.print("\nEscribe el código del concurso al que se cerraran las inscripciones: ");
                 String codigoConcurso= sc.nextLine();
                 Concurso concursoCerrarInscripciones=Concurso.busquedaConcurso(codigoConcurso);
                 concursoCerrarInscripciones.setAbiertoInscripciones(false);
-                System.out.print("Se han cerrado inscripciones del concurso "+concursoCerrarInscripciones.getNombre());
+                System.out.println("\nSe han cerrado inscripciones del concurso "+concursoCerrarInscripciones.getNombre());
+
+                System.out.println("\n1.Regresar al menú estado de concursos \n2.Regresar al menú concurso ");
+                System.out.print("Elige una opción: ");
+                opcion= sc.nextInt();
+                sc.nextLine();
+                if (opcion==1){
+                    AdminEstadoConcursos.menuEstadoConcursos();
+                }
+                else if (opcion==2){
+                    AdminConcursos.menuConcursos();
+                }
 
             }
 
             else if (opcionMenu==2){
                 
-                System.out.println("Lista de concursos en curso: ");
+                System.out.println("\nLista de concursos en curso: ");
                 
                 for (Concurso c: AdminConcursos.arrConcursos){
                     if(c.isConcursoEnCurso()==true){
@@ -52,18 +65,19 @@ public class AdminEstadoConcursos {
                     }
                 }
 
-                System.out.print("Escribe el codigo del concurso que desea finalizar: ");
+                System.out.print("\nEscribe el codigo del concurso que desea finalizar: ");
                 String codigoConcurso= sc.nextLine();
                 Concurso concursoFinalizar=Concurso.busquedaConcurso(codigoConcurso);
+                concursoFinalizar.setAbiertoInscripciones(false);
                 concursoFinalizar.setConcursoEnCurso(false);
-                System.out.println("Concurso "+concursoFinalizar.getNombre()+" finalizado");
-                System.out.println("Generando lista de ganadores");
+                System.out.println("\nConcurso "+concursoFinalizar.getNombre()+" finalizado");
+                System.out.println("Generando lista de ganadores....");
 
                 //Para este caso los ganadores serán elegidos de forma aleatoria
                 Ganador.generarGanadores(concursoFinalizar);
 
 
-             System.out.println(" 1.Regresar al menú estado de concursos \n 2.Regresar al menú concurso ");
+             System.out.println("\n1.Regresar al menú estado de concursos \n2.Regresar al menú concurso ");
              System.out.print("Elige una opción: ");
              opcion= sc.nextInt();
              sc.nextLine();
@@ -77,15 +91,15 @@ public class AdminEstadoConcursos {
             break;
 
             case 2:
-            System.out.println("Lista de concursos finalizados: ");
+            System.out.println("\nLista de concursos finalizados: ");
 
             for (Concurso conc: AdminConcursos.arrConcursos){
                 if(conc.isConcursoEnCurso()==false){
-                    System.out.print("- Nombre: "+conc.getNombre()+" Código: "+conc.getCodConcurso());
+                    System.out.println("- Nombre: "+conc.getNombre()+" Código: "+conc.getCodConcurso());
                 }
             }
 
-            System.out.print("Ingrese el código del concurso al que desea consultar los ganadores: ");
+            System.out.print("\nIngrese el código del concurso al que desea consultar los ganadores: \n");
 
             String codConcurso= sc.nextLine();
             Concurso concursoConsultar=Concurso.busquedaConcurso(codConcurso);
@@ -94,7 +108,7 @@ public class AdminEstadoConcursos {
                 System.out.println(ganador);
             }
 
-            System.out.println(" 1.Regresar al menú estado de concursos \n 2.Regresar al menú concurso ");
+            System.out.println("\n1.Regresar al menú estado de concursos \n2.Regresar al menú concurso ");
              System.out.print("Elige una opción: ");
              opcion= sc.nextInt();
              sc.nextLine();

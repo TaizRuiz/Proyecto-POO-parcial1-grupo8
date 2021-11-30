@@ -2,22 +2,13 @@ package main;
 
 import java.time.*;
 import java.util.*;
-
-import admins.AdminAuspiciantes;
-import admins.AdminCiudades;
-import admins.AdminConcursos;
-import admins.AdminDueños;
-import admins.AdminMascotas;
-import enums.Puesto;
-import enums.TipoEspecie;
-import enums.TiposAnimal;
+import admins.*;
+import enums.*;
 import modelo.*;
 
 public class CargarObjetos {
 
     public static void cargarObjetos(){
-
-     //Creación del concurso vigente
 
      //Creación de dueños de mascotas
      DueñoMascota dueño1= new DueñoMascota(1208021989,"Arévalo","Guillermo","Centro",999111888,"Guayaquil","guillermo@gmail.com");
@@ -110,20 +101,82 @@ public class CargarObjetos {
      LocalDate fechaInscripciones= LocalDate.parse("2021-09-01");
      LocalDate fechaFinInscripciones= LocalDate.parse("2021-10-30");
 
+
+     //Premios para el concurso terminado
      Premio premio1=new Premio(Puesto.Primer,"300 dólares",auspiciante1);
      Premio premio2=new Premio(Puesto.Segundo,"200 dólares",auspiciante2);
      Premio premio3=new Premio(Puesto.Tercer,"100 dólares",auspiciante3);
      Premio[] arrPremiosC1={premio1,premio2,premio3};
      
      ArrayList<Auspiciante> arrAuspiciantesC1= new ArrayList<Auspiciante>(Arrays.asList(auspiciante1,auspiciante2,auspiciante3));
-
+    
+     //Creación con constructor
      Concurso concursoTerminado= new Concurso("Concurso de perros",fechaConcurso,horaConcurso,fechaInscripciones,fechaFinInscripciones,ciudad1,"Estadio Central",arrPremiosC1,arrAuspiciantesC1,TiposAnimal.SoloPerros);
+     
+     //Llamada de métodos para asignar datos a los demás atributos del concurso no incluidos en el constructor
      concursoTerminado.generarCodConcurso();
-     AdminConcursos.arrConcursos.add(concursoTerminado);
      concursoTerminado.setAbiertoInscripciones(false);
      concursoTerminado.setConcursoEnCurso(false);
-     
 
+     //Inscripción de mascotas al concurso
+     ArrayList<Mascota> arrMascotas= new ArrayList<Mascota>();
+     arrMascotas.add(mascota1); 
+     arrMascotas.add(mascota2); 
+     arrMascotas.add(mascota3); 
+     arrMascotas.add(mascota4); 
+     arrMascotas.add(mascota5); 
+
+     concursoTerminado.setArrParticipantes(arrMascotas);
+
+     //Creación de la lista de ganadores
+
+     Ganador[] ganadores= new Ganador[3];
+
+     Ganador ganador1= new Ganador(mascota1.getNombre(),premio1,Puesto.Primer);
+     Ganador ganador2= new Ganador(mascota2.getNombre(),premio2,Puesto.Segundo);
+     Ganador ganador3= new Ganador(mascota4.getNombre(),premio3,Puesto.Tercer);
+
+     ganadores[0]=ganador1;
+     ganadores[1]=ganador2;
+     ganadores[2]=ganador3;
+
+     concursoTerminado.setArrGanadores(ganadores);
+
+
+     AdminConcursos.arrConcursos.add(concursoTerminado);
+
+     //Creación del concurso vigente
+
+     LocalDate fechaConcurso2= LocalDate.parse("2021-12-05");
+     LocalTime horaConcurso2= LocalTime.parse("12:00:00");
+     LocalDate fechaInscripciones2= LocalDate.parse("2021-11-01");
+     LocalDate fechaFinInscripciones2= LocalDate.parse("2021-12-04");
+
+
+     //Premios para el concurso terminado
+     Premio premio1C2=new Premio(Puesto.Primer,"500 dólares",auspiciante1);
+     Premio premio2C2=new Premio(Puesto.Segundo,"250 dólares",auspiciante2);
+     Premio premio3C2=new Premio(Puesto.Tercer,"100 dólares",auspiciante3);
+     Premio[] arrPremiosC2={premio1C2,premio2C2,premio3C2};
+     
+     ArrayList<Auspiciante> arrAuspiciantesC2= new ArrayList<Auspiciante>(Arrays.asList(auspiciante1,auspiciante2,auspiciante3));
+    
+     //Creación con constructor
+     Concurso concursoVigente= new Concurso("Concurso de gatos",fechaConcurso2,horaConcurso2,fechaInscripciones2,fechaFinInscripciones2,ciudad2,"Centro",arrPremiosC2,arrAuspiciantesC2,TiposAnimal.SoloGatos);
+     
+     //Llamada de métodos para asignar datos a los demás atributos del concurso no incluidos en el constructor
+     concursoVigente.generarCodConcurso();
+     concursoVigente.setAbiertoInscripciones(true);
+     concursoVigente.setConcursoEnCurso(true);
+
+     ArrayList<Mascota> arrMascotas2= new ArrayList<Mascota>();
+     concursoVigente.setArrParticipantes(arrMascotas2);
+
+     Ganador[] ganadores2= new Ganador[3];
+     concursoVigente.setArrGanadores(ganadores2);
+
+     AdminConcursos.arrConcursos.add(concursoVigente);
     }
+
     
 }

@@ -4,7 +4,7 @@ package modelo;
 
 public class DueñoMascota extends Persona {
     
-    private double cedulaIdentidad;
+    private int cedulaIdentidad;
     private String apellido;
     
     
@@ -14,25 +14,19 @@ public class DueñoMascota extends Persona {
         super(n);
     }
         
-    public DueñoMascota(double cedulaIdentidad, String apellido, String nombre, String direccion, double telefono, String ciudad, String email) {
+    public DueñoMascota(int cedulaIdentidad, String apellido, String nombre, String direccion, double telefono, String ciudad, String email) {
         super(nombre, direccion, telefono, ciudad, email);
         this.cedulaIdentidad = cedulaIdentidad;
         this.apellido = apellido;
     }
 
-
-    public DueñoMascota(String n,String d,double t, String c,String e){
-        super(n, d, t, c, e);
-    }
-    
-    
     // getters and setters
 
     public double getCedulaIdentidad() {
         return cedulaIdentidad;
     }
 
-    public void setCedulaIdentidad(double cedulaIdentidad) {
+    public void setCedulaIdentidad(int cedulaIdentidad) {
         this.cedulaIdentidad = cedulaIdentidad;
     }
 
@@ -84,12 +78,6 @@ public class DueñoMascota extends Persona {
         this.email = email;
     }
 
-    
-    
-
-   
-
-    
 }
     
 

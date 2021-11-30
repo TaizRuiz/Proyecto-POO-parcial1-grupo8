@@ -11,11 +11,11 @@ public class AdminMascotas {
     public static ArrayList<Mascota> arrMascotas= new ArrayList<Mascota>();
 
     public static void menuMascotas(){
-        System.out.println("Mascotas existentes: ");
+        System.out.println("\n-Mascotas existentes: ");
         
         if (arrMascotas.isEmpty()){
             
-            System.out.println("No hay mascotas registrados");
+            System.out.println("\nNo hay mascotas registrados");
         }
         else{
 
@@ -25,21 +25,22 @@ public class AdminMascotas {
             
         }
         
-        System.out.println("Menú de opciones de mascotas: \n 1. Crear mascota \n 2. Eliminar mascota \n 3. Regresar al menú principal");
+        System.out.println("\n------Menú de opciones de mascotas------ \n 1. Crear mascota \n 2. Eliminar mascota \n 3. Regresar al menú principal");
         
         Scanner sc = new Scanner(System.in);
         
-        System.out.print("Escoja opción: ");
+        System.out.print("\nEscoja opción: ");
         int op = sc.nextInt();
         sc.nextLine();
         
         switch(op){
             
             case 1:
-                System.out.print("Ingrese el nombre de la mascota: ");
+                System.out.print("\nIngrese el nombre de la mascota: ");
                 String nomMasc = sc.nextLine();
                 
-                System.out.print("Escoja el tipo de animal: \n 1. Perro \n 2. Gato \n"); 
+                System.out.print("\nEscoja el tipo de animal: \n 1. Perro \n 2. Gato \n Seleccione una opción: "); 
+                
                 int opEspecie = sc.nextInt();
                 sc.nextLine();
                 
@@ -52,7 +53,7 @@ public class AdminMascotas {
                     DiriA = TipoEspecie.Gato;
                 }
                                 
-                System.out.print("Ingrese la raza de la mascota: ");
+                System.out.print("\nIngrese la raza de la mascota: ");
                 String raza = sc.nextLine();
                 
                 System.out.print("Ingrese la fecha de nacimiento (YYYY-MM-DD): ");
@@ -65,16 +66,16 @@ public class AdminMascotas {
                 
                 Mascota m1 = new Mascota(nomMasc,DiriA,raza,fechaNac,dño);
                 
-                System.out.println("Generando código para "+nomMasc+" ... ");
+                System.out.println("\nGenerando código para "+nomMasc+" ... ");
                 m1.generarCodMascota();
                 
                 // mascota añadida a la lista
                 arrMascotas.add(m1);
                 
-                System.out.println("Mascota "+nomMasc+" creada exitosamente! ");
+                System.out.println("¡¡¡Mascota "+nomMasc+" creada exitosamente!!! ");
                 
                 
-                System.out.println(" 1.Regresar al menú mascota \n 2.Regresar al menú principal ");
+                System.out.println("\n1.Regresar al menú mascota \n2.Regresar al menú principal ");
                 System.out.print("Elige una opción: ");
                 int opcion= sc.nextInt();
                 sc.nextLine();
@@ -88,7 +89,7 @@ public class AdminMascotas {
              break;
                 
             case 2:
-                System.out.print("Ingrese id de la mascota a eliminar: ");
+                System.out.print("\nIngrese id de la mascota a eliminar: ");
                 String codigo = sc.nextLine();
                 Mascota buscarMascota = new Mascota(codigo);
                 for(int i=0;i<arrMascotas.size();i++){
@@ -96,9 +97,9 @@ public class AdminMascotas {
                         arrMascotas.remove(i);
                     }
                 }
-                System.out.println("Mascota con id: "+codigo+" eliminada con éxito!");
+                System.out.println("\nMascota con id: "+codigo+" eliminada con éxito!");
                 
-                System.out.println(" 1.Regresar al menú mascota \n 2.Regresar al menú principal ");
+                System.out.println("\n1.Regresar al menú mascota \n2.Regresar al menú principal ");
                 System.out.print("Elige una opción: ");
                 int opcion2= sc.nextInt();
                 sc.nextLine();
@@ -112,7 +113,7 @@ public class AdminMascotas {
              break;
              
             case 3:
-                System.out.println("Regresando al menú principal...");
+                System.out.println("\nRegresando al menú principal...");
                 NewMain.menuPrincipal();
                 
             default:
