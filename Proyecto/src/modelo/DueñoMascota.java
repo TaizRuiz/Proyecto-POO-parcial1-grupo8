@@ -2,6 +2,7 @@
 package modelo;
 
 import admins.AdminDueños;
+import java.util.Objects;
 
 
 public class DueñoMascota extends Persona {
@@ -16,6 +17,11 @@ public class DueñoMascota extends Persona {
     
     public DueñoMascota(String n){
         super(n);
+    }
+    
+    public DueñoMascota(String id, String ap){
+        cedulaIdentidad = id;
+        apellido = ap;
     }
         
     public DueñoMascota(String cedulaIdentidad, String apellido, String nombre, String direccion, double telefono, String ciudad, String email) {
@@ -95,6 +101,23 @@ public class DueñoMascota extends Persona {
     
     // metodos
     
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final DueñoMascota other = (DueñoMascota) obj;
+        if (!Objects.equals(this.cedulaIdentidad, other.cedulaIdentidad)) {
+            return false;
+        }
+        return true;
+    }   
     
     
     public static DueñoMascota busquedaDueño(String nombreDueño){

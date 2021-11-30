@@ -75,14 +75,31 @@ public class AdminDueños {
 
 
             case 2: 
-                System.out.print("\nIngrese el id del dueño que quiere modificar: ");
-                String id = sc.nextLine();
+                //System.out.print("\nIngrese el id del dueño que quiere modificar: ");
+                //String id = sc.nextLine();
+                //DueñoMascota modificable = new DueñoMascota(id,"");
                 DueñoMascota modificable = null;
-                for(DueñoMascota d: arrDueño){
-                    if (d.getCedulaIdentidad().equals(id)){
-                        modificable = d;
+                int x=0;
+                do{
+                    if(x>0){
+                        System.out.println("--- Id de dueño no encontrado ---");
+                    }
+                    System.out.print("\nIngrese el id del dueño que quiere modificar: ");
+                    String id = sc.nextLine();
+                    modificable = new DueñoMascota(id,"");
+                    x++;
+                }while(!(arrDueño.contains(modificable)));
+                
+                for(int i=0;i<arrDueño.size();i++){
+                    if(arrDueño.get(i).equals(modificable)){
+                        modificable = arrDueño.get(i);
+                        i=arrDueño.size();
                     }
                 }
+                 
+                
+                // verificar la existencia de id
+                // terminar el lazo 
                 
                 System.out.println("1. Modificar nombre");
                 System.out.println("2. Modificar apellido");
