@@ -93,7 +93,7 @@ public class AdminDueños {
                 System.out.println("5. Modificar ciudad");
                 System.out.println("6. Modificar correo");
                 System.out.println("7. Terminar modificacion");
-                
+//                se crea el menu para elegir las opciones de modificacion 
                 int op = 0;
                 while (op != 7){
                     System.out.print("Elige una opción: ");
@@ -137,6 +137,7 @@ public class AdminDueños {
                         System.out.println("");
                     }
                 }
+//                aqui aparecen las opciones para elegir un menu de nuevo 
                 System.out.println("Modificacion terminada.");
                 System.out.println(" 1.Regresar al menú Dueño");
                 System.out.println("2.Regresar al menú principal");
