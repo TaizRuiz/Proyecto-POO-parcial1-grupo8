@@ -25,7 +25,7 @@ public class AdminDueños {
         }
         
         
-        System.out.println("\n------Menú de opciones de concursos------");
+        System.out.println("\n------Menú de opciones de dueños------");
         System.out.println("1.Crear dueño ");
         System.out.println("2.Editar dueño ");
         System.out.println("3.Regresar al menú principal ");
