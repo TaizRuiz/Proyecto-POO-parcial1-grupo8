@@ -131,12 +131,14 @@ public class AdminDueños {
                                 modificable.setEmail(correoM);
                                 break;
                         }
-                    }else{
+                    }
+                    else{
                         System.out.println("Este usuario no se encontró");
                         System.out.println("");
                     }
                 }
-//     aqui aparece el menu de nuevo para elegir otra opcion para regresar a cualquier menu             
+//     aqui aparece el menu de nuevo para elegir otra opcion para regresar a cualquier menu  
+                System.out.println("Modificacion terminada.");
                 System.out.println(" 1.Regresar al menú Dueño");
                 System.out.println("2.Regresar al menú principal");
                 System.out.print("Elige una opción: ");
