@@ -36,22 +36,27 @@ public class Auspiciante extends Persona{
         return codAuspiciante;
     }
 
+    @Override
     public String getNombre() {
         return nombre;
     }
 
+    @Override
     public String getDireccion() {
         return direccion;
     }
 
+    @Override
     public double getTelefono() {
         return telefono;
     }
 
+    @Override
     public String getCiudad() {
         return ciudad;
     }
 
+    @Override
     public String getEmail() {
         return email;
     }
@@ -64,22 +69,27 @@ public class Auspiciante extends Persona{
         this.codAuspiciante = codAuspiciante;
     }
 
+    @Override
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    @Override
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
 
+    @Override
     public void setTelefono(double telefono) {
         this.telefono = telefono;
     }
 
+    @Override
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
 
+    @Override
     public void setEmail(String email) {
         this.email = email;
     }
@@ -87,6 +97,7 @@ public class Auspiciante extends Persona{
     
     // métodos
 
+    @Override
     public boolean equals(Object obj){
         if (this==obj){
             return true;
@@ -114,6 +125,7 @@ public class Auspiciante extends Persona{
     }
     
 
+    @Override
     public String toString(){
         return "nombre: "+nombre+" código: "+codAuspiciante;
     }

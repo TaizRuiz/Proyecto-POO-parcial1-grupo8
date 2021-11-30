@@ -3,7 +3,6 @@ package admins;
 import java.util.*;
 import modelo.*;
 import main.*;
-import enums.*;
 
 public class AdminDueños { 
     

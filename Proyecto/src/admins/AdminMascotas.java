@@ -62,7 +62,7 @@ public class AdminMascotas {
                 
                 System.out.print("Ingrese el dueño de la mascota: ");
                 String dueño = sc.nextLine();
-                DueñoMascota dño = new DueñoMascota(dueño);
+                DueñoMascota dño = DueñoMascota.busquedaDueño(dueño);
                 
                 Mascota m1 = new Mascota(nomMasc,DiriA,raza,fechaNac,dño);
                 

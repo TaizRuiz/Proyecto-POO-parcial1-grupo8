@@ -182,6 +182,7 @@ public class Concurso {
     
     // métodos
     
+    @Override
     public boolean equals(Object obj){
         if (this==obj){
             return true;
@@ -230,6 +231,7 @@ public class Concurso {
     }
     
 
+    @Override
     public String toString(){
         return "nombre: "+nombre+" lugar: "+lugar+" "+fechaEvento+" "+horaEvento;
     }

@@ -79,6 +79,7 @@ public class Premio {
         
     }
 
+    @Override
     public String toString(){
         return descripcion;
     }

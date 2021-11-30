@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.Objects;
+
 public abstract class Persona {
 
     public String nombre;
@@ -63,8 +65,22 @@ public abstract class Persona {
         this.email = email;
     }
 
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Persona other = (Persona) obj;
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        return true;
+    }   
 }
-
-    
-
-

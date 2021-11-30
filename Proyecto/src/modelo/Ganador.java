@@ -52,23 +52,28 @@ public class Ganador {
         
         ArrayList<Integer> indGanadores=new ArrayList<Integer>();
 
-        for(int i=0;i<3;i++){
-
+        int x=0;
+        while(x<3){
             Random rand=new Random();
-
             int indAleatorio= rand.nextInt(concursoFinalizar.getParticipantes().size()-1);
-
-            if ((indGanadores.contains(indAleatorio)==false)){
-            Mascota mascotaGanadora=concursoFinalizar.getParticipantes().get(indAleatorio);
+            if(!(indGanadores.contains(indAleatorio))){
+                indGanadores.add(indAleatorio);
+                x++;
+            }
+        }
+        
+        for(int i=0;i<indGanadores.size();i++){
+            Mascota mascotaGanadora=concursoFinalizar.getParticipantes().get(i);
             Premio premio=concursoFinalizar.getPremio()[i];
             Puesto puesto=Puesto.values()[i];
 
             Ganador ganador= new Ganador(mascotaGanadora.getNombre(),premio,puesto);
             concursoFinalizar.getArrGanadores()[i]=ganador;
-            }
+             
         }
     }
     
+    @Override
     public String toString(){
         return puestoGanador+" lugar.- Nombre del ganador: "+nombreGanador+" Premio: "+premioGanador;
     }
