@@ -10,7 +10,7 @@ public class AdminDueños {
     
     public static void MenuDueños(){
         
-        System.out.println("Dueños de Mascotas existentes: ");
+        System.out.println("\nDueños de Mascotas existentes: ");
         
         
         if (arrDueño.size()==0){
@@ -20,15 +20,15 @@ public class AdminDueños {
         else{
 
             for (int i=0;i<arrDueño.size();i++){
-                System.out.println(arrDueño.get(i).nombre);
+                System.out.println("-"+arrDueño.get(i).nombre+" ID: "+arrDueño.get(i).getCedulaIdentidad());
         }
         }
         
         
-        System.out.println("Menú de opciones de concursos: ");
-        System.out.println(" 1.Crear dueño ");
-        System.out.println(" 2. Editar dueño ");
-        System.out.println(" 3.Regresar al menú principal ");
+        System.out.println("\n------Menú de opciones de concursos------");
+        System.out.println("1.Crear dueño ");
+        System.out.println("2.Editar dueño ");
+        System.out.println("3.Regresar al menú principal ");
         
         Scanner sc= new Scanner(System.in);
 
@@ -39,28 +39,27 @@ public class AdminDueños {
         switch(opcion){
 
             case 1:
-                System.out.println("Ingrese la cedula del Dueño: ");
-                int cedula = sc.nextInt();
-                
-                System.out.println("Ingrese los nombres: ");
+                System.out.print("\nIngrese la cedula del Dueño: ");
+                String cedula = sc.nextLine();
+                System.out.print("Ingrese los nombres: ");
                 String nombre = sc.nextLine();
-                System.out.println("Ingrese los apellidos:  ");
+                System.out.print("Ingrese los apellidos: ");
                 String apellido= sc.nextLine();
-                System.out.println("Ingrese la direccion:  ");
+                System.out.print("Ingrese la direccion: ");
                 String direccion= sc.nextLine();
-                System.out.println("Ingrese un numero de telefono:  ");
+                System.out.print("Ingrese un numero de telefono: ");
                 double telefono= sc.nextDouble();
-                System.out.println("Ingrese la ciudad:  ");
+                sc.nextLine();
+                System.out.print("Ingrese la ciudad: ");
                 String ciudad= sc.nextLine();
-               
-                System.out.println("Ingrese un E-mail:  ");
+                System.out.print("Ingrese un E-mail: ");
                 String correo= sc.nextLine();
                 
                 DueñoMascota dueño = new DueñoMascota(cedula,apellido,nombre,direccion, telefono,ciudad, correo);
                 arrDueño.add(dueño);
-                System.out.println("Dueño "+ dueño.nombre+ " registrado exitosamente");
+                System.out.println("\n¡¡¡Dueño "+ dueño.nombre+ " registrado exitosamente!!!");
                 
-                System.out.println(" 1.Regresar al menú Dueño");
+                System.out.println("\n1.Regresar al menú Dueño");
                 System.out.println("2.Regresar al menú principal");
                 System.out.print("Elige una opción: ");
                 opcion= sc.nextInt();
@@ -76,11 +75,11 @@ public class AdminDueños {
 
 
             case 2: 
-                System.out.println("Ingrese el id del dueño que quiere modificar: ");
-                double id = sc.nextDouble();
+                System.out.print("\nIngrese el id del dueño que quiere modificar: ");
+                String id = sc.nextLine();
                 DueñoMascota modificable = null;
                 for(DueñoMascota d: arrDueño){
-                    if (d.getCedulaIdentidad() == id){
+                    if (d.getCedulaIdentidad().equals(id)){
                         modificable = d;
                     }
                 }
@@ -95,38 +94,38 @@ public class AdminDueños {
 //                se crea el menu para elegir las opciones de modificacion 
                 int op = 0;
                 while (op != 7){
-                    System.out.print("Elige una opción: ");
+                    System.out.print("\nElige una opción: ");
                     op = sc.nextInt();
                     sc.nextLine();
                     if (modificable!=null){
                         switch(op){
                             case 1:
-                                System.out.println("Ingrese los nombres: ");
+                                System.out.print("\nIngrese los nombres: ");
                                 String nombreM = sc.nextLine();
                                 modificable.setNombre(nombreM);
                                 break;
                             case 2:
-                                System.out.println("Ingrese los apellidos:  ");
+                                System.out.print("Ingrese los apellidos: ");
                                 String apellidoM= sc.nextLine();
                                 modificable.setApellido(apellidoM);
                                 break;
                             case 3:
-                                System.out.println("Ingrese la direccion:  ");
+                                System.out.print("Ingrese la direccion: ");
                                 String direccionM= sc.nextLine();
                                 modificable.setDireccion(direccionM);
                                 break;
                             case 4:
-                                System.out.println("Ingrese un numero de telefono:  ");
+                                System.out.print("Ingrese un numero de telefono: ");
                                 double telefonoM= sc.nextDouble();
                                 modificable.setTelefono(telefonoM);
                                 break;
                             case 5:
-                                System.out.println("Ingrese la ciudad:  ");
+                                System.out.print("Ingrese la ciudad: ");
                                 String ciudadM= sc.nextLine();
                                 modificable.setCiudad(ciudadM);
                                 break;
                             case 6:
-                                System.out.println("Ingrese un E-mail:  ");
+                                System.out.print("Ingrese un E-mail: ");
                                 String correoM= sc.nextLine();
                                 modificable.setEmail(correoM);
                                 break;
@@ -137,8 +136,8 @@ public class AdminDueños {
                     }
                 }
 //                aqui aparecen las opciones para elegir un menu de nuevo 
-                System.out.println("Modificacion terminada.");
-                System.out.println(" 1.Regresar al menú Dueño");
+                System.out.println("\nModificacion terminada.");
+                System.out.println("1.Regresar al menú Dueño");
                 System.out.println("2.Regresar al menú principal");
                 System.out.print("Elige una opción: ");
                 opcion= sc.nextInt();

@@ -11,16 +11,16 @@ public class CargarObjetos {
     public static void cargarObjetos(){
 
      //Creación de dueños de mascotas
-     DueñoMascota dueño1= new DueñoMascota(1208021989,"Arévalo","Guillermo","Centro",999111888,"Guayaquil","guillermo@gmail.com");
-     DueñoMascota dueño2= new DueñoMascota(1234567890,"Crespo","Nathaly","Norte",999666888,"Guayaquil","nathaly@gmail.com");
-     DueñoMascota dueño3= new DueñoMascota(1204571989,"Rodriguez","Santiago","Sur",999111999,"Guayaquil","santiago@gmail.com");
-     DueñoMascota dueño4= new DueñoMascota(1208234689,"Saltos","José","Centro",99913588,"Guayaquil","jose@gmail.com");
-     DueñoMascota dueño5= new DueñoMascota(1203457889,"Villacres","Pamela","Norte",945671888,"Guayaquil","pamela@gmail.com");
-     DueñoMascota dueño6= new DueñoMascota(1202357989,"Zambrano","Josué","Sur",999395598,"Guayaquil","josue@gmail.com");
-     DueñoMascota dueño7= new DueñoMascota(1446521989,"Delgado","Rosa","Centro",946511888,"Guayaquil","rosa@gmail.com");
-     DueñoMascota dueño8= new DueñoMascota(1208056489,"Altamirano","Martha","Centro",934545388,"Guayaquil","martha@gmail.com");
-     DueñoMascota dueño9= new DueñoMascota(1245421989,"Villavicencio","Martín","Norte",99910008,"Guayaquil","martin@gmail.com");
-     DueñoMascota dueño10= new DueñoMascota(1208065589,"Orozco","Olivia","Sur",90294588,"Guayaquil","olivia@gmail.com");
+     DueñoMascota dueño1= new DueñoMascota("1208021989","Arévalo","Guillermo","Centro",999111888,"Guayaquil","guillermo@gmail.com");
+     DueñoMascota dueño2= new DueñoMascota("1234567890","Crespo","Nathaly","Norte",999666888,"Guayaquil","nathaly@gmail.com");
+     DueñoMascota dueño3= new DueñoMascota("1204571989","Rodriguez","Santiago","Sur",999111999,"Guayaquil","santiago@gmail.com");
+     DueñoMascota dueño4= new DueñoMascota("1208234689","Saltos","José","Centro",99913588,"Guayaquil","jose@gmail.com");
+     DueñoMascota dueño5= new DueñoMascota("1203457889","Villacres","Pamela","Norte",945671888,"Guayaquil","pamela@gmail.com");
+     DueñoMascota dueño6= new DueñoMascota("1202357989","Zambrano","Josué","Sur",999395598,"Guayaquil","josue@gmail.com");
+     DueñoMascota dueño7= new DueñoMascota("1446521989","Delgado","Rosa","Centro",946511888,"Guayaquil","rosa@gmail.com");
+     DueñoMascota dueño8= new DueñoMascota("1208056489","Altamirano","Martha","Centro",934545388,"Guayaquil","martha@gmail.com");
+     DueñoMascota dueño9= new DueñoMascota("1245421989","Villavicencio","Martín","Norte",99910008,"Guayaquil","martin@gmail.com");
+     DueñoMascota dueño10= new DueñoMascota("1208065589","Orozco","Olivia","Sur",90294588,"Guayaquil","olivia@gmail.com");
      
      AdminDueños.arrDueño.add(dueño1);
      AdminDueños.arrDueño.add(dueño2);
@@ -130,15 +130,15 @@ public class CargarObjetos {
 
      //Creación de la lista de ganadores
 
-     Ganador[] ganadores= new Ganador[3];
+     ArrayList<Ganador> ganadores= new ArrayList<Ganador>();
 
      Ganador ganador1= new Ganador(mascota1.getNombre(),premio1,Puesto.Primer);
      Ganador ganador2= new Ganador(mascota2.getNombre(),premio2,Puesto.Segundo);
      Ganador ganador3= new Ganador(mascota4.getNombre(),premio3,Puesto.Tercer);
 
-     ganadores[0]=ganador1;
-     ganadores[1]=ganador2;
-     ganadores[2]=ganador3;
+     ganadores.add(ganador1);
+     ganadores.add(ganador2);
+     ganadores.add(ganador3);
 
      concursoTerminado.setArrGanadores(ganadores);
 
@@ -172,7 +172,7 @@ public class CargarObjetos {
      ArrayList<Mascota> arrMascotas2= new ArrayList<Mascota>();
      concursoVigente.setArrParticipantes(arrMascotas2);
 
-     Ganador[] ganadores2= new Ganador[3];
+     ArrayList<Ganador> ganadores2= new ArrayList<Ganador>();
      concursoVigente.setArrGanadores(ganadores2);
 
      AdminConcursos.arrConcursos.add(concursoVigente);

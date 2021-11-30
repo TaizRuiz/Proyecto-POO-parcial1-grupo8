@@ -1,7 +1,6 @@
 package modelo;
 
 import enums.Puesto;
-import java.util.*;
 
 public class Ganador {
     
@@ -47,9 +46,24 @@ public class Ganador {
     
     
     // metodos
+
+    @Override
+    public boolean equals(Object obj){
+        if (this==obj){
+            return true;
+        }
+
+        if (obj !=null && obj instanceof Ganador){
+            Ganador other= (Ganador) obj;
+            return nombreGanador.equals(other.nombreGanador);
+        }
+
+        return false;
+    }
     
     public static void generarGanadores(Concurso concursoFinalizar){
         
+        /*
         ArrayList<Integer> indGanadores=new ArrayList<Integer>();
 
         int x=0;
@@ -61,14 +75,21 @@ public class Ganador {
                 x++;
             }
         }
-        
-        for(int i=0;i<indGanadores.size();i++){
+        */
+        int i=0;
+        while(i<3){
             Mascota mascotaGanadora=concursoFinalizar.getParticipantes().get(i);
             Premio premio=concursoFinalizar.getPremio()[i];
             Puesto puesto=Puesto.values()[i];
 
             Ganador ganador= new Ganador(mascotaGanadora.getNombre(),premio,puesto);
-            concursoFinalizar.getArrGanadores()[i]=ganador;
+
+            if (concursoFinalizar.getArrGanadores().contains(ganador)){}
+            
+            else{
+            concursoFinalizar.getArrGanadores().add(ganador);
+            i++;
+        }
              
         }
     }

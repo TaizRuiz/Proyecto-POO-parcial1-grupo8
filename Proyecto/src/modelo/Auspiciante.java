@@ -97,20 +97,6 @@ public class Auspiciante extends Persona{
     
     // métodos
 
-    @Override
-    public boolean equals(Object obj){
-        if (this==obj){
-            return true;
-        }
-
-        if (obj !=null && obj instanceof Auspiciante){
-            Auspiciante other= (Auspiciante) obj;
-            return nombre.equals(other.nombre);
-        }
-
-        return false;
-    }
-
     public static Auspiciante busquedaAuspiciante(String nombreAuspiciante){
 
         Auspiciante auspicianteBusqueda=new Auspiciante(nombreAuspiciante);

@@ -14,7 +14,7 @@ public class AdminConcursos {
     
     public static void menuConcursos(){
 
-        
+        //Mostrar concursos
         System.out.println("\n------------Menú concursos------------ \n \n Concursos existentes: ");
         
         if (arrConcursos.size()==0){
@@ -72,6 +72,7 @@ public class AdminConcursos {
 
              System.out.println("\n-Creación de la lista de premio \n(Ingrese la descripción y auspiciantes correspondientes para cada premio del concurso, del Primer al Tercer lugar)");
              
+             //Se genera la lista con el método de la clase Premio
              Premio[] arrPremios=new Premio[3];
              arrPremios=Premio.generarListaPremios(arrPremios);
              
@@ -94,6 +95,7 @@ public class AdminConcursos {
              System.out.print("Ingrese el nombre del "+(x+1)+"º auspiciante que desea elegir para el concurso: ");
                 
              String nombreAuspiciante=sc.nextLine();
+             //Se utiliza el método de Auspiciante para encontrar el auspiciante requerido
                 Auspiciante auspicianteConcurso=Auspiciante.busquedaAuspiciante(nombreAuspiciante);
                 arrDeAuspiciantes.add(auspicianteConcurso);
                 x++;
@@ -124,6 +126,7 @@ public class AdminConcursos {
                 System.out.println("Opción no válida");
              }
 
+             //Creación de concurso junto con sus atributos
              Concurso concurso=new Concurso(nombre,fechaEvento,horaEvento,fechaInicio,fechaFin,ciudad,lugar,arrPremios,arrDeAuspiciantes,dirigidoA);
              concurso.generarCodConcurso();
              concurso.setAbiertoInscripciones(true);
@@ -154,6 +157,7 @@ public class AdminConcursos {
 
             case 3: 
 
+            //Se muestran los concursos abiertos a inscripciones
              if (arrConcursos.size()==0){
             
                 System.out.println("\nNo hay concursos registrados");
@@ -161,6 +165,7 @@ public class AdminConcursos {
              else{
                
                 System.out.println("\nLista de concursos abiertos a inscripciones: ");
+                
                 for (Concurso c: arrConcursos){
                    if (c.isAbiertoInscripciones()==true){
                     System.out.println("-Nombre: "+c.getNombre()+" Código: "+c.getCodConcurso());
@@ -184,7 +189,7 @@ public class AdminConcursos {
              }
             }
 
-             System.out.println("\nIngrese el código del participante que será inscrito en el concurso: "+concursoInscribir.getNombre());
+             System.out.println("\nIngrese el código del participante que será inscrito en el concurso "+concursoInscribir.getNombre()+": ");
              String codMascota= sc.nextLine();
              Mascota mascotaRegistrar=Mascota.busquedMascota(codMascota);
 

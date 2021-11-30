@@ -6,7 +6,7 @@ import admins.AdminDueños;
 
 public class DueñoMascota extends Persona {
     
-    private int cedulaIdentidad;
+    private String cedulaIdentidad;
     private String apellido;
     
     
@@ -18,7 +18,7 @@ public class DueñoMascota extends Persona {
         super(n);
     }
         
-    public DueñoMascota(int cedulaIdentidad, String apellido, String nombre, String direccion, double telefono, String ciudad, String email) {
+    public DueñoMascota(String cedulaIdentidad, String apellido, String nombre, String direccion, double telefono, String ciudad, String email) {
         super(nombre, direccion, telefono, ciudad, email);
         this.cedulaIdentidad = cedulaIdentidad;
         this.apellido = apellido;
@@ -26,11 +26,11 @@ public class DueñoMascota extends Persona {
 
     // getters and setters
 
-    public double getCedulaIdentidad() {
+    public String getCedulaIdentidad() {
         return cedulaIdentidad;
     }
 
-    public void setCedulaIdentidad(int cedulaIdentidad) {
+    public void setCedulaIdentidad(String cedulaIdentidad) {
         this.cedulaIdentidad = cedulaIdentidad;
     }
 

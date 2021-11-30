@@ -23,7 +23,7 @@ public class Concurso {
     private ArrayList<Mascota> participantes;
     private boolean abiertoInscripciones;
     private boolean concursoEnCurso;
-    private Ganador[] arrGanadores;
+    private ArrayList<Ganador> arrGanadores;
     
     
     // constructores
@@ -167,15 +167,15 @@ public class Concurso {
         this.concursoEnCurso = concursoEnCurso;
     }
 
-    public Ganador[] getArrGanadores() {
+    public ArrayList<Ganador> getArrGanadores() {
         return arrGanadores;
     }
 
     public void setGanadores(Ganador ganador) {
-        this.arrGanadores[this.arrGanadores.length-1]=ganador;
+        this.arrGanadores.add(ganador);
     }
 
-    public void setArrGanadores(Ganador[] arrGanador) {
+    public void setArrGanadores(ArrayList<Ganador> arrGanador) {
         this.arrGanadores=arrGanador;
     }
         
