@@ -95,7 +95,7 @@ public class Auspiciante extends Persona{
     }
        
     
-    // métodos
+    // métodos 
 
     public static Auspiciante busquedaAuspiciante(String nombreAuspiciante){
 

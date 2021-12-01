@@ -50,9 +50,21 @@ public class AdminConcursos {
                     System.out.println("-"+c.getNombre());
                 }
 
-             System.out.print("Escoga una ciudad de la lista: ");
-                String nombreCiudad=sc.nextLine();
-                Ciudad ciudad=Ciudad.busquedaCiudad(nombreCiudad);
+
+             Ciudad ciudadInscribir = null;
+             String codC=null;
+                int w=0;
+                do{
+                    if(w>0){
+                        System.out.println("---Ciudad no encontrada ---");
+                    }
+                    System.out.print("\nIngrese el nombre de la ciudad que desea inscribir: ");
+                    codC= sc.nextLine();
+                    ciudadInscribir = new Ciudad(codC);
+                    w++;
+                }while(!(AdminCiudades.arrCiudades.contains(ciudadInscribir)));
+
+                ciudadInscribir=Ciudad.busquedaCiudad(codC);
 
              System.out.print("\nIngrese la fecha del evento (YYYY-MM-DD): ");
                 String fechaString=sc.nextLine();
@@ -127,7 +139,7 @@ public class AdminConcursos {
              }
 
              //Creación de concurso junto con sus atributos
-             Concurso concurso=new Concurso(nombre,fechaEvento,horaEvento,fechaInicio,fechaFin,ciudad,lugar,arrPremios,arrDeAuspiciantes,dirigidoA);
+             Concurso concurso=new Concurso(nombre,fechaEvento,horaEvento,fechaInicio,fechaFin,ciudadInscribir,lugar,arrPremios,arrDeAuspiciantes,dirigidoA);
              concurso.generarCodConcurso();
              concurso.setAbiertoInscripciones(true);
              concurso.setConcursoEnCurso(true);

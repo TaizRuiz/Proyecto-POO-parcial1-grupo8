@@ -126,16 +126,7 @@ public class AdminMascotas {
                     }
                     y++;
                 }while(foundDos == false);
-                
-                /*
-                System.out.print("\nIngrese id de la mascota a eliminar: ");
-                String codigo = sc.nextLine();
-                Mascota buscarMascota = new Mascota(codigo);
-                for(int i=0;i<arrMascotas.size();i++){
-                    if(arrMascotas.get(i).equals(buscarMascota)){
-                        arrMascotas.remove(i);
-                    }
-                }*/
+            
                 
                 System.out.println("\nMascota eliminada con éxito!");
                 
