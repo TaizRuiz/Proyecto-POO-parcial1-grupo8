@@ -36,34 +36,34 @@ public class CargarObjetos {
      
      //Creación de mascotas
      LocalDate fechaNacimiento1=LocalDate.parse("2020-02-15");
-     Mascota mascota1= new Mascota("Minnie",TipoEspecie.Perro,"Chihuahua",fechaNacimiento1,dueño1);
+     Mascota mascota1= new Mascota("Minnie",TipoEspecie.Perro,"Chihuahua",fechaNacimiento1,"",dueño1);
      mascota1.generarCodMascota();
      LocalDate fechaNacimiento2=LocalDate.parse("2020-05-03");
-     Mascota mascota2= new Mascota("Chester",TipoEspecie.Perro,"Pastor Alemán",fechaNacimiento2,dueño2);
+     Mascota mascota2= new Mascota("Chester",TipoEspecie.Perro,"Pastor Alemán",fechaNacimiento2,"",dueño2);
      mascota2.generarCodMascota();
      LocalDate fechaNacimiento3=LocalDate.parse("2010-02-27");
-     Mascota mascota3= new Mascota("Manchas",TipoEspecie.Perro,"Dálmata",fechaNacimiento3,dueño3);
+     Mascota mascota3= new Mascota("Manchas",TipoEspecie.Perro,"Dálmata",fechaNacimiento3,"",dueño3);
      mascota3.generarCodMascota();
      LocalDate fechaNacimiento4=LocalDate.parse("2015-08-13");
-     Mascota mascota4= new Mascota("Bigotes",TipoEspecie.Perro,"Poodle",fechaNacimiento4,dueño4);
+     Mascota mascota4= new Mascota("Bigotes",TipoEspecie.Perro,"Poodle",fechaNacimiento4,"",dueño4);
      mascota4.generarCodMascota();
      LocalDate fechaNacimiento5=LocalDate.parse("2015-10-20");
-     Mascota mascota5= new Mascota("Bobby",TipoEspecie.Perro,"Labrador",fechaNacimiento5,dueño5);
+     Mascota mascota5= new Mascota("Bobby",TipoEspecie.Perro,"Labrador",fechaNacimiento5,"",dueño5);
      mascota5.generarCodMascota();
      LocalDate fechaNacimiento6=LocalDate.parse("2010-12-24");
-     Mascota mascota6= new Mascota("Manchas",TipoEspecie.Gato,"Persa",fechaNacimiento6,dueño6);
+     Mascota mascota6= new Mascota("Manchas",TipoEspecie.Gato,"Persa",fechaNacimiento6,"",dueño6);
      mascota6.generarCodMascota();
      LocalDate fechaNacimiento7=LocalDate.parse("2010-02-10");
-     Mascota mascota7= new Mascota("Coco",TipoEspecie.Gato,"Siamés",fechaNacimiento7,dueño7);
+     Mascota mascota7= new Mascota("Coco",TipoEspecie.Gato,"Siamés",fechaNacimiento7,"",dueño7);
      mascota7.generarCodMascota();
      LocalDate fechaNacimiento8=LocalDate.parse("2010-07-13");
-     Mascota mascota8= new Mascota("Felix",TipoEspecie.Gato,"Esfinge",fechaNacimiento8,dueño8);
+     Mascota mascota8= new Mascota("Felix",TipoEspecie.Gato,"Esfinge",fechaNacimiento8,"",dueño8);
      mascota8.generarCodMascota();
      LocalDate fechaNacimiento9=LocalDate.parse("2010-09-14");
-     Mascota mascota9= new Mascota("Leo",TipoEspecie.Gato,"Bengala",fechaNacimiento9,dueño9);
+     Mascota mascota9= new Mascota("Leo",TipoEspecie.Gato,"Bengala",fechaNacimiento9,"",dueño9);
      mascota9.generarCodMascota();
      LocalDate fechaNacimiento10=LocalDate.parse("2010-05-31");
-     Mascota mascota10= new Mascota("Daisy",TipoEspecie.Gato,"Siberiano",fechaNacimiento10,dueño10);
+     Mascota mascota10= new Mascota("Daisy",TipoEspecie.Gato,"Siberiano",fechaNacimiento10,"",dueño10);
      mascota10.generarCodMascota();
      
      AdminMascotas.arrMascotas.add(mascota1);

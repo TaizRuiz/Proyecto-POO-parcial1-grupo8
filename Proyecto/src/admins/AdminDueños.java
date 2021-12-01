@@ -75,9 +75,7 @@ public class AdminDueños {
 
 
             case 2: 
-                //System.out.print("\nIngrese el id del dueño que quiere modificar: ");
-                //String id = sc.nextLine();
-                //DueñoMascota modificable = new DueñoMascota(id,"");
+                
                 DueñoMascota modificable = null;
                 int x=0;
                 do{
@@ -97,10 +95,6 @@ public class AdminDueños {
                     }
                 }
                  
-                
-                // verificar la existencia de id
-                // terminar el lazo 
-                
                 System.out.println("1. Modificar nombre");
                 System.out.println("2. Modificar apellido");
                 System.out.println("3. Modificar direccion");

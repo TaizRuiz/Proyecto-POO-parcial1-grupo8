@@ -124,6 +124,7 @@ public class Mascota {
         CodMascota=codMascota.toUpperCase();;
     }
 
+    @Override
     public boolean equals(Object obj){
         if (this==obj){
             return true;

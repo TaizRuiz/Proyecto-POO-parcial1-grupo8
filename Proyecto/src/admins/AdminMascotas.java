@@ -60,29 +60,31 @@ public class AdminMascotas {
                 String fechaStr = sc.nextLine();
                 LocalDate fechaNac = LocalDate.parse(fechaStr);
                 
-                /*
-                boolean dueñoEncontrado=false;
-                Persona dueñoM=null;
-               
-                while(dueñoEncontrado==false){
-
-                    System.out.print("Ingrese el dueño de la mascota: ");
-                    
-                    String dueñoNombre = sc.nextLine();
-                    dueñoM = new DueñoMascota(dueñoNombre);
-                for (DueñoMascota d: AdminDueños.arrDueño){
-                    Persona du= (Persona) d;
-                    if (dueñoM.equals(du)){
-                        dueñoEncontrado=true;
-                        dueñoM=du;
+                            
+                DueñoMascota dueñoEncontrado = null;
+                boolean found = false;
+                int x=0;
+                do{
+                    if(x>0){
+                        System.out.println("--- Dueño no encontrado ---");
                     }
-                }
-                }*/
-
-                
-                Mascota m1 = new Mascota(nomMasc,DiriA,raza,fechaNac,"",dueñoM);
+                    System.out.print("\nIngrese dueño de mascota: ");
+                    String nomDueño = sc.nextLine();
+                    dueñoEncontrado = new DueñoMascota(nomDueño);
+                    for(int i=0;i<AdminDueños.arrDueño.size();i++){
+                        if(AdminDueños.arrDueño.get(i).equalsDos(dueñoEncontrado)){
+                            dueñoEncontrado = AdminDueños.arrDueño.get(i);
+                            i=AdminDueños.arrDueño.size();
+                            found = true;
+                        }
+                    }
+                    x++;
+                }while(found == false);
+                                
+                Mascota m1 = new Mascota(nomMasc,DiriA,raza,fechaNac,"", dueñoEncontrado);
                 
                 System.out.println("\nGenerando código para "+nomMasc+" ... ");
+                        
                 m1.generarCodMascota();
                 
                 // mascota añadida a la lista
@@ -105,6 +107,27 @@ public class AdminMascotas {
              break;
                 
             case 2:
+                
+                boolean foundDos = false;
+                int y=0;
+                do{
+                    if(y>0){
+                        System.out.println("--- Mascota no encontrada ---");
+                    }
+                    System.out.print("\nIngrese id de la mascota a eliminar: ");
+                    String codigo = sc.nextLine();
+                    Mascota buscarMascota = new Mascota(codigo);
+                    for(int i=0;i<arrMascotas.size();i++){
+                        if(arrMascotas.get(i).equals(buscarMascota)){
+                            arrMascotas.remove(i);
+                            foundDos = true;
+                            i = arrMascotas.size();
+                        }
+                    }
+                    y++;
+                }while(foundDos == false);
+                
+                /*
                 System.out.print("\nIngrese id de la mascota a eliminar: ");
                 String codigo = sc.nextLine();
                 Mascota buscarMascota = new Mascota(codigo);
@@ -112,8 +135,9 @@ public class AdminMascotas {
                     if(arrMascotas.get(i).equals(buscarMascota)){
                         arrMascotas.remove(i);
                     }
-                }
-                System.out.println("\nMascota con id: "+codigo+" eliminada con éxito!");
+                }*/
+                
+                System.out.println("\nMascota eliminada con éxito!");
                 
                 System.out.println("\n1.Regresar al menú mascota \n2.Regresar al menú principal ");
                 System.out.print("Elige una opción: ");

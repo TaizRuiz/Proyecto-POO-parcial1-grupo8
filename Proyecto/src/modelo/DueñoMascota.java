@@ -119,6 +119,23 @@ public class DueñoMascota extends Persona {
         return true;
     }   
     
+    public boolean equalsDos(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final DueñoMascota other = (DueñoMascota) obj;
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        return true;
+    }   
+    
     
     public static DueñoMascota busquedaDueño(String nombreDueño){
 
