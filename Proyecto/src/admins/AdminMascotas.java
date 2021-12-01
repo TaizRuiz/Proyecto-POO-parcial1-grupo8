@@ -80,7 +80,7 @@ public class AdminMascotas {
                 }*/
 
                 
-                Mascota m1 = new Mascota(nomMasc,DiriA,raza,fechaNac,dueñoM);
+                Mascota m1 = new Mascota(nomMasc,DiriA,raza,fechaNac,"",dueñoM);
                 
                 System.out.println("\nGenerando código para "+nomMasc+" ... ");
                 m1.generarCodMascota();

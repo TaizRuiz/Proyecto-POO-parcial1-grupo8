@@ -11,6 +11,7 @@ public class Mascota {
     private TipoEspecie mascota;
     private String raza;
     private LocalDate fechaNacimiento;
+    private String foto;
     private Persona dueño;
     private String CodMascota;
 
@@ -23,11 +24,12 @@ public class Mascota {
         CodMascota=c;
     }
 
-    public Mascota(String n, TipoEspecie m, String r, LocalDate fn, DueñoMascota d){
+    public Mascota(String n, TipoEspecie m, String r, LocalDate fn, String pic, DueñoMascota d){
         nombre=n;
         mascota=m;
         raza=r;
         fechaNacimiento=fn;
+        foto = pic;
         dueño=d;
     }
 
@@ -74,6 +76,14 @@ public class Mascota {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public String getFoto(){
+        return foto;
+    }
+    
+    public void setFoto(String f){
+        foto = f;
+    }
+    
     public Persona getDueño() {
         return dueño;
     }
