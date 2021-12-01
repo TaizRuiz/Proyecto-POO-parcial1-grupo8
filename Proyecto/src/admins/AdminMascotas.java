@@ -60,12 +60,14 @@ public class AdminMascotas {
                 String fechaStr = sc.nextLine();
                 LocalDate fechaNac = LocalDate.parse(fechaStr);
                 
+                /*
                 boolean dueñoEncontrado=false;
                 Persona dueñoM=null;
                
                 while(dueñoEncontrado==false){
 
                     System.out.print("Ingrese el dueño de la mascota: ");
+                    
                     String dueñoNombre = sc.nextLine();
                     dueñoM = new DueñoMascota(dueñoNombre);
                 for (DueñoMascota d: AdminDueños.arrDueño){
@@ -75,7 +77,7 @@ public class AdminMascotas {
                         dueñoM=du;
                     }
                 }
-                }
+                }*/
 
                 
                 Mascota m1 = new Mascota(nomMasc,DiriA,raza,fechaNac,dueñoM);
