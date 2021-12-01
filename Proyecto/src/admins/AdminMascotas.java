@@ -60,11 +60,25 @@ public class AdminMascotas {
                 String fechaStr = sc.nextLine();
                 LocalDate fechaNac = LocalDate.parse(fechaStr);
                 
-                System.out.print("Ingrese el dueño de la mascota: ");
-                String dueño = sc.nextLine();
-                DueñoMascota dño = DueñoMascota.busquedaDueño(dueño);
+                boolean dueñoEncontrado=false;
+                Persona dueñoM=null;
+               
+                while(dueñoEncontrado==false){
+
+                    System.out.print("Ingrese el dueño de la mascota: ");
+                    String dueñoNombre = sc.nextLine();
+                    dueñoM = new DueñoMascota(dueñoNombre);
+                for (DueñoMascota d: AdminDueños.arrDueño){
+                    Persona du= (Persona) d;
+                    if (dueñoM.equals(du)){
+                        dueñoEncontrado=true;
+                        dueñoM=du;
+                    }
+                }
+                }
+
                 
-                Mascota m1 = new Mascota(nomMasc,DiriA,raza,fechaNac,dño);
+                Mascota m1 = new Mascota(nomMasc,DiriA,raza,fechaNac,dueñoM);
                 
                 System.out.println("\nGenerando código para "+nomMasc+" ... ");
                 m1.generarCodMascota();

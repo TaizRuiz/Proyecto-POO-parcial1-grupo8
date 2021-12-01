@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.Objects;
 
-public abstract class Persona {
+public class Persona {
 
     public String nombre;
     public String direccion;

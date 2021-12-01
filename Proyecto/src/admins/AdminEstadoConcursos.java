@@ -35,12 +35,22 @@ public class AdminEstadoConcursos {
                     }
                 }
 
+                Concurso concursoCerrar = null;
+                String cod=null;
+                int x=0;
+                do{
+                    if(x>0){
+                        System.out.println("---Concurso no encontrado ---");
+                    }
+                    System.out.print("\nIngrese el código del concurso al que quiere cerrar inscripciones: ");
+                    cod= sc.nextLine();
+                    concursoCerrar = new Concurso(cod);
+                    x++;
+                }while(!(AdminConcursos.arrConcursos.contains(concursoCerrar)));
 
-                System.out.print("\nEscribe el código del concurso al que se cerraran las inscripciones: ");
-                String codigoConcurso= sc.nextLine();
-                Concurso concursoCerrarInscripciones=Concurso.busquedaConcurso(codigoConcurso);
-                concursoCerrarInscripciones.setAbiertoInscripciones(false);
-                System.out.println("\nSe han cerrado inscripciones del concurso "+concursoCerrarInscripciones.getNombre());
+                concursoCerrar=Concurso.busquedaConcurso(cod);
+                concursoCerrar.setAbiertoInscripciones(false);
+                System.out.println("\nSe han cerrado inscripciones del concurso "+concursoCerrar.getNombre());
 
                 System.out.println("\n1.Regresar al menú estado de concursos \n2.Regresar al menú concurso ");
                 System.out.print("Elige una opción: ");
@@ -65,9 +75,20 @@ public class AdminEstadoConcursos {
                     }
                 }
 
-                System.out.print("\nEscribe el codigo del concurso que desea finalizar: ");
-                String codigoConcurso= sc.nextLine();
-                Concurso concursoFinalizar=Concurso.busquedaConcurso(codigoConcurso);
+                Concurso concursoFinalizar = null;
+                String cod=null;
+                int x=0;
+                do{
+                    if(x>0){
+                        System.out.println("---Concurso no encontrado ---");
+                    }
+                    System.out.print("\nIngrese el código del concurso que quiere finalizar : ");
+                    cod= sc.nextLine();
+                    concursoFinalizar = new Concurso(cod);
+                    x++;
+                }while(!(AdminConcursos.arrConcursos.contains(concursoFinalizar)));
+
+                concursoFinalizar=Concurso.busquedaConcurso(cod);
                 concursoFinalizar.setAbiertoInscripciones(false);
                 concursoFinalizar.setConcursoEnCurso(false);
                 System.out.println("\nConcurso "+concursoFinalizar.getNombre()+" finalizado");

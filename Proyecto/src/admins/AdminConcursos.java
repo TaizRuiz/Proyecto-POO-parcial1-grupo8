@@ -173,9 +173,20 @@ public class AdminConcursos {
              }
              }
 
-             System.out.print("\nIngrese el código del concurso al que quiere inscribir un participante: ");
-             String codigoConcurso= sc.nextLine();
-             Concurso concursoInscribir=Concurso.busquedaConcurso(codigoConcurso);
+             Concurso concursoInscribir = null;
+             String cod=null;
+                int y=0;
+                do{
+                    if(y>0){
+                        System.out.println("---Concurso no encontrado ---");
+                    }
+                    System.out.print("\nIngrese el código del concurso al que quiere inscribir un participante: ");
+                    cod= sc.nextLine();
+                    concursoInscribir = new Concurso(cod);
+                    y++;
+                }while(!(arrConcursos.contains(concursoInscribir)));
+
+                concursoInscribir=Concurso.busquedaConcurso(cod);
 
              System.out.println("\nLista de mascotas inscritas: ");
 
@@ -189,13 +200,24 @@ public class AdminConcursos {
              }
             }
 
-             System.out.println("\nIngrese el código del participante que será inscrito en el concurso "+concursoInscribir.getNombre()+": ");
-             String codMascota= sc.nextLine();
-             Mascota mascotaRegistrar=Mascota.busquedMascota(codMascota);
+             Mascota mascotaInscribir = null;
+             String codM=null;
+                int z=0;
+                do{
+                    if(z>0){
+                        System.out.println("---Mascota no encontrada ---");
+                    }
+                    System.out.print("\nIngrese el código de la mascota que quiere inscribir: ");
+                    codM= sc.nextLine();
+                    mascotaInscribir = new Mascota(codM);
+                    z++;
+                }while(!(AdminMascotas.arrMascotas.contains(mascotaInscribir)));
 
-             concursoInscribir.getParticipantes().add(mascotaRegistrar);
+                mascotaInscribir=Mascota.busquedMascota(codM);
 
-             System.out.println("\n¡¡¡Se ha registrado a "+mascotaRegistrar.getNombre()+" en el concurso "+concursoInscribir.getNombre()+"!!!");
+             concursoInscribir.getParticipantes().add(mascotaInscribir);
+
+             System.out.println("\n¡¡¡Se ha registrado a "+mascotaInscribir.getNombre()+" en el concurso "+concursoInscribir.getNombre()+"!!!");
              
              System.out.println("\n1.Regresar al menú concurso \n2.Regresar al menú principal ");
              System.out.print("Elige una opción: ");

@@ -63,19 +63,7 @@ public class Ganador {
     
     public static void generarGanadores(Concurso concursoFinalizar){
         
-        /*
-        ArrayList<Integer> indGanadores=new ArrayList<Integer>();
-
-        int x=0;
-        while(x<3){
-            Random rand=new Random();
-            int indAleatorio= rand.nextInt(concursoFinalizar.getParticipantes().size()-1);
-            if(!(indGanadores.contains(indAleatorio))){
-                indGanadores.add(indAleatorio);
-                x++;
-            }
-        }
-        */
+        
         int i=0;
         while(i<3){
             Mascota mascotaGanadora=concursoFinalizar.getParticipantes().get(i);
