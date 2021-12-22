@@ -1,10 +1,9 @@
-package com.grupo8p04.proyectofxml;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package com.grupo8p04.proyectofxml;
 
 import java.io.IOException;
 import java.net.URL;
@@ -12,20 +11,18 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 
 /**
  * FXML Controller class
  *
  * @author Guillermo José
  */
-public class MenúPrincipalController implements Initializable {
+public class CrearConcursoController implements Initializable  {
+    
 
     @FXML
-    private Button adminConc;
-    @FXML
-    private Button adminDueños;
-    @FXML
-    private Button adminMascotas;
+    private Button cancelarCreacionC;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -33,18 +30,8 @@ public class MenúPrincipalController implements Initializable {
     } 
 
     @FXML
-    private void cambiarAdminConcurso() throws IOException {
+    private void cancelarCrearC() throws IOException {
         App.setRoot("AdminConcurso");
-    }
-    
-    @FXML
-    private void cambiarAdminDueños() throws IOException {
-        App.setRoot("AdminDueños");
-    }
-    
-    @FXML
-    private void cambiarAdminMascotas() throws IOException {
-        App.setRoot("AdminMascotas");
-    }
+    }  
     
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -8,19 +9,23 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.grupo8p04.proyectofxml.AdminConcursoController">
    <bottom>
-      <HBox prefHeight="51.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="51.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Crear Concurso" translateX="190.0" translateY="15.0" />
-            <Button mnemonicParsing="false" text="Enviar Invitaciones" translateX="210.0" translateY="15.0" />
+            <Button fx:id="crearConc" mnemonicParsing="false" onAction="#crearConcurso" text="Crear Concurso" />
+            <Button mnemonicParsing="false" text="Enviar Invitaciones">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin></Button>
+            <Button fx:id="regresarAdminC" mnemonicParsing="false" onAction="#regresarMenuAdminConcurso" text="Regresar" />
          </children>
       </HBox>
    </bottom>
    <top>
-      <HBox prefHeight="60.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Administrar Concursos" translateX="160.0">
+            <Label text="Administrar Concursos">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font></Label>
@@ -28,11 +33,17 @@
       </HBox>
    </top>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView editable="true" maxWidth="-Infinity" prefHeight="289.0" prefWidth="563.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn prefWidth="75.0" text="Código" />
+          <TableColumn prefWidth="127.0" text="Nombre" />
+            <TableColumn prefWidth="56.0" text="Fecha" />
+            <TableColumn minWidth="8.0" prefWidth="136.0" text="Ciudad" />
+            <TableColumn prefWidth="102.0" text="Opciones" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
    </center>
 </BorderPane>
