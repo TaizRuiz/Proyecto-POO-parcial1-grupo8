@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.ejemplofx;
+package com.grupo8p04.proyectofxml;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author Guillermo José
  */
-public class AdministrarMascotasController implements Initializable {
+public class AdminMascotasController implements Initializable {
 
     /**
      * Initializes the controller class.

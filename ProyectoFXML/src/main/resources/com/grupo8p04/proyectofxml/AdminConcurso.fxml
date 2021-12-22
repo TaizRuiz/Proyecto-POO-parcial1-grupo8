@@ -20,11 +20,10 @@
    <top>
       <HBox prefHeight="60.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Administrar Concursos" translateX="175.0" translateY="15.0">
+            <Label text="Administrar Concursos" translateX="160.0">
                <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
+                  <Font name="System Bold" size="25.0" />
+               </font></Label>
          </children>
       </HBox>
    </top>
