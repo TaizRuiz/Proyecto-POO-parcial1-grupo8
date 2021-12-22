@@ -28,4 +28,14 @@ public class MenúPrincipalController{
         App.setRoot("AdministrarConcursos");
     }
     
+    @FXML
+    private void cambiarAdminDueños() throws IOException {
+        App.setRoot("AdministrarDueños");
+    }
+    
+    @FXML
+    private void cambiarAdminMascotas() throws IOException {
+        App.setRoot("AdministrarMascotas");
+    }
+    
 }
