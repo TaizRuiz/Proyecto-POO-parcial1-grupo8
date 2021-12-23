@@ -12,6 +12,8 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
@@ -24,6 +26,18 @@ public class AdminConcursoController implements Initializable  {
     private Button crearConc;
     @FXML
     private Button regresarAdminC;
+    @FXML
+    private TableView tablaConcursos;
+    @FXML
+    private TableColumn<?, ?> codConc;
+    @FXML
+    private TableColumn<?, ?> nombreConc;
+    @FXML
+    private TableColumn<?, ?> fechaConc;
+    @FXML
+    private TableColumn<?, ?> ciudadConc;
+    @FXML
+    private TableColumn<?, ?> opcionesConc;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
