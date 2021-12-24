@@ -5,8 +5,10 @@
  */
 package com.grupo8p04.proyectofxml;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -22,6 +24,11 @@ public class CrearMascotaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }   
+    
+    @FXML
+    private void cancelarCrearM() throws IOException {
+        App.setRoot("AdminMascotas");
+    }
     
 }

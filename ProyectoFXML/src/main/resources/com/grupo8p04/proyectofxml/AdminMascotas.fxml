@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.grupo8p04.proyectofxml.AdminMascotasController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.grupo8p04.proyectofxml.AdminMascotasController">
    <children>
       <TableView layoutY="59.0" prefHeight="267.0" prefWidth="600.0">
         <columns>
@@ -19,11 +18,12 @@
             <TableColumn prefWidth="195.0" text="Opciones" />
         </columns>
       </TableView>
-      <Button fx:id="btAgrMasc" layoutX="247.0" layoutY="361.0" mnemonicParsing="false" text="Agregar Mascota" />
+      <Button fx:id="btAgrMasc" layoutX="247.0" layoutY="361.0" mnemonicParsing="false" onAction="#menuCrearM" text="Agregar Mascota" translateX="-50.0" />
       <Label layoutX="214.0" layoutY="14.0" text="Administrar Mascotas">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <Button fx:id="botonCancelarM" layoutX="354.0" layoutY="361.0" mnemonicParsing="false" onAction="#regresarMenuPrincipalM" text="Cancelar" />
    </children>
 </AnchorPane>
