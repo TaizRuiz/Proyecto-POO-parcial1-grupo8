@@ -1,11 +1,12 @@
 package modelo.clases;
 
+import java.io.Serializable;
 import java.util.*;
 
 import modelo.admins.AdminAuspiciantes;
 import modelo.enums.Puesto;
 
-public class Premio {
+public class Premio implements Serializable{
     private Puesto puesto;
     private String descripcion;
     private Auspiciante auspiciante;

@@ -4,5 +4,6 @@ module com.grupo8p04.proyectofxml {
     requires java.base;
 
     opens com.grupo8p04.proyectofxml to javafx.fxml;
+    opens modelo.clases;
     exports com.grupo8p04.proyectofxml;
 }

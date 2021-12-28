@@ -1,11 +1,15 @@
 
 package modelo.clases;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.time.LocalDate;
 import modelo.admins.AdminMascotas;
 import modelo.enums.TipoEspecie;
 
-public class Mascota {
+public class Mascota implements Serializable {
     
     private String nombre;
     private TipoEspecie mascota;
@@ -14,6 +18,7 @@ public class Mascota {
     private String foto;
     private Persona dueño;
     private String CodMascota;
+    private static final long serialVersionUID = 6666;
 
     
     // constructor
@@ -148,6 +153,23 @@ public class Mascota {
         }
 
         return mascotaRegistrar;
+    }
+    
+    public static void serializarMascotas(){
+          
+        try{
+            FileOutputStream fout= new FileOutputStream("archivos/mascotas.ser");
+            ObjectOutputStream out=new ObjectOutputStream(fout);
+            out.writeObject(AdminMascotas.arrMascotas);
+            out.flush();
+            
+        }
+        
+        catch (IOException e){
+            System.out.println(e);
+        }
+
+    
     }
     
 }

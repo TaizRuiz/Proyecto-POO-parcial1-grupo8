@@ -1,14 +1,19 @@
 
 package modelo.clases;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import modelo.admins.AdminCiudades;
 
 
-public class Ciudad {
+public class Ciudad implements Serializable{
 
     private String nombre;
     private String provincia;
     private String codCiudad;
+    private static final long serialVersionUID = 2222;
 
     
     // constructor
@@ -98,6 +103,27 @@ public class Ciudad {
         }
 
         codCiudad=codCiudad.toUpperCase();;
+    }
+    
+    public String toString(){
+        return nombre;
+    }
+    
+    public static void serializarCiudad(){
+          
+        try{
+            FileOutputStream fout= new FileOutputStream("archivos/ciudades.ser");
+            ObjectOutputStream out=new ObjectOutputStream(fout);
+            out.writeObject(AdminCiudades.arrCiudades);
+            out.flush();
+            
+        }
+        
+        catch (IOException e){
+            System.out.println(e);
+        }
+
+    
     }
     
 }

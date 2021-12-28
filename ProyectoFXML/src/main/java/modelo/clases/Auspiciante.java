@@ -1,12 +1,17 @@
 
 package modelo.clases;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import modelo.admins.AdminAuspiciantes;
 
-public class Auspiciante extends Persona{
+public class Auspiciante extends Persona implements Serializable{
 
     private String webpage;
     private String codAuspiciante;
+    private static final long serialVersionUID = 3333;
     
     
     // constructores
@@ -114,6 +119,23 @@ public class Auspiciante extends Persona{
     @Override
     public String toString(){
         return "nombre: "+nombre+" código: "+codAuspiciante;
+    }
+    
+    public static void serializarAuspiciante(){
+          
+        try{
+            FileOutputStream fout= new FileOutputStream("archivos/auspiciantes.ser");
+            ObjectOutputStream out=new ObjectOutputStream(fout);
+            out.writeObject(AdminAuspiciantes.arrAuspiciantes);
+            out.flush();
+            
+        }
+        
+        catch (IOException e){
+            System.out.println(e);
+        }
+
+    
     }
     
 }

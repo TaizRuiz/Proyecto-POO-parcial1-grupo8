@@ -7,20 +7,20 @@ package com.grupo8p04.proyectofxml;
  */
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import modelo.clases.Concurso;
+
 
 /**
  * FXML Controller class
  *
  * @author Guillermo José
  */
-public class AdminConcursoController implements Initializable  {
+public class AdminConcursoController {
 
     @FXML
     private Button crearConc;
@@ -29,19 +29,22 @@ public class AdminConcursoController implements Initializable  {
     @FXML
     private TableView tablaConcursos;
     @FXML
-    private TableColumn<?, ?> codConc;
+    private TableColumn<Concurso,String> codConc;
     @FXML
-    private TableColumn<?, ?> nombreConc;
+    private TableColumn<Concurso,String> nombreConc;
     @FXML
-    private TableColumn<?, ?> fechaConc;
+    private TableColumn<Concurso,String> fechaConc;
     @FXML
-    private TableColumn<?, ?> ciudadConc;
-    @FXML
-    private TableColumn<?, ?> opcionesConc;
+    private TableColumn<Concurso, String> ciudadConc;
     
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    
+    public void initialize() {
+        codConc.setCellValueFactory(new PropertyValueFactory<>("CodConcurso"));
+        nombreConc.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        fechaConc.setCellValueFactory(new PropertyValueFactory<>("fechaEvento"));
+        ciudadConc.setCellValueFactory(new PropertyValueFactory<>("ciudad"));
+        
+        tablaConcursos.getItems().setAll(Concurso.lecturaConcurso());
     } 
 
     @FXML

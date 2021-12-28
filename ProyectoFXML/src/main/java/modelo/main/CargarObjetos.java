@@ -9,6 +9,8 @@ import modelo.enums.*;
 public class CargarObjetos {
 
     public static void cargarObjetos(){
+        
+     System.out.println("Esto se ejecutó");
 
      //Creación de dueños de mascotas
      DueñoMascota dueño1= new DueñoMascota("1208021989","Arévalo","Guillermo","Centro",999111888,"Guayaquil","guillermo@gmail.com");

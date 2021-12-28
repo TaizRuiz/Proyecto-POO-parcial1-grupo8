@@ -17,16 +17,11 @@ import javafx.scene.control.Button;
  *
  * @author Guillermo José
  */
-public class CrearConcursoController implements Initializable  {
+public class CrearConcursoController {
     
 
     @FXML
     private Button cancelarCreacionC;
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    } 
 
     @FXML
     private void cancelarCrearC() throws IOException {

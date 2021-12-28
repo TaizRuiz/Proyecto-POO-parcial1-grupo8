@@ -1,6 +1,7 @@
 
 package modelo.clases;
 
+import java.io.*;
 import java.time.*;
 import java.util.ArrayList;
 import modelo.admins.AdminConcursos;
@@ -8,7 +9,7 @@ import modelo.admins.AdminConcursos;
 import modelo.enums.TiposAnimal;
 
 
-public class Concurso {
+public class Concurso implements Serializable {
     private String nombre;
     private LocalDate fechaEvento;
     private LocalTime horaEvento;
@@ -24,6 +25,8 @@ public class Concurso {
     private boolean abiertoInscripciones;
     private boolean concursoEnCurso;
     private ArrayList<Ganador> arrGanadores;
+    private static final long serialVersionUID = 1111;
+    
     
     
     // constructores
@@ -231,8 +234,50 @@ public class Concurso {
     }
     
 
+    
     @Override
     public String toString(){
         return "nombre: "+nombre+" lugar: "+lugar+" "+fechaEvento+" "+horaEvento;
     }
+    
+    
+    public static void serializarConcurso(){
+          
+        try{
+            FileOutputStream fout= new FileOutputStream("archivos/concursos.ser");
+            ObjectOutputStream out=new ObjectOutputStream(fout);
+            out.writeObject(AdminConcursos.arrConcursos);
+            out.flush();
+            
+        }
+        
+        catch (IOException e){
+            System.out.println(e);
+        }
+
+    
+    }
+    
+    public static ArrayList<Concurso> lecturaConcurso(){
+        
+       ArrayList<Concurso> arrConcursos=null;
+        
+        try{
+            ObjectInputStream in= new ObjectInputStream(new FileInputStream("archivos/concursos.ser"));
+            arrConcursos=(ArrayList<Concurso>) in.readObject();
+            in.close();
+            
+        }
+        
+	catch (FileNotFoundException e){
+            System.out.println(e);
+        }
+
+        catch (IOException | ClassNotFoundException e){
+            System.out.println(e);
+        }
+
+        return arrConcursos;
+    }
+    
 }

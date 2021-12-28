@@ -1,12 +1,14 @@
 package modelo.clases;
 
+import java.io.Serializable;
 import modelo.enums.Puesto;
 
-public class Ganador {
+public class Ganador implements Serializable{
     
     private String nombreGanador;
     private Premio premioGanador;
     private Puesto puestoGanador;
+    private static final long serialVersionUID = 5555;
 
     
     // constructor

@@ -1,14 +1,23 @@
 
 package modelo.clases;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 import modelo.admins.AdminDueños;
 
 
-public class DueñoMascota extends Persona {
+public class DueñoMascota extends Persona implements Serializable{
     
     private String cedulaIdentidad;
     private String apellido;
+    private static final long serialVersionUID = 4444;
     
     
     // constructor
@@ -150,6 +159,45 @@ public class DueñoMascota extends Persona {
         }
 
         return dueñoEncontrado;
+    }
+    
+    public static void serializarDueños(){
+          
+        try{
+            FileOutputStream fout= new FileOutputStream("archivos/dueños.ser");
+            ObjectOutputStream out=new ObjectOutputStream(fout);
+            out.writeObject(AdminDueños.arrDueño);
+            out.flush();
+            
+        }
+        
+        catch (IOException e){
+            System.out.println(e);
+        }
+
+    
+    }
+    
+    public static ArrayList<DueñoMascota> lecturaDueños(){
+        
+       ArrayList<DueñoMascota> arrDueños=null;
+        
+        try{
+            ObjectInputStream in= new ObjectInputStream(new FileInputStream("archivos/dueños.ser"));
+            arrDueños=(ArrayList<DueñoMascota>) in.readObject();
+            in.close();
+            
+        }
+        
+	catch (FileNotFoundException e){
+            System.out.println(e);
+        }
+
+        catch (IOException | ClassNotFoundException e){
+            System.out.println(e);
+        }
+
+        return arrDueños;
     }
 
 }

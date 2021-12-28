@@ -10,21 +10,18 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
  *
  * @author hp
  */
-public class CrearMascotaController implements Initializable {
+public class CrearMascotaController {
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }   
+    @FXML
+    private Button botonCancelarM;
+
     
     @FXML
     private void cancelarCrearM() throws IOException {

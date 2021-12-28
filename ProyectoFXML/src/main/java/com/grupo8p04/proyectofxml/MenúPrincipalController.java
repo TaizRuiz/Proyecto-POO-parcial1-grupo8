@@ -7,10 +7,7 @@ package com.grupo8p04.proyectofxml;
  */
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
 /**
@@ -18,7 +15,7 @@ import javafx.scene.control.Button;
  *
  * @author Guillermo José
  */
-public class MenúPrincipalController implements Initializable {
+public class MenúPrincipalController {
 
     @FXML
     private Button adminConc;
@@ -27,11 +24,13 @@ public class MenúPrincipalController implements Initializable {
     @FXML
     private Button adminMascotas;
     
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    } 
-
+    @FXML
+    private void initialize(){
+        modelo.main.CargarObjetos.cargarObjetos();
+        
+    }
+    
+    
     @FXML
     private void cambiarAdminConcurso() throws IOException {
         App.setRoot("AdminConcurso");
