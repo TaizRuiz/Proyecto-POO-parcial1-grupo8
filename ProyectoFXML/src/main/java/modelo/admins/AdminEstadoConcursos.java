@@ -1,8 +1,8 @@
-package admins;
+package modelo.admins;
 
-import clases.Concurso;
-import clases.Ganador;
 import java.util.*;
+import modelo.clases.Concurso;
+import modelo.clases.Ganador;
 
 
 public class AdminEstadoConcursos {

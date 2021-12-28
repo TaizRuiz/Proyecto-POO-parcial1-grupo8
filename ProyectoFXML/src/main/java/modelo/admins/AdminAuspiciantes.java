@@ -1,8 +1,8 @@
-package admins;
+package modelo.admins;
 
-import clases.Auspiciante;
 import java.util.*;
-import main.*;
+import modelo.clases.Auspiciante;
+import modelo.main.NewMain;
 
 public class AdminAuspiciantes {
       

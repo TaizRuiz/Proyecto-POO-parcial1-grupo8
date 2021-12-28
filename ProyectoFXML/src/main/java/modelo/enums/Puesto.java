@@ -1,5 +1,5 @@
 
-package enums;
+package modelo.enums;
 
 public enum Puesto {
     Primer, 

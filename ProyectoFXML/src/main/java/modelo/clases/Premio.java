@@ -1,9 +1,9 @@
-package clases;
+package modelo.clases;
 
 import java.util.*;
 
-import admins.AdminAuspiciantes;
-import enums.Puesto;
+import modelo.admins.AdminAuspiciantes;
+import modelo.enums.Puesto;
 
 public class Premio {
     private Puesto puesto;

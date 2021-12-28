@@ -1,11 +1,11 @@
-package admins;
+package modelo.admins;
 
-import clases.Mascota;
-import clases.DueñoMascota;
 import java.time.LocalDate;
 import java.util.*;
-import enums.*;
-import main.NewMain;
+import modelo.clases.DueñoMascota;
+import modelo.clases.Mascota;
+import modelo.enums.TipoEspecie;
+import modelo.main.NewMain;
 
 public class AdminMascotas {
 

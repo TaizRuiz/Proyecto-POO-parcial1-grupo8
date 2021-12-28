@@ -1,15 +1,11 @@
 
-package admins;
+package modelo.admins;
 
-import clases.Concurso;
-import clases.Premio;
-import clases.Mascota;
-import clases.Auspiciante;
-import clases.Ciudad;
 import java.time.*;
 import java.util.*;
-import main.*;
-import enums.*;
+import modelo.clases.*;
+import modelo.enums.TiposAnimal;
+import modelo.main.NewMain;
 
 public class AdminConcursos {
     

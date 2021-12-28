@@ -1,16 +1,10 @@
-package main;
+package modelo.main;
 
-import clases.Auspiciante;
-import clases.Mascota;
-import clases.Ganador;
-import clases.Premio;
-import clases.Concurso;
-import clases.DueñoMascota;
-import clases.Ciudad;
 import java.time.*;
 import java.util.*;
-import admins.*;
-import enums.*;
+import modelo.admins.*;
+import modelo.clases.*;
+import modelo.enums.*;
 
 public class CargarObjetos {
 

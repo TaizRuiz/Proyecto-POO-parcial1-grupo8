@@ -1,7 +1,7 @@
 
-package clases;
+package modelo.clases;
 
-import admins.AdminCiudades;
+import modelo.admins.AdminCiudades;
 
 
 public class Ciudad {
@@ -76,7 +76,7 @@ public class Ciudad {
 
         if (AdminCiudades.arrCiudades.contains(ciudadBusqueda)){
             int indCiudad=AdminCiudades.arrCiudades.indexOf(ciudadBusqueda);
-            ciudadEncontrada= AdminCiudades.arrCiudades.get(indCiudad);
+            ciudadEncontrada= (Ciudad) AdminCiudades.arrCiudades.get(indCiudad);
         }
 
         return ciudadEncontrada;

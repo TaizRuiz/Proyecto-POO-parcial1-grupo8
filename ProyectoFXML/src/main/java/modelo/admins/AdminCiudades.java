@@ -1,9 +1,9 @@
-package admins;
+package modelo.admins;
 
 
 import java.util.*;
-import main.NewMain;
-import clases.Ciudad;
+import modelo.clases.Ciudad;
+import modelo.main.NewMain;
 
 public class AdminCiudades {
 

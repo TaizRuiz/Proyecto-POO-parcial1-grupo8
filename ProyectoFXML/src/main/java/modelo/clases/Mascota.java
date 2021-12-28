@@ -1,9 +1,9 @@
 
-package clases;
+package modelo.clases;
 
-import enums.TipoEspecie;
 import java.time.LocalDate;
-import admins.*;
+import modelo.admins.AdminMascotas;
+import modelo.enums.TipoEspecie;
 
 public class Mascota {
     
@@ -144,7 +144,7 @@ public class Mascota {
 
         if (AdminMascotas.arrMascotas.contains(busquedaMascota)){
             int ind=AdminMascotas.arrMascotas.indexOf(busquedaMascota);
-            mascotaRegistrar= AdminMascotas.arrMascotas.get(ind);
+            mascotaRegistrar= (Mascota) AdminMascotas.arrMascotas.get(ind);
         }
 
         return mascotaRegistrar;

@@ -1,8 +1,8 @@
 
-package clases;
+package modelo.clases;
 
-import admins.AdminDueños;
 import java.util.Objects;
+import modelo.admins.AdminDueños;
 
 
 public class DueñoMascota extends Persona {
@@ -144,7 +144,7 @@ public class DueñoMascota extends Persona {
 
         if (AdminDueños.arrDueño.contains(dueñoBusqueda)){
             int indDueño = AdminDueños.arrDueño.indexOf(dueñoBusqueda);
-            dueñoEncontrado = AdminDueños.arrDueño.get(indDueño);
+            dueñoEncontrado = (DueñoMascota) AdminDueños.arrDueño.get(indDueño);
         }else{
             System.out.println("Dueño no registrado");
         }

@@ -1,11 +1,11 @@
 
-package clases;
+package modelo.clases;
 
-import enums.TiposAnimal;
 import java.time.*;
 import java.util.ArrayList;
+import modelo.admins.AdminConcursos;
 
-import admins.AdminConcursos;
+import modelo.enums.TiposAnimal;
 
 
 public class Concurso {
@@ -224,7 +224,7 @@ public class Concurso {
 
         if (AdminConcursos.arrConcursos.contains(concursoBusqueda)){
             int indConcurso=AdminConcursos.arrConcursos.indexOf(concursoBusqueda);
-            concursoEncontrado= AdminConcursos.arrConcursos.get(indConcurso);
+            concursoEncontrado= (Concurso) AdminConcursos.arrConcursos.get(indConcurso);
         }
 
         return concursoEncontrado;

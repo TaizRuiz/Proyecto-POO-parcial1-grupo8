@@ -1,6 +1,6 @@
-package clases;
+package modelo.clases;
 
-import enums.Puesto;
+import modelo.enums.Puesto;
 
 public class Ganador {
     

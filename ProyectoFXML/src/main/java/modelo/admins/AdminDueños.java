@@ -1,8 +1,8 @@
-package admins;
+package modelo.admins;
 
-import clases.DueñoMascota;
 import java.util.*;
-import main.*;
+import modelo.clases.DueñoMascota;
+import modelo.main.NewMain;
 
 public class AdminDueños { 
     

@@ -1,7 +1,7 @@
 
-package clases;
+package modelo.clases;
 
-import admins.AdminAuspiciantes;
+import modelo.admins.AdminAuspiciantes;
 
 public class Auspiciante extends Persona{
 
@@ -104,7 +104,7 @@ public class Auspiciante extends Persona{
 
         if (AdminAuspiciantes.arrAuspiciantes.contains(auspicianteBusqueda)){
             int indAuspiciante=AdminAuspiciantes.arrAuspiciantes.indexOf(auspicianteBusqueda);
-            auspicianteEncontrado= AdminAuspiciantes.arrAuspiciantes.get(indAuspiciante);
+            auspicianteEncontrado= (Auspiciante) AdminAuspiciantes.arrAuspiciantes.get(indAuspiciante);
         }
 
         return auspicianteEncontrado;

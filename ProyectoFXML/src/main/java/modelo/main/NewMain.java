@@ -1,9 +1,9 @@
-package main;
+package modelo.main;
 
-import clases.Auspiciante;
-import clases.Ciudad;
 import java.util.*;
-import admins.*;
+import modelo.admins.*;
+import modelo.clases.Auspiciante;
+import modelo.clases.Ciudad;
 
 public class NewMain {
 
