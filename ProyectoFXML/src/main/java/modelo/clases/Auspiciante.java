@@ -25,7 +25,7 @@ public class Auspiciante extends Persona implements Serializable{
     }
     
 
-    public Auspiciante(String n,String d,double t, String c,String e,String w){
+    public Auspiciante(String n,String d,String t, String c,String e,String w){
         super(n,d,t,c,e);
         webpage=w;
         
@@ -52,7 +52,7 @@ public class Auspiciante extends Persona implements Serializable{
     }
 
     @Override
-    public double getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
@@ -85,7 +85,7 @@ public class Auspiciante extends Persona implements Serializable{
     }
 
     @Override
-    public void setTelefono(double telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

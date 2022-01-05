@@ -33,7 +33,7 @@
       </HBox>
    </top>
    <center>
-      <TableView fx:id="tablaConcursos" editable="true" maxWidth="-Infinity" prefHeight="289.0" prefWidth="563.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tablaConcursos" editable="true" maxWidth="-Infinity" prefHeight="241.0" prefWidth="554.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="codConc" prefWidth="75.0" text="Código" />
           <TableColumn fx:id="nombreConc" prefWidth="127.0" text="Nombre" />

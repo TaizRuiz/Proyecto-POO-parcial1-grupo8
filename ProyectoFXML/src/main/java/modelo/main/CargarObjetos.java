@@ -13,16 +13,16 @@ public class CargarObjetos {
      System.out.println("Esto se ejecutó");
 
      //Creación de dueños de mascotas
-     DueñoMascota dueño1= new DueñoMascota("1208021989","Arévalo","Guillermo","Centro",999111888,"Guayaquil","guillermo@gmail.com");
-     DueñoMascota dueño2= new DueñoMascota("1234567890","Crespo","Nathaly","Norte",999666888,"Guayaquil","nathaly@gmail.com");
-     DueñoMascota dueño3= new DueñoMascota("1204571989","Rodriguez","Santiago","Sur",999111999,"Guayaquil","santiago@gmail.com");
-     DueñoMascota dueño4= new DueñoMascota("1208234689","Saltos","José","Centro",99913588,"Guayaquil","jose@gmail.com");
-     DueñoMascota dueño5= new DueñoMascota("1203457889","Villacres","Pamela","Norte",945671888,"Guayaquil","pamela@gmail.com");
-     DueñoMascota dueño6= new DueñoMascota("1202357989","Zambrano","Josué","Sur",999395598,"Guayaquil","josue@gmail.com");
-     DueñoMascota dueño7= new DueñoMascota("1446521989","Delgado","Rosa","Centro",946511888,"Guayaquil","rosa@gmail.com");
-     DueñoMascota dueño8= new DueñoMascota("1208056489","Altamirano","Martha","Centro",934545388,"Guayaquil","martha@gmail.com");
-     DueñoMascota dueño9= new DueñoMascota("1245421989","Villavicencio","Martín","Norte",99910008,"Guayaquil","martin@gmail.com");
-     DueñoMascota dueño10= new DueñoMascota("1208065589","Orozco","Olivia","Sur",90294588,"Guayaquil","olivia@gmail.com");
+     DueñoMascota dueño1= new DueñoMascota("1208021989","Arévalo","Guillermo","Centro","999111888","Guayaquil","guillermo@gmail.com");
+     DueñoMascota dueño2= new DueñoMascota("1234567890","Crespo","Nathaly","Norte","999666888","Guayaquil","nathaly@gmail.com");
+     DueñoMascota dueño3= new DueñoMascota("1204571989","Rodriguez","Santiago","Sur","999111999","Guayaquil","santiago@gmail.com");
+     DueñoMascota dueño4= new DueñoMascota("1208234689","Saltos","José","Centro","99913588","Guayaquil","jose@gmail.com");
+     DueñoMascota dueño5= new DueñoMascota("1203457889","Villacres","Pamela","Norte","945671888","Guayaquil","pamela@gmail.com");
+     DueñoMascota dueño6= new DueñoMascota("1202357989","Zambrano","Josué","Sur","999395598","Guayaquil","josue@gmail.com");
+     DueñoMascota dueño7= new DueñoMascota("1446521989","Delgado","Rosa","Centro","946511888","Guayaquil","rosa@gmail.com");
+     DueñoMascota dueño8= new DueñoMascota("1208056489","Altamirano","Martha","Centro","934545388","Guayaquil","martha@gmail.com");
+     DueñoMascota dueño9= new DueñoMascota("1245421989","Villavicencio","Martín","Norte","99910008","Guayaquil","martin@gmail.com");
+     DueñoMascota dueño10= new DueñoMascota("1208065589","Orozco","Olivia","Sur","90294588","Guayaquil","olivia@gmail.com");
      
      AdminDueños.arrDueño.add(dueño1);
      AdminDueños.arrDueño.add(dueño2);
@@ -90,9 +90,9 @@ public class CargarObjetos {
      AdminCiudades.arrCiudades.add(ciudad3);
 
      //Creación de auspiciantes
-     Auspiciante auspiciante1= new Auspiciante("José Morales","Centro",993904665,"Guayaquil","josemor123@hotmail.com","www.josemorales.com");
-     Auspiciante auspiciante2= new Auspiciante("Martha Gutierrez","Norte",991128065,"Guayaquil","marthgurrez@hotmail.com","www.marthagutierrez.com");
-     Auspiciante auspiciante3= new Auspiciante("Héctor Pazmiño","Sur",918534665,"Quito","hectpazmño@hotmail.com","www.hectorpazmiño.com");
+     Auspiciante auspiciante1= new Auspiciante("José Morales","Centro","993904665","Guayaquil","josemor123@hotmail.com","www.josemorales.com");
+     Auspiciante auspiciante2= new Auspiciante("Martha Gutierrez","Norte","991128065","Guayaquil","marthgurrez@hotmail.com","www.marthagutierrez.com");
+     Auspiciante auspiciante3= new Auspiciante("Héctor Pazmiño","Sur","918534665","Quito","hectpazmño@hotmail.com","www.hectorpazmiño.com");
      AdminAuspiciantes.arrAuspiciantes.add(auspiciante1);
      AdminAuspiciantes.arrAuspiciantes.add(auspiciante2);
      AdminAuspiciantes.arrAuspiciantes.add(auspiciante3);

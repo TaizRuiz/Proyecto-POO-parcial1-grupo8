@@ -48,8 +48,7 @@ public class AdminDueños {
                 System.out.print("Ingrese la direccion: ");
                 String direccion= sc.nextLine();
                 System.out.print("Ingrese un numero de telefono: ");
-                double telefono= sc.nextDouble();
-                sc.nextLine();
+                String telefono= sc.nextLine();
                 System.out.print("Ingrese la ciudad: ");
                 String ciudad= sc.nextLine();
                 System.out.print("Ingrese un E-mail: ");
@@ -127,7 +126,7 @@ public class AdminDueños {
                                 break;
                             case 4:
                                 System.out.print("Ingrese un numero de telefono: ");
-                                double telefonoM= sc.nextDouble();
+                                String telefonoM= sc.nextLine();
                                 modificable.setTelefono(telefonoM);
                                 break;
                             case 5:

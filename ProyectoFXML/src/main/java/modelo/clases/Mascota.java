@@ -1,11 +1,15 @@
 
 package modelo.clases;
 
+import com.grupo8p04.proyectofxml.MenúPrincipalController;
+import java.io.BufferedReader;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import modelo.admins.AdminMascotas;
 import modelo.enums.TipoEspecie;
 
@@ -16,7 +20,7 @@ public class Mascota implements Serializable {
     private String raza;
     private LocalDate fechaNacimiento;
     private String foto;
-    private Persona dueño;
+    private DueñoMascota dueño;
     private String CodMascota;
     private static final long serialVersionUID = 6666;
 
@@ -38,12 +42,13 @@ public class Mascota implements Serializable {
         dueño=d;
     }
 
-    public Mascota(String n, TipoEspecie m, String r, LocalDate fn, Persona d){
+    public Mascota(String id,String n, TipoEspecie m, String r, LocalDate fn,DueñoMascota p){
+        CodMascota=id;
         nombre=n;
         mascota=m;
         raza=r;
         fechaNacimiento=fn;
-        dueño=d;
+        dueño=p;
     }
     
     
@@ -172,4 +177,51 @@ public class Mascota implements Serializable {
     
     }
     
+    public static ArrayList<Mascota> lecturaMascotas(){
+        
+       ArrayList<Mascota> arrMascotas=new ArrayList<Mascota>();
+        
+        try(BufferedReader bufferedReader= new BufferedReader(new FileReader ("archivos/mascotas.csv"))){
+            String linea;
+            bufferedReader.readLine();
+            
+            while((linea=bufferedReader.readLine())!=null){
+                String[] info=linea.split(";");
+                
+                TipoEspecie tipo=TipoEspecie.Vacio;
+                if(info[2].equals("perro")){
+                    tipo=TipoEspecie.Perro;
+                }
+                else{
+                    tipo=TipoEspecie.Gato;
+                }
+                
+                LocalDate fecha=LocalDate.parse(info[4]);
+                
+                DueñoMascota dueñom=null;
+                for (DueñoMascota d: MenúPrincipalController.getArrDueños()){
+                    if(info[6].equals(d.getCedulaIdentidad())){
+                        dueñom=d;
+                    }
+                }
+               
+                Mascota mascota= new Mascota(info[0],info[1],tipo,info[3].toUpperCase(),fecha,dueñom);
+                
+                arrMascotas.add(mascota);
+                
+            }
+   
+        }
+        
+
+        catch (IOException e){
+            System.out.println(e);
+        }
+
+        return arrMascotas;
+    }
+    
+    public String toString(){
+        return nombre;
+    }
 }

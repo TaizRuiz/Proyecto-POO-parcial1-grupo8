@@ -44,8 +44,7 @@ public class AdminAuspiciantes {
 
             
             System.out.print("Ingrese el teléfono del auspiciante: ");
-            double telefono= sc.nextDouble();
-            sc.nextLine();
+            String telefono= sc.nextLine();
 
             System.out.print("Ingrese la ciudad del auspiciante: ");
             String ciudad= sc.nextLine();

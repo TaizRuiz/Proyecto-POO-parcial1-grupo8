@@ -7,8 +7,12 @@ package com.grupo8p04.proyectofxml;
  */
 
 import java.io.IOException;
+import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import modelo.clases.Concurso;
+import modelo.clases.DueñoMascota;
+import modelo.clases.Mascota;
 
 /**
  * FXML Controller class
@@ -24,10 +28,15 @@ public class MenúPrincipalController {
     @FXML
     private Button adminMascotas;
     
+    private static ArrayList<Concurso> arrConcursos;
+    private static ArrayList<DueñoMascota> arrDueños;
+    private static ArrayList<Mascota> arrMascotas;
+    
     @FXML
     private void initialize(){
-        modelo.main.CargarObjetos.cargarObjetos();
-        
+        arrConcursos=Concurso.lecturaConcurso();
+        arrDueños=DueñoMascota.lecturaDueños();
+        arrMascotas=Mascota.lecturaMascotas();
     }
     
     
@@ -45,5 +54,21 @@ public class MenúPrincipalController {
     private void cambiarAdminMascotas() throws IOException {
         App.setRoot("AdminMascotas");
     }
+
+    public static ArrayList<Concurso> getArrConcursos() {
+        return arrConcursos;
+    }
+
+    public static ArrayList<DueñoMascota> getArrDueños() {
+        return arrDueños;
+    }
+
+    public static ArrayList<Mascota> getArrMascotas() {
+        return arrMascotas;
+    }
+    
+    
+    
+    
     
 }

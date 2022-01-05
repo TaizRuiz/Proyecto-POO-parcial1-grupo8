@@ -11,7 +11,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.grupo8p04.proyectofxml.AdminDueñosController">
    <center>
-      <TableView fx:id="tablaDueños" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tablaDueños" maxWidth="550.0" prefHeight="257.0" prefWidth="523.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="codDueños" prefWidth="75.0" text="Codigo" />
           <TableColumn fx:id="nombreDueños" prefWidth="75.0" text="Nombres" />
@@ -33,7 +33,7 @@
       </Label>
    </top>
    <bottom>
-      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="84.0" prefWidth="600.0">
          <children>
             <Button fx:id="botonAgregarDueño" mnemonicParsing="false" onAction="#regresarMenu" text="Agregar Dueño ">
                <HBox.margin>

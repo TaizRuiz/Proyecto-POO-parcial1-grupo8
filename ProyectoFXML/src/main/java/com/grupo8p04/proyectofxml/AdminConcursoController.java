@@ -13,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.clases.Concurso;
+import com.grupo8p04.proyectofxml.MenúPrincipalController;
 
 
 /**
@@ -44,7 +45,7 @@ public class AdminConcursoController {
         fechaConc.setCellValueFactory(new PropertyValueFactory<>("fechaEvento"));
         ciudadConc.setCellValueFactory(new PropertyValueFactory<>("ciudad"));
         
-        tablaConcursos.getItems().setAll(Concurso.lecturaConcurso());
+        tablaConcursos.getItems().setAll(MenúPrincipalController.getArrConcursos());
     } 
 
     @FXML

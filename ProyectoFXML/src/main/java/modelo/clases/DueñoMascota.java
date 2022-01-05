@@ -1,11 +1,11 @@
 
 package modelo.clases;
 
-import java.io.FileInputStream;
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class DueñoMascota extends Persona implements Serializable{
         apellido = ap;
     }
         
-    public DueñoMascota(String cedulaIdentidad, String apellido, String nombre, String direccion, double telefono, String ciudad, String email) {
+    public DueñoMascota(String cedulaIdentidad, String apellido, String nombre, String direccion, String telefono, String ciudad, String email) {
         super(nombre, direccion, telefono, ciudad, email);
         this.cedulaIdentidad = cedulaIdentidad;
         this.apellido = apellido;
@@ -78,12 +78,12 @@ public class DueñoMascota extends Persona implements Serializable{
     }
 
     @Override
-    public double getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
     @Override
-    public void setTelefono(double telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -161,7 +161,7 @@ public class DueñoMascota extends Persona implements Serializable{
         return dueñoEncontrado;
     }
     
-    public static void serializarDueños(){
+    public static void guardarDueños(){
           
         try{
             FileOutputStream fout= new FileOutputStream("archivos/dueños.ser");
@@ -180,24 +180,32 @@ public class DueñoMascota extends Persona implements Serializable{
     
     public static ArrayList<DueñoMascota> lecturaDueños(){
         
-       ArrayList<DueñoMascota> arrDueños=null;
+       ArrayList<DueñoMascota> arrDueños=new ArrayList<DueñoMascota>();
         
-        try{
-            ObjectInputStream in= new ObjectInputStream(new FileInputStream("archivos/dueños.ser"));
-            arrDueños=(ArrayList<DueñoMascota>) in.readObject();
-            in.close();
+        try(BufferedReader bufferedReader= new BufferedReader(new FileReader ("archivos/dueños.csv"))){
+            String linea;
+            bufferedReader.readLine();
             
+            while((linea=bufferedReader.readLine())!=null){
+                String[] info=linea.split(",");
+                DueñoMascota dueño= new DueñoMascota(info[0],info[1],info[2],info[3],info[4],info[5],info[6]);
+                //System.out.println(dueño);
+                arrDueños.add(dueño);
+            }
+   
         }
         
-	catch (FileNotFoundException e){
-            System.out.println(e);
-        }
+	
 
-        catch (IOException | ClassNotFoundException e){
+        catch (IOException e){
             System.out.println(e);
         }
 
         return arrDueños;
+    }
+    
+    public String toString(){
+        return nombre+" "+apellido;
     }
 
 }

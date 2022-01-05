@@ -9,14 +9,18 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.grupo8p04.proyectofxml.AdminMascotasController">
    <children>
-      <TableView layoutY="59.0" prefHeight="267.0" prefWidth="600.0">
+      <TableView fx:id="tablaMascotas" layoutX="25.0" layoutY="59.0" maxWidth="550.0" prefHeight="267.0" prefWidth="600.0">
         <columns>
-          <TableColumn prefWidth="100.0" text="Código" />
-          <TableColumn prefWidth="100.0" text="Nombre" />
-            <TableColumn text="Tipo" />
-            <TableColumn prefWidth="145.0" text="Dueño" />
-            <TableColumn prefWidth="195.0" text="Opciones" />
+          <TableColumn fx:id="codMasc" prefWidth="52.0" text="Código" />
+          <TableColumn fx:id="nombMasc" prefWidth="69.0" text="Nombre" />
+            <TableColumn fx:id="tipoMasc" prefWidth="69.0" text="Tipo" />
+            <TableColumn fx:id="razaMasc" prefWidth="72.0" text="Raza" />
+            <TableColumn fx:id="fechaMasc" prefWidth="85.0" text="Fecha de nacimiento" />
+            <TableColumn fx:id="dueñoMasc" prefWidth="145.0" text="ID Dueño" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <Button fx:id="btAgrMasc" layoutX="247.0" layoutY="361.0" mnemonicParsing="false" onAction="#menuCrearM" text="Agregar Mascota" translateX="-50.0" />
       <Label layoutX="214.0" layoutY="14.0" text="Administrar Mascotas">

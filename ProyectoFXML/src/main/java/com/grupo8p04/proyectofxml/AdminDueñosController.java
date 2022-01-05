@@ -47,7 +47,7 @@ public class AdminDueñosController {
         telefDueños.setCellValueFactory(new PropertyValueFactory<>("telefono"));
         ciudadDueños.setCellValueFactory(new PropertyValueFactory<>("ciudad"));
         
-        tablaDueños.getItems().setAll(DueñoMascota.lecturaDueños());
+        tablaDueños.getItems().setAll(MenúPrincipalController.getArrDueños());
     }
 
        

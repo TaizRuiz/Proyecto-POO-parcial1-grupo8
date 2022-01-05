@@ -7,9 +7,10 @@ public class Persona implements Serializable{
 
     public String nombre;
     public String direccion;
-    public double telefono;
+    public String telefono;
     public String ciudad;
     public String email;
+    private static final long serialVersionUID = 7777;
 
     public Persona(){}
 
@@ -17,7 +18,7 @@ public class Persona implements Serializable{
         nombre=n;
     }
 
-    public Persona(String nombre, String direccion, double telefono, String ciudad, String email) {
+    public Persona(String nombre, String direccion, String telefono, String ciudad, String email) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -42,11 +43,11 @@ public class Persona implements Serializable{
         this.direccion = direccion;
     }
 
-    public double getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(double telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
