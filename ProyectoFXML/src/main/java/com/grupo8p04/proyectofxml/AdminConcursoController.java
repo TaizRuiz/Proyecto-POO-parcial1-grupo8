@@ -13,7 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.clases.Concurso;
-import com.grupo8p04.proyectofxml.MenúPrincipalController;
+import javafx.scene.input.MouseEvent;
 
 
 /**
@@ -37,6 +37,8 @@ public class AdminConcursoController {
     private TableColumn<Concurso,String> fechaConc;
     @FXML
     private TableColumn<Concurso, String> ciudadConc;
+    @FXML
+    private TableColumn<?, ?> opcionesConc;
     
     
     public void initialize() {
@@ -56,6 +58,10 @@ public class AdminConcursoController {
     @FXML
     private void crearConcurso() throws IOException {
         App.setRoot("CrearConcurso");
+    }
+
+    @FXML
+    private void mostrarOpciones(MouseEvent event) {
     }
     
 }

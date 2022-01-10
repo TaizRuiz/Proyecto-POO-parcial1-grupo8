@@ -18,14 +18,14 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.grupo8p04.proyectofxml.CrearConcursoController">
    <top>
-      <Label text="Crear Concurso" BorderPane.alignment="CENTER">
+      <Label fx:id="tituloConcurso" text="Crear Concurso" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
    </top>
    <center>
-      <GridPane maxHeight="450.0" maxWidth="400.0" BorderPane.alignment="CENTER">
+      <GridPane maxHeight="496.0" maxWidth="400.0" prefHeight="496.0" prefWidth="400.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="210.0" />
           <ColumnConstraints halignment="LEFT" maxWidth="345.0" minWidth="10.0" prefWidth="290.0" />
@@ -39,8 +39,8 @@
             <RowConstraints maxHeight="163.0" minHeight="7.0" prefHeight="37.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="177.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="184.0" minHeight="4.0" prefHeight="35.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="193.0" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="162.0" minHeight="10.0" prefHeight="93.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="193.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="162.0" minHeight="10.0" prefHeight="107.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Nombre" GridPane.rowIndex="1">
@@ -93,44 +93,47 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <VBox maxWidth="800.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+            <TextField fx:id="nombreConc" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="horaConc" promptText="HH:MM" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <DatePicker fx:id="fechaConc" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <DatePicker fx:id="inicioInsc" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <DatePicker fx:id="finInsc" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="lugarConc" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <VBox fx:id="aggPremio" maxWidth="800.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <children>
-                  <TableView nodeOrientation="LEFT_TO_RIGHT" prefHeight="51.0" prefWidth="266.0" translateY="10.0">
+                  <TableView fx:id="tablaPremio" nodeOrientation="LEFT_TO_RIGHT" prefHeight="85.0" prefWidth="271.0" translateY="10.0">
                      <columns>
-                        <TableColumn prefWidth="75.0" text="Lugar" />
-                        <TableColumn prefWidth="75.0" text="Premio" />
-                        <TableColumn prefWidth="75.0" text="Auspiciante" />
+                        <TableColumn fx:id="lugarPrem" prefWidth="75.0" text="Lugar" />
+                        <TableColumn fx:id="descPrem" prefWidth="75.0" text="Premio" />
+                        <TableColumn fx:id="auspPrem" prefWidth="75.0" text="Auspiciante" />
                      </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <Button alignment="CENTER" mnemonicParsing="false" text="Agregar Premio" translateX="80.0" translateY="20.0" />
+                  <Button fx:id="crearPremio" alignment="CENTER" mnemonicParsing="false" onAction="#crearPremio" text="Agregar Premio" translateX="80.0" translateY="20.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin></Button>
                </children>
             </VBox>
-            <TableView maxHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <TableView fx:id="tablaAusp" maxHeight="82.0" prefHeight="82.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
               <columns>
-                <TableColumn prefWidth="75.0" text="Nombre de los auspiciantes" />
+                <TableColumn fx:id="nombreAuspiciante" prefWidth="75.0" text="Nombre de los auspiciantes" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <ComboBox prefWidth="150.0" GridPane.columnIndex="1" />
-            <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <ComboBox fx:id="cmbTipo" prefWidth="150.0" GridPane.columnIndex="1" />
+            <ComboBox fx:id="ciudadConc" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
       </GridPane>
    </center>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="51.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="55.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" text="Guardar">
+            <Button fx:id="aggConcurso" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#crearConcurso" text="Guardar">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin></Button>

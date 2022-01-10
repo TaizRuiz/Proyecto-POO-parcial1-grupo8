@@ -1,10 +1,14 @@
 
 package modelo.clases;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import modelo.admins.AdminAuspiciantes;
 
 public class Auspiciante extends Persona implements Serializable{
@@ -118,7 +122,7 @@ public class Auspiciante extends Persona implements Serializable{
 
     @Override
     public String toString(){
-        return "nombre: "+nombre+" código: "+codAuspiciante;
+        return nombre;
     }
     
     public static void serializarAuspiciante(){
@@ -136,6 +140,28 @@ public class Auspiciante extends Persona implements Serializable{
         }
 
     
+    }
+    
+    public static ArrayList<Auspiciante> lecturaAuspiciante(){
+        
+       ArrayList<Auspiciante> arrAuspiciantes=new ArrayList<Auspiciante>();
+        
+        try{
+            ObjectInputStream in= new ObjectInputStream(new FileInputStream("archivos/auspiciantes.ser"));
+            arrAuspiciantes=(ArrayList<Auspiciante>) in.readObject();
+            in.close();
+            
+        }
+        
+	catch (FileNotFoundException e){
+            System.out.println(e);
+        }
+
+        catch (IOException | ClassNotFoundException e){
+            System.out.println(e);
+        }
+
+        return arrAuspiciantes;
     }
     
 }

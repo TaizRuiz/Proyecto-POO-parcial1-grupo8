@@ -194,8 +194,6 @@ public class DueñoMascota extends Persona implements Serializable{
             }
    
         }
-        
-	
 
         catch (IOException e){
             System.out.println(e);

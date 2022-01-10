@@ -1,6 +1,7 @@
 
 package modelo.clases;
 
+import com.grupo8p04.proyectofxml.MenúPrincipalController;
 import java.io.*;
 import java.time.*;
 import java.util.ArrayList;
@@ -246,7 +247,7 @@ public class Concurso implements Serializable {
         try{
             FileOutputStream fout= new FileOutputStream("archivos/concursos.ser");
             ObjectOutputStream out=new ObjectOutputStream(fout);
-            out.writeObject(AdminConcursos.arrConcursos);
+            out.writeObject(MenúPrincipalController.getArrConcursos());
             out.flush();
             
         }

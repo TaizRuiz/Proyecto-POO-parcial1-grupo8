@@ -1,10 +1,13 @@
 
 package modelo.clases;
 
+import java.io.BufferedReader;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import modelo.admins.AdminCiudades;
 
 
@@ -25,6 +28,12 @@ public class Ciudad implements Serializable{
     }
 
     public Ciudad (String n, String p){
+        nombre=n;
+        provincia=p;
+    }
+    
+    public Ciudad (String id,String n, String p){
+        codCiudad=id;
         nombre=n;
         provincia=p;
     }
@@ -124,6 +133,29 @@ public class Ciudad implements Serializable{
         }
 
     
+    }
+    
+    public static ArrayList<Ciudad> lecturaCiudades(){
+        
+       ArrayList<Ciudad> arrCiudades=new ArrayList<Ciudad>();
+        
+        try(BufferedReader bufferedReader= new BufferedReader(new FileReader ("archivos/ciudades.csv"))){
+            String linea;
+            
+            while((linea=bufferedReader.readLine())!=null){
+                String[] info=linea.split(",");
+                Ciudad ciudad= new Ciudad(info[0],info[1],info[2]);
+                //System.out.println(dueño);
+                arrCiudades.add(ciudad);
+            }
+   
+        }
+
+        catch (IOException e){
+            System.out.println(e);
+        }
+
+        return arrCiudades;
     }
     
 }

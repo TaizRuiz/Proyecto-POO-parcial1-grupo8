@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import modelo.clases.Auspiciante;
+import modelo.clases.Ciudad;
 import modelo.clases.Concurso;
 import modelo.clases.DueñoMascota;
 import modelo.clases.Mascota;
@@ -31,12 +33,20 @@ public class MenúPrincipalController {
     private static ArrayList<Concurso> arrConcursos;
     private static ArrayList<DueñoMascota> arrDueños;
     private static ArrayList<Mascota> arrMascotas;
+    private static ArrayList<Auspiciante> arrAuspiciantes;
+    private static ArrayList<Ciudad> arrCiudades;
+    
     
     @FXML
     private void initialize(){
         arrConcursos=Concurso.lecturaConcurso();
         arrDueños=DueñoMascota.lecturaDueños();
         arrMascotas=Mascota.lecturaMascotas();
+        arrAuspiciantes=Auspiciante.lecturaAuspiciante();
+        arrCiudades=Ciudad.lecturaCiudades();
+        
+        
+        
     }
     
     
@@ -66,6 +76,16 @@ public class MenúPrincipalController {
     public static ArrayList<Mascota> getArrMascotas() {
         return arrMascotas;
     }
+
+    public static ArrayList<Auspiciante> getArrAuspiciantes() {
+        return arrAuspiciantes;
+    }
+
+    public static ArrayList<Ciudad> getArrCiudades() {
+        return arrCiudades;
+    }
+    
+    
     
     
     

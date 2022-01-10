@@ -120,7 +120,7 @@ public class AdminConcursos {
              int opcionTipo=sc.nextInt();
              sc.nextLine();
 
-             TiposAnimal dirigidoA=TiposAnimal.Vacio;
+             TiposAnimal dirigidoA=null;
         
              if (opcionTipo==1){
                 dirigidoA=TiposAnimal.Todos;
