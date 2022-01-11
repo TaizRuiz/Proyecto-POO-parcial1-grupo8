@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -161,20 +162,20 @@ public class DueñoMascota extends Persona implements Serializable{
         return dueñoEncontrado;
     }
     
-    public static void guardarDueños(){
-          
+    public static void escribirDueño(){
         try{
-            FileOutputStream fout= new FileOutputStream("archivos/dueños.ser");
-            ObjectOutputStream out=new ObjectOutputStream(fout);
-            out.writeObject(AdminDueños.arrDueño);
-            out.flush();
+            FileWriter writer= new FileWriter("archivos/dueños.csv", true);
+            String linea = 
+            writer.write(linea);
+            write.write()
             
         }
-        
         catch (IOException e){
-            System.out.println(e);
+            System.out.println(e.getMessage());
+        
+        
         }
-
+        
     
     }
     
@@ -206,6 +207,7 @@ public class DueñoMascota extends Persona implements Serializable{
         return nombre+" "+apellido;
     }
 
+    
 }
     
 
