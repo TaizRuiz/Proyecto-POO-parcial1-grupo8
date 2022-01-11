@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -59,12 +61,18 @@ public class AgregarDueñoController  {
 
 @FXML
     private void guardarDueno() throws IOException{
+        try{
         
         DueñoMascota due= new DueñoMascota(cedulaDueño.getText(),apellidoDueño.getText(), nombreDueño.getText(), direccionDueño.getText(), telefonoDueño.getText(), ciudadDueño.getText(), correoDueño.getText());
         MenúPrincipalController.getArrDueños().add(due);
+        due.saveFile("archivos/dueños.csv"); //guarda el objeto en el txt
         //modelo.clases.DueñoMascota.serializar();
         App.setRoot("AdminDueños");
-    
+        } catch(Exception e){
+            Alert a = new Alert(AlertType.ERROR,"Se encontro una indeterminacion.");
+            a.show();
+        
+        }
 
     
     }

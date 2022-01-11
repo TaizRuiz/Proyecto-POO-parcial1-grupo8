@@ -2,6 +2,7 @@
 package modelo.clases;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -162,22 +163,23 @@ public class DueñoMascota extends Persona implements Serializable{
         return dueñoEncontrado;
     }
     
-    /*
-    public static void escribirDueño(){
-        try{
-            FileWriter writer= new FileWriter("archivos/dueños.csv", true);
-            String linea = 
-            //writer.write(linea);
-            //write.write()
-            
+    public void saveFile(String nomfile) {
+        StringBuilder sb = new StringBuilder();
+        try (BufferedWriter bufferedW = new BufferedWriter(new FileWriter("archivos/dueños.csv", true))) {
+            sb.append(this.cedulaIdentidad).append("|"); //cedula|
+            sb.append(this.nombre).append("|"); //cedula|nombres
+            sb.append(this.apellido).append("|");
+            sb.append(this.direccion).append("|");
+            sb.append(this.telefono).append("|");
+            sb.append(this.ciudad).append("|");
+            sb.append(this.email);
+            bufferedW.write(sb.toString());//Transformamos el StringBuilder a String
+        } catch (IOException e) {
+            System.out.println(e);
         }
-        catch (IOException e){
-            System.out.println(e.getMessage());
-       
-        }
-        
     }
-     */
+    
+    
     public static ArrayList<DueñoMascota> lecturaDueños(){
         
        ArrayList<DueñoMascota> arrDueños=new ArrayList<DueñoMascota>();
