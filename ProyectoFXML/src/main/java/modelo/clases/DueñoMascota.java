@@ -162,23 +162,22 @@ public class DueñoMascota extends Persona implements Serializable{
         return dueñoEncontrado;
     }
     
+    /*
     public static void escribirDueño(){
         try{
             FileWriter writer= new FileWriter("archivos/dueños.csv", true);
             String linea = 
-            writer.write(linea);
-            write.write()
+            //writer.write(linea);
+            //write.write()
             
         }
         catch (IOException e){
             System.out.println(e.getMessage());
-        
-        
+       
         }
         
-    
     }
-    
+     */
     public static ArrayList<DueñoMascota> lecturaDueños(){
         
        ArrayList<DueñoMascota> arrDueños=new ArrayList<DueñoMascota>();

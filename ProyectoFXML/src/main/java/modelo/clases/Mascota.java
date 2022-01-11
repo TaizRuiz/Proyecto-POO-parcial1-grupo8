@@ -51,6 +51,13 @@ public class Mascota implements Serializable {
         dueño=p;
     }
     
+    public Mascota(String n, TipoEspecie tesp, LocalDate fechaNac, String raza, DueñoMascota dueño){
+        nombre = n;
+        mascota = tesp;
+        fechaNacimiento = fechaNac;
+        this.raza = raza;
+        this.dueño = dueño;
+    }
     
     // getters and setters
 

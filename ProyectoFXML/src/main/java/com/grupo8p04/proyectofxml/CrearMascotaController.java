@@ -11,6 +11,13 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import modelo.clases.*;
+import modelo.enums.*;
+
 
 /**
  * FXML Controller class
@@ -21,6 +28,19 @@ public class CrearMascotaController {
 
     @FXML
     private Button botonCancelarM;
+    @FXML
+    private Button btGuardar;
+    @FXML
+    private TextField txtNombre;
+    @FXML
+    private TextField txtRaza;
+    @FXML
+    private DatePicker dateNacimiento;
+    @FXML
+    private TextField txtFoto;
+    @FXML
+    private ComboBox cmbDueño;
+    private ComboBox selecEspecies;
 
     
     @FXML
@@ -28,4 +48,16 @@ public class CrearMascotaController {
         App.setRoot("AdminMascotas");
     }
     
+    private void initialize(){
+        cmbDueño.getItems().setAll(MenúPrincipalController.getArrDueños());
+        selecEspecies.getItems().setAll(modelo.enums.TipoEspecie.values());
+    }
+    
+    private void guardarMascota() throws IOException{
+        Mascota msc= new Mascota(txtNombre.getText(),(TipoEspecie) selecEspecies.getValue(),dateNacimiento.getValue(), txtRaza.getText(),(DueñoMascota) cmbDueño.getValue());
+        MenúPrincipalController.getArrMascotas().add(msc);
+        //modelo.clases.DueñoMascota.serializar();
+        //App.setRoot("AdminMascotas");
+       
+    }
 }
