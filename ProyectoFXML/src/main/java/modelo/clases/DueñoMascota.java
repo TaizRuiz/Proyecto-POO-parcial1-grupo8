@@ -163,10 +163,11 @@ public class DueñoMascota extends Persona implements Serializable{
         return dueñoEncontrado;
     }
     
-    public void saveFile(String nomfile) {
+    public void saveFile() {
         String dueños="";
         StringBuilder sb = new StringBuilder();
         try (BufferedWriter bufferedW = new BufferedWriter(new FileWriter("archivos/dueños.csv", true))) {
+            sb.append("\r\n");
             sb.append(this.cedulaIdentidad).append(","); //cedula|
             sb.append(this.nombre).append(","); //cedula|nombres
             sb.append(this.apellido).append(",");

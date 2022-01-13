@@ -65,7 +65,7 @@ public class AgregarDueñoController  {
         
         DueñoMascota due= new DueñoMascota(cedulaDueño.getText(),apellidoDueño.getText(), nombreDueño.getText(), direccionDueño.getText(), telefonoDueño.getText(), ciudadDueño.getText(), correoDueño.getText());
         MenúPrincipalController.getArrDueños().add(due);
-        due.saveFile("archivos/dueños.csv"); //guarda el objeto en el txt
+        due.saveFile(); //guarda el objeto en el txt
         //modelo.clases.DueñoMascota.serializar();
         App.setRoot("AdminDueños");
         } catch(Exception e){

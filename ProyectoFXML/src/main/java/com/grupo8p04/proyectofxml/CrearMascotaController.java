@@ -40,6 +40,7 @@ public class CrearMascotaController {
     private TextField txtFoto;
     @FXML
     private ComboBox cmbDueño;
+    @FXML
     private ComboBox selecEspecies;
 
     
@@ -48,16 +49,18 @@ public class CrearMascotaController {
         App.setRoot("AdminMascotas");
     }
     
+    @FXML
     private void initialize(){
         cmbDueño.getItems().setAll(MenúPrincipalController.getArrDueños());
         selecEspecies.getItems().setAll(modelo.enums.TipoEspecie.values());
     }
     
+    @FXML
     private void guardarMascota() throws IOException{
         Mascota msc= new Mascota(txtNombre.getText(),(TipoEspecie) selecEspecies.getValue(),dateNacimiento.getValue(), txtRaza.getText(),(DueñoMascota) cmbDueño.getValue());
         MenúPrincipalController.getArrMascotas().add(msc);
         //modelo.clases.DueñoMascota.serializar();
-        //App.setRoot("AdminMascotas");
+        App.setRoot("AdminMascotas");
        
     }
 }
