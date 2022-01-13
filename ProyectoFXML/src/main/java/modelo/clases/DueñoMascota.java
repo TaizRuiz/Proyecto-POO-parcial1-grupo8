@@ -164,14 +164,15 @@ public class DueñoMascota extends Persona implements Serializable{
     }
     
     public void saveFile(String nomfile) {
+        String dueños="";
         StringBuilder sb = new StringBuilder();
         try (BufferedWriter bufferedW = new BufferedWriter(new FileWriter("archivos/dueños.csv", true))) {
-            sb.append(this.cedulaIdentidad).append("|"); //cedula|
-            sb.append(this.nombre).append("|"); //cedula|nombres
-            sb.append(this.apellido).append("|");
-            sb.append(this.direccion).append("|");
-            sb.append(this.telefono).append("|");
-            sb.append(this.ciudad).append("|");
+            sb.append(this.cedulaIdentidad).append(","); //cedula|
+            sb.append(this.nombre).append(","); //cedula|nombres
+            sb.append(this.apellido).append(",");
+            sb.append(this.direccion).append(",");
+            sb.append(this.telefono).append(",");
+            sb.append(this.ciudad).append(",");
             sb.append(this.email);
             bufferedW.write(sb.toString());//Transformamos el StringBuilder a String
         } catch (IOException e) {
