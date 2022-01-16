@@ -14,12 +14,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.util.Callback;
 import modelo.clases.Auspiciante;
 import modelo.clases.Ciudad;
 import modelo.clases.Concurso;
@@ -39,39 +45,56 @@ public class CrearConcursoController {
     @FXML
     Label tituloConcurso;
     @FXML
-    private TextField nombreConc;
+    TextField nombreConc;
     @FXML
-    private TextField horaConc;
+    TextField horaConc;
     @FXML
-    private DatePicker fechaConc;
+    DatePicker fechaConc;
     @FXML
-    private DatePicker inicioInsc;
+    DatePicker inicioInsc;
     @FXML
-    private DatePicker finInsc;
+    DatePicker finInsc;
     @FXML
-    private TextField lugarConc;
+    TextField lugarConc;
     @FXML
-    private TableView tablaPremio;
+    TableView tablaPremio;
     @FXML
-    private ComboBox cmbTipo;
+    ComboBox cmbTipo;
     @FXML
-    private ComboBox ciudadConc;
+    ComboBox ciudadConc;
     @FXML
-    private TableView tablaAusp;
+    TableView tablaAusp;
     @FXML
-    private TableColumn<Auspiciante, String> nombreAuspiciante;
+    TableColumn<Auspiciante, String> nombreAuspiciante;
     @FXML
-    private Button aggConcurso;
+    Button aggConcurso;
     @FXML
-    private VBox aggPremio;
+    VBox aggPremio;
     @FXML
-    private TableColumn<Premio, String> lugarPrem;
+    TableColumn<Premio, String> lugarPrem;
     @FXML
-    private TableColumn<Premio, String> descPrem;
+    TableColumn<Premio, String> descPrem;
     @FXML
-    private TableColumn<Premio, String> auspPrem;
+    TableColumn<Premio, String> auspPrem;
     @FXML
-    private Button crearPremio;
+    Button crearPremio;
+    @FXML
+    GridPane opcionesConc;
+    @FXML
+    ToggleGroup concCurso;
+    @FXML
+    RadioButton btnSi;
+    @FXML
+    RadioButton btnNo;
+    @FXML
+    ToggleGroup concInsc;
+    @FXML
+    RadioButton btnInscSi;
+    @FXML
+    RadioButton btnInscNo;
+    
+    
+    
     
     
     @FXML
@@ -87,6 +110,13 @@ public class CrearConcursoController {
         auspPrem.setCellValueFactory(new PropertyValueFactory<>("auspiciante"));
         tablaPremio.getItems().setAll(AgregarPremioController.getArrPremios());
         
+        concCurso.selectToggle(btnSi);
+        btnSi.setDisable(true);
+        btnNo.setDisable(true);
+        
+        concInsc.selectToggle(btnInscSi);
+        btnInscSi.setDisable(true);
+        btnInscNo.setDisable(true);
     }
 
     @FXML
@@ -115,14 +145,48 @@ public class CrearConcursoController {
         arrAuspiciante.add((Auspiciante) tablaAusp.getSelectionModel().getSelectedItem());
         Concurso conc= new Concurso(nombreConc.getText(),fechaConc.getValue(),LocalTime.parse(horaConc.getText()),inicioInsc.getValue(),finInsc.getValue(),(Ciudad) ciudadConc.getValue(),lugarConc.getText(),AgregarPremioController.getArrPremios(),arrAuspiciante,(TiposAnimal) cmbTipo.getValue());
         conc.generarCodConcurso();
+        
+        RadioButton rdConc=(RadioButton) concCurso.getSelectedToggle();
+        String sel1=rdConc.getText();
+        if(sel1.equals("Si")){
+            conc.setConcursoEnCurso(true);
+        }
+        else{
+            conc.setConcursoEnCurso(false);
+        }
+        
+        RadioButton rdInsc=(RadioButton) concInsc.getSelectedToggle();
+        String sel2=rdInsc.getStyle();
+        if(sel2.equals("Si")){
+            conc.setAbiertoInscripciones(true);
+        }
+        else{
+            conc.setAbiertoInscripciones(false);
+        }
+        
+       
         MenúPrincipalController.getArrConcursos().add(conc);
         modelo.clases.Concurso.serializarConcurso();
         App.setRoot("AdminConcurso");
-    
-
+   
 
     }
     
+    public void llenarInfo(Concurso c){
+        tituloConcurso.setText("Editar Concurso");
+        cmbTipo.setValue(c.getDirigidoA());
+        nombreConc.setText(c.getNombre());
+        fechaConc.setValue(c.getFechaEvento());
+        horaConc.setText((String) c.getHoraEvento().toString());
+        inicioInsc.setValue(c.getFechaInscripcion());
+        finInsc.setValue(c.getFechaFinInscripcion());
+        ciudadConc.setValue(c.getCiudad());
+        lugarConc.setText(c.getLugar());
+        MenúPrincipalController.getArrConcursos().remove(c);
+        
+            
+    }
     
-    
+   
+     
 }

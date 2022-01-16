@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.grupo8p04.proyectofxml.AdminConcursoController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.grupo8p04.proyectofxml.AdminConcursoController">
    <bottom>
       <HBox alignment="CENTER" prefHeight="51.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -33,12 +33,12 @@
       </HBox>
    </top>
    <center>
-      <TableView fx:id="tablaConcursos" editable="true" maxHeight="500.0" maxWidth="-Infinity" onMouseClicked="#mostrarOpciones" prefHeight="300.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tablaConcursos" editable="true" maxHeight="600.0" maxWidth="-Infinity" prefHeight="289.0" prefWidth="900.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="codConc" prefWidth="86.0" text="Código" />
-          <TableColumn fx:id="nombreConc" prefWidth="154.0" text="Nombre" />
-            <TableColumn fx:id="fechaConc" prefWidth="56.0" text="Fecha" />
-            <TableColumn fx:id="ciudadConc" prefWidth="56.0" text="Ciudad" />
+          <TableColumn fx:id="codConc" maxWidth="1000.0" prefWidth="10.0" text="Código" />
+          <TableColumn fx:id="nombreConc" maxWidth="4000.0" prefWidth="274.0" text="Nombre" />
+            <TableColumn fx:id="fechaConc" maxWidth="2000.0" prefWidth="56.0" text="Fecha" />
+            <TableColumn fx:id="ciudadConc" maxWidth="3000.0" prefWidth="56.0" text="Ciudad" />
             <TableColumn fx:id="opcionesConc" prefWidth="75.0" text="Opciones" />
         </columns>
          <columnResizePolicy>

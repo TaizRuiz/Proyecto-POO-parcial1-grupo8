@@ -229,6 +229,6 @@ public class Mascota implements Serializable {
     }
     
     public String toString(){
-        return nombre;
+        return "Código: "+CodMascota+"- Nombre: "+nombre+"- Dueño: "+dueño+"- Raza: "+raza;
     }
 }

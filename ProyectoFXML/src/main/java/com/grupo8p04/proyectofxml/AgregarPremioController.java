@@ -8,12 +8,14 @@ package com.grupo8p04.proyectofxml;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 import modelo.clases.Auspiciante;
 import modelo.clases.Premio;
 import modelo.enums.Puesto;
@@ -42,7 +44,13 @@ public class AgregarPremioController {
     
     @FXML
     private void cancelarCrearPremio() throws IOException{
-        App.setRoot("CrearConcurso");
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("CrearConcurso.fxml"));//no tiene el controlador especificado
+        CrearConcursoController ct = new CrearConcursoController();
+            
+        fxmlLoader.setController(ct);
+            
+        BorderPane root = (BorderPane) fxmlLoader.load();
+        App.changeRoot(root);
     }
     
     @FXML
@@ -62,7 +70,13 @@ public class AgregarPremioController {
             arrPremios[2]=premio;
         }
         
-        App.setRoot("CrearConcurso");
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("CrearConcurso.fxml"));//no tiene el controlador especificado
+        CrearConcursoController ct = new CrearConcursoController();
+            
+        fxmlLoader.setController(ct);
+            
+        BorderPane root = (BorderPane) fxmlLoader.load();
+        App.changeRoot(root);
     }
 
     public static Premio[] getArrPremios() {
