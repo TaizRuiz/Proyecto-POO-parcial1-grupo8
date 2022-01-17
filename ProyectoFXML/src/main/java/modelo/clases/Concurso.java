@@ -242,9 +242,10 @@ public class Concurso implements Serializable {
     }
     
     
-    public static void serializarConcurso(){
-          
-        try{
+    public static void serializarConcurso() throws IOException{
+            
+            
+        
             FileOutputStream fout= new FileOutputStream("archivos/concursos.ser");
             ObjectOutputStream out=new ObjectOutputStream(fout);
             out.writeObject(MenúPrincipalController.getArrConcursos());
@@ -252,12 +253,7 @@ public class Concurso implements Serializable {
             
         }
         
-        catch (IOException e){
-            System.out.println(e);
-        }
-
-    
-    }
+  
     
     public static ArrayList<Concurso> lecturaConcurso(){
         
