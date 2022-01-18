@@ -20,7 +20,7 @@ public class DueñoMascota extends Persona implements Serializable{
     private String cedulaIdentidad;
     private String apellido;
     private static final long serialVersionUID = 4444;
-    
+    private boolean DueñoMascotaEnCurso;
     
     // constructor
     
@@ -208,6 +208,10 @@ public class DueñoMascota extends Persona implements Serializable{
     
     public String toString(){
         return nombre+" "+apellido;
+    }
+
+    public boolean isDueñoMascotaEnCurso() {
+        return DueñoMascotaEnCurso;
     }
 
     

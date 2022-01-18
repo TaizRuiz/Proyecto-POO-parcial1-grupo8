@@ -40,12 +40,12 @@
             <TextField fx:id="direccionDueño" prefHeight="25.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="telefonoDueño" layoutX="310.0" layoutY="150.0" prefHeight="25.0" prefWidth="198.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField fx:id="correoDueño" layoutX="310.0" layoutY="272.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label layoutX="25.0" text="Nombres" GridPane.rowIndex="1">
+            <Label layoutX="25.0" text="Apellidos" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label text="Apellidos" GridPane.rowIndex="2">
+            <Label text="Nombres" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
