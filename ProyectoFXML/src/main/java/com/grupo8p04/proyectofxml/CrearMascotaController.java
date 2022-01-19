@@ -58,9 +58,9 @@ public class CrearMascotaController {
     @FXML
     private void guardarMascota() throws IOException{
         Mascota msc= new Mascota(txtNombre.getText(),(TipoEspecie) selecEspecies.getValue(),dateNacimiento.getValue(), txtRaza.getText(),(DueñoMascota) cmbDueño.getValue());
+        msc.generarCodMascota();
         MenúPrincipalController.getArrMascotas().add(msc);
         //modelo.clases.DueñoMascota.serializar();
         App.setRoot("AdminMascotas");
-       
     }
 }
