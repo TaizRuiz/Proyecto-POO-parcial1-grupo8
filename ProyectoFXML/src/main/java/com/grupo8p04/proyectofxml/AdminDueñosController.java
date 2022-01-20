@@ -9,15 +9,20 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import modelo.clases.DueñoMascota;
@@ -47,6 +52,8 @@ public class AdminDueñosController {
     private TableColumn<DueñoMascota, String> ciudadDueños;
     @FXML
     private TableColumn<DueñoMascota, Void> opcionesDueños;
+    
+    @FXML
     public void initialize() {
         codDueños.setCellValueFactory(new PropertyValueFactory<>("cedulaIdentidad"));
         nombreDueños.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -55,12 +62,29 @@ public class AdminDueñosController {
         ciudadDueños.setCellValueFactory(new PropertyValueFactory<>("ciudad"));
         
         tablaDueños.getItems().setAll(MenúPrincipalController.getArrDueños());
+        agregarBotonesDueños();
     }
 
        
     @FXML
-    private void regresarMenu() throws IOException {
-        App.setRoot("AgregarDueño");
+    private void AgregarDueño() throws IOException {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("AgregarDueño.fxml"));//no tiene el controlador especificado
+            AgregarDueñoController ad = new AgregarDueñoController();
+            
+            fxmlLoader.setController(ad);
+            
+            BorderPane root = (BorderPane) fxmlLoader.load();
+            
+            
+            
+            
+            App.changeRoot(root);
+            
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    
     }
     @FXML
     private void Cancelar() throws IOException {
@@ -84,7 +108,7 @@ public class AdminDueñosController {
                             DueñoMascota dueM = getTableView().getItems().get(getIndex());
                             HBox hbxOpciones = new HBox(5);
                             
-                            if (dueM.isDueñoMascotaEnCurso()==true){
+                            
                            
                             Button bEditar = new Button("Editar");
                             bEditar.setOnAction(e ->editarDueñoMascota(dueM));
@@ -96,21 +120,14 @@ public class AdminDueñosController {
                             
                             hbxOpciones.getChildren().addAll(bEditar,bEliminar);
                             setGraphic(hbxOpciones);
-                            }
+                            
                             
                            
                               
                             }
                         }
 
-                    private void editarDueñoMascota(DueñoMascota dueM) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    private void eliminarDueñoMascota(DueñoMascota dueM) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-                    
+//                   
 
                     
                 };
@@ -123,9 +140,51 @@ public class AdminDueñosController {
         
     }
         
+       private void editarDueñoMascota(DueñoMascota d){
+           try {
+            DueñoMascota de = (DueñoMascota) tablaDueños.getSelectionModel().getSelectedItem();
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("AgregarDueño.fxml"));//no tiene el controlador especificado
+            AgregarDueñoController ad = new AgregarDueñoController();
+            
+            fxmlLoader.setController(ad);
+            
+            BorderPane root = (BorderPane) fxmlLoader.load();
+            ad.llenarInfo(de);
+            
+            
+            
+            App.changeRoot(root);
+            
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+   
+    }
+    
+    @FXML
+    public void eliminarDueñoMascota(DueñoMascota c){
+        
+        try {
+           
+            
+            Alert alerta= new Alert(Alert.AlertType.CONFIRMATION);
+            alerta.setTitle("Diálogo de información");
+            alerta.setHeaderText("Se requiere confirmación");
+            alerta.setContentText("Está seguro de eliminar el dueño "+c.getNombre()+"?");
+            Optional<ButtonType> result=alerta.showAndWait();
+            
+            if(result.get()==ButtonType.OK){
+                MenúPrincipalController.getArrDueños().remove(c);
+                c.saveFile();
+                App.setRoot("AdminDueños");
+            }
+            
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
        
-    
-    
+        
+    }
         
     
 

@@ -16,7 +16,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import modelo.clases.DueñoMascota;
 
 /**
@@ -45,6 +47,8 @@ public class AgregarDueñoController  {
     private TextField ciudadDueño;
     @FXML
     private TextField cedulaDueño;
+    @FXML
+     Label labelDueño;
     
     
 //    @FXML
@@ -76,7 +80,17 @@ public class AgregarDueñoController  {
 
     
     }
-    
+    public void llenarInfo(DueñoMascota du){
+        labelDueño.setText("EDITAR DUEÑO");
+        cedulaDueño.setText(du.getCedulaIdentidad());
+        apellidoDueño.setText(du.getApellido());
+        nombreDueño.setText(du.getNombre());
+        direccionDueño.setText(du.getDireccion());
+        telefonoDueño.setText(du.getTelefono());
+        ciudadDueño.setText(du.getCiudad());
+        correoDueño.setText(du.getEmail());
+    MenúPrincipalController.getArrDueños().remove(du);
+    }
 }
     
   
