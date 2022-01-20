@@ -175,7 +175,7 @@ public class AdminDueñosController {
             
             if(result.get()==ButtonType.OK){
                 MenúPrincipalController.getArrDueños().remove(c);
-                c.saveFile();
+                c.saveFileEliminar();
                 App.setRoot("AdminDueños");
             }
             

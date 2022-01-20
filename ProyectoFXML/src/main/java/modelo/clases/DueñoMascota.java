@@ -1,8 +1,10 @@
 
 package modelo.clases;
 
+import com.grupo8p04.proyectofxml.MenúPrincipalController;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -178,6 +180,29 @@ public class DueñoMascota extends Persona implements Serializable{
             bufferedW.write(sb.toString());//Transformamos el StringBuilder a String
         } catch (IOException e) {
             System.out.println(e);
+        }
+        
+    }
+    
+    public  void saveFileEliminar() {
+        File archivo=new File("archivos/dueños.csv");
+        archivo.delete();
+        for(DueñoMascota d:MenúPrincipalController.getArrDueños()){
+        String dueños="";
+        StringBuilder sb = new StringBuilder();
+        try (BufferedWriter bufferedW = new BufferedWriter(new FileWriter("archivos/dueños.csv",true))) {
+            sb.append("\r\n");
+            sb.append(d.cedulaIdentidad).append(","); //cedula|
+            sb.append(d.nombre).append(","); //cedula|nombres
+            sb.append(d.apellido).append(",");
+            sb.append(d.direccion).append(",");
+            sb.append(d.telefono).append(",");
+            sb.append(d.ciudad).append(",");
+            sb.append(d.email);
+            bufferedW.write(sb.toString());//Transformamos el StringBuilder a String
+        } catch (IOException e) {
+            System.out.println(e);
+        }
         }
     }
     

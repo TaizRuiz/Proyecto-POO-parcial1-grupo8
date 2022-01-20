@@ -7,11 +7,14 @@ package com.grupo8p04.proyectofxml;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -101,7 +104,7 @@ public class AdminMascotasController  {
                             btnEditar.setOnAction(e -> editarMascota());
                             
                             Button btnEliminar =new Button("Eliminar");
-                            //botonInscritos.setOnAction(e -> consultarInscritos());
+                            btnEliminar.setOnAction(e -> eliminarMascota(mascota));
                             
                             hbOpciones.getChildren().addAll(btnDetalle,btnEditar,btnEliminar);
                             setGraphic(hbOpciones);
@@ -153,5 +156,30 @@ public class AdminMascotasController  {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+    
+    @FXML
+    public void eliminarMascota(Mascota m){
+        
+        try {
+           
+            
+            Alert alerta= new Alert(Alert.AlertType.CONFIRMATION);
+            alerta.setTitle("Diálogo de información");
+            alerta.setHeaderText("Se requiere confirmación");
+            alerta.setContentText("Está seguro de eliminar la mascota "+m.getNombre()+"?");
+            Optional<ButtonType> result=alerta.showAndWait();
+            
+            if(result.get()==ButtonType.OK){
+                MenúPrincipalController.getArrMascotas().remove(m);
+                //modelo.clases.Mascota.saveFileEliminar();
+                App.setRoot("AdminMascotas");
+            }
+            
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+       
+        
     }
 }

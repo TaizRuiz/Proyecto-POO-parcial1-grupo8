@@ -4,6 +4,7 @@ package modelo.clases;
 import com.grupo8p04.proyectofxml.MenúPrincipalController;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -252,6 +253,28 @@ public class Mascota implements Serializable {
             bufferedW.write(sb.toString());
         } catch (IOException e) {
             System.out.println(e);
+        }
+    }
+    
+    public static void saveFileEliminar() {
+        File archivo=new File("archivos/mascotas.csv");
+        archivo.delete();
+        for(Mascota m:MenúPrincipalController.getArrMascotas()){
+        StringBuilder sb = new StringBuilder();
+        try (BufferedWriter bufferedW = new BufferedWriter(new FileWriter("archivos/mascotas.csv", true))) {
+            sb.append("\r\n");
+            sb.append(m.CodMascota).append(";"); 
+            sb.append(m.nombre).append(";"); 
+            sb.append(m.mascota).append(";");
+            sb.append(m.raza).append(";");
+            sb.append(m.fechaNacimiento).append(";");
+            sb.append(m.foto).append(";");
+            sb.append(m.dueño.getCedulaIdentidad());
+            //sb.append("\r\n");
+            bufferedW.write(sb.toString());
+        } catch (IOException e) {
+            System.out.println(e);
+        }
         }
     }
     
