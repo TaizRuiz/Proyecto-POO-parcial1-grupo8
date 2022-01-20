@@ -172,7 +172,7 @@ public class AdminMascotasController  {
             
             if(result.get()==ButtonType.OK){
                 MenúPrincipalController.getArrMascotas().remove(m);
-                //modelo.clases.Mascota.saveFileEliminar();
+                m.saveFileEliminar();
                 App.setRoot("AdminMascotas");
             }
             

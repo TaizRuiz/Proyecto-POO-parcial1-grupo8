@@ -203,7 +203,7 @@ public class Mascota implements Serializable {
             bufferedReader.readLine();
             
             while((linea=bufferedReader.readLine())!=null){
-                String[] info=linea.split(";");
+                String[] info=linea.split(",");
                 
                 TipoEspecie tipo=TipoEspecie.Vacio;
                 if(info[2].equals("perro")){
@@ -243,12 +243,12 @@ public class Mascota implements Serializable {
         StringBuilder sb = new StringBuilder();
         try (BufferedWriter bufferedW = new BufferedWriter(new FileWriter("archivos/mascotas.csv", true))) {
             sb.append("\r\n");
-            sb.append(this.CodMascota).append(";"); 
-            sb.append(this.nombre).append(";"); 
-            sb.append(this.mascota).append(";");
-            sb.append(this.raza).append(";");
-            sb.append(this.fechaNacimiento).append(";");
-            sb.append(this.foto).append(";");
+            sb.append(this.CodMascota).append(","); 
+            sb.append(this.nombre).append(","); 
+            sb.append(this.mascota).append(",");
+            sb.append(this.raza).append(",");
+            sb.append(this.fechaNacimiento).append(",");
+            sb.append(this.foto).append(",");
             sb.append(this.dueño.getCedulaIdentidad());
             bufferedW.write(sb.toString());
         } catch (IOException e) {
@@ -263,12 +263,12 @@ public class Mascota implements Serializable {
         StringBuilder sb = new StringBuilder();
         try (BufferedWriter bufferedW = new BufferedWriter(new FileWriter("archivos/mascotas.csv", true))) {
             sb.append("\r\n");
-            sb.append(m.CodMascota).append(";"); 
-            sb.append(m.nombre).append(";"); 
-            sb.append(m.mascota).append(";");
-            sb.append(m.raza).append(";");
-            sb.append(m.fechaNacimiento).append(";");
-            sb.append(m.foto).append(";");
+            sb.append(m.CodMascota).append(","); 
+            sb.append(m.nombre).append(","); 
+            sb.append(m.mascota).append(",");
+            sb.append(m.raza).append(",");
+            sb.append(m.fechaNacimiento).append(",");
+            sb.append(m.foto).append(",");
             sb.append(m.dueño.getCedulaIdentidad());
             //sb.append("\r\n");
             bufferedW.write(sb.toString());
