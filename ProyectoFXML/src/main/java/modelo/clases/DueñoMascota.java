@@ -163,7 +163,7 @@ public class DueñoMascota extends Persona implements Serializable{
         return dueñoEncontrado;
     }
     
-    public void saveFile() {
+    public  void saveFile() {
         String dueños="";
         StringBuilder sb = new StringBuilder();
         try (BufferedWriter bufferedW = new BufferedWriter(new FileWriter("archivos/dueños.csv", true))) {

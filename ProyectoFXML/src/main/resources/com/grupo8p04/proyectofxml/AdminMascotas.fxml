@@ -7,27 +7,31 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.grupo8p04.proyectofxml.AdminMascotasController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.grupo8p04.proyectofxml.AdminMascotasController">
    <children>
-      <TableView fx:id="tablaMascotas" layoutX="25.0" layoutY="59.0" maxWidth="550.0" prefHeight="267.0" prefWidth="600.0">
+      <TableView fx:id="tablaMascotas" layoutX="13.0" layoutY="56.0" maxWidth="686.0" minWidth="686.0" prefHeight="267.0" prefWidth="686.0">
         <columns>
-          <TableColumn fx:id="codMasc" prefWidth="52.0" text="Código" />
-          <TableColumn fx:id="nombMasc" prefWidth="69.0" text="Nombre" />
-            <TableColumn fx:id="tipoMasc" prefWidth="69.0" text="Tipo" />
-            <TableColumn fx:id="razaMasc" prefWidth="72.0" text="Raza" />
-            <TableColumn fx:id="fechaMasc" prefWidth="85.0" text="Fecha de nacimiento" />
-            <TableColumn fx:id="dueñoMasc" prefWidth="145.0" text="ID Dueño" />
+          <TableColumn fx:id="codMasc" maxWidth="2000.0" prefWidth="52.0" text="Código" />
+          <TableColumn fx:id="nombMasc" maxWidth="3000.0" prefWidth="69.0" text="Nombre" />
+            <TableColumn fx:id="tipoMasc" maxWidth="3000.0" prefWidth="69.0" text="Tipo" />
+            <TableColumn fx:id="dueñoMasc" prefWidth="145.0" text="Dueño" />
+            <TableColumn fx:id="clmOpciones" prefWidth="75.0" text="Opciones" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+<<<<<<< HEAD
       <Button fx:id="btAgrMasc" layoutX="247.0" layoutY="361.0" mnemonicParsing="false" onAction="#menuCrearM" text="Agregar Mascota" translateX="-50.0" />
       <Label id="titulo" layoutX="214.0" layoutY="14.0" text="Administrar Mascotas">
+=======
+      <Button fx:id="btAgrMasc" layoutX="297.0" layoutY="340.0" mnemonicParsing="false" onAction="#menuCrearM" text="Agregar Mascota" translateX="-50.0" />
+      <Label layoutX="271.0" layoutY="14.0" text="Administrar Mascotas">
+>>>>>>> 4be95854ae524715b6d29ea9ef6c1388eb91b6b5
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="botonCancelarM" layoutX="354.0" layoutY="361.0" mnemonicParsing="false" onAction="#regresarMenuPrincipalM" text="Cancelar" />
+      <Button fx:id="botonCancelarM" layoutX="394.0" layoutY="340.0" mnemonicParsing="false" onAction="#regresarMenuPrincipalM" text="Cancelar" />
    </children>
 </AnchorPane>
