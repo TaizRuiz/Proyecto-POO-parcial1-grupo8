@@ -16,6 +16,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import modelo.clases.Auspiciante;
 import modelo.clases.Ciudad;
@@ -95,6 +96,21 @@ public class AgregarPremioController {
         ct.lugarConc.setText((String)CrearConcursoController.arrInfo.get(7));
         
         CrearConcursoController.arrInfo.clear();
+        
+        ct.cmbTipo.getItems().setAll(modelo.enums.TiposAnimal.values());
+        ct.ciudadConc.getItems().setAll(MenúPrincipalController.getArrCiudades());
+        
+        ct.nombreAuspiciante.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        ct.tablaAusp.getItems().setAll(MenúPrincipalController.getArrAuspiciantes());
+        
+        ct.lugarPrem.setCellValueFactory(new PropertyValueFactory<>("puesto"));
+        ct.descPrem.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+        ct.auspPrem.setCellValueFactory(new PropertyValueFactory<>("auspiciante"));
+        ct.tablaPremio.getItems().setAll(AgregarPremioController.getArrPremios());
+        ct.tablaPremio.getItems().setAll(AgregarPremioController.getArrPremios());
+        
+        
+        
         App.changeRoot(root);
     }
 

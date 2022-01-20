@@ -59,6 +59,13 @@ public class Mascota implements Serializable {
         this.dueño = dueño;
     }
     
+    public Mascota(String n, TipoEspecie tesp, String raza, DueñoMascota dueño){
+        nombre = n;
+        mascota = tesp;
+        this.raza = raza;
+        this.dueño = dueño;
+    }
+    
     // getters and setters
 
     public String getNombre() {

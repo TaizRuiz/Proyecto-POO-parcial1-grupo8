@@ -1,7 +1,10 @@
 package modelo.clases;
 
+import com.grupo8p04.proyectofxml.AdminConcursoController;
 import java.io.Serializable;
 import modelo.enums.Puesto;
+import java.math.*;
+import java.util.Random;
 
 public class Ganador implements Serializable{
     
@@ -68,19 +71,21 @@ public class Ganador implements Serializable{
         
         int i=0;
         while(i<3){
-            Mascota mascotaGanadora=concursoFinalizar.getParticipantes().get(i);
-            Premio premio=concursoFinalizar.getPremio()[i];
-            Puesto puesto=Puesto.values()[i];
+            Random r=new Random();
+            int ind=r.nextInt(concursoFinalizar.getParticipantes().size());
+            Mascota mascotaGanadora=concursoFinalizar.getParticipantes().get(ind);
+            
+            Premio[] premio=concursoFinalizar.getPremio();
 
-            Ganador ganador= new Ganador(mascotaGanadora.getNombre(),premio,puesto);
+            Ganador ganador= new Ganador(mascotaGanadora.getNombre(),premio[i],premio[i].getPuesto());
 
             if (concursoFinalizar.getArrGanadores().contains(ganador)){}
             
             else{
             concursoFinalizar.getArrGanadores().add(ganador);
             i++;
-        }
-             
+        
+        }     
         }
     }
     

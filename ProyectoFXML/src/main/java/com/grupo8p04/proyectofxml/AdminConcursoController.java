@@ -7,6 +7,7 @@ package com.grupo8p04.proyectofxml;
  */
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Optional;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +27,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import modelo.clases.ConcursoException;
+import modelo.clases.DueñoMascota;
+import modelo.clases.Mascota;
+import modelo.enums.TipoEspecie;
+import modelo.enums.TiposAnimal;
 
 
 /**
@@ -40,7 +45,7 @@ public class AdminConcursoController {
     @FXML
     private Button regresarAdminC;
     @FXML
-    TableView tablaConcursos;
+    public TableView tablaConcursos;
     @FXML
     private TableColumn<Concurso,String> codConc;
     @FXML
@@ -51,6 +56,8 @@ public class AdminConcursoController {
     private TableColumn<Concurso, String> ciudadConc;
     @FXML
     private TableColumn<Concurso, Void> opcionesConc;
+    @FXML
+    private Button enviarCorreo;
     
     @FXML
     public void initialize() {
@@ -90,6 +97,12 @@ public class AdminConcursoController {
             ct.descPrem.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
             ct.auspPrem.setCellValueFactory(new PropertyValueFactory<>("auspiciante"));
             ct.tablaPremio.getItems().setAll(AgregarPremioController.getArrPremios());
+            
+            ct.btnSi.setDisable(true);
+            ct.btnNo.setDisable(true);
+               
+            ct.btnInscSi.setDisable(true);
+            ct.btnInscNo.setDisable(true);
             
             App.changeRoot(root);
             
@@ -143,10 +156,7 @@ public class AdminConcursoController {
                                                            
                             hbOpciones.getChildren().addAll(botonGanadores,botonInscritos);
                             setGraphic(hbOpciones);
-                            
-                            if (conc.getParticipantes().size()==0){
-                                botonInscritos.setDisable(true);
-                            }
+                             
                               
                             }
                         }
@@ -161,7 +171,6 @@ public class AdminConcursoController {
     }
      
      
-    @FXML
     private void editarConcurso(Concurso conc){
         try {
             Concurso e = (Concurso) tablaConcursos.getSelectionModel().getSelectedItem();
@@ -187,8 +196,22 @@ public class AdminConcursoController {
             ct.btnSi.setDisable(false);
             ct.btnNo.setDisable(false);
             
+            if(e.isConcursoEnCurso()==true){
+                ct.concCurso.selectToggle(ct.btnSi);
+            }
+            else{
+                ct.concCurso.selectToggle(ct.btnNo);
+            }
+            
             ct.btnInscSi.setDisable(false);
             ct.btnInscNo.setDisable(false);
+            
+            if(e.isAbiertoInscripciones()==true){
+                ct.concInsc.selectToggle(ct.btnInscSi);
+            }
+            else{
+                ct.concInsc.selectToggle(ct.btnInscNo);
+            }
             
             ct.aggConcurso.setOnAction(ev -> ct.editarConcurso(conc));
             
@@ -201,18 +224,16 @@ public class AdminConcursoController {
 
     }
     
-    @FXML
     public void eliminarConcurso(Concurso c){
         
         try {
-            modelo.clases.Concurso.serializarConcurso();
             
             Alert alerta= new Alert(AlertType.CONFIRMATION);
             alerta.setTitle("Diálogo de información");
             alerta.setHeaderText("Se requiere confirmación");
             alerta.setContentText("Está seguro de eliminar el concurso "+c.getNombre()+"?");
             Optional<ButtonType> result=alerta.showAndWait();
-            
+                
             if(result.get()==ButtonType.OK){
                 MenúPrincipalController.getArrConcursos().remove(c);
                 modelo.clases.Concurso.serializarConcurso();
@@ -226,7 +247,6 @@ public class AdminConcursoController {
         
     }
     
-    @FXML
     public void consultarInscritos(){
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ConsultaConcurso.fxml"));//no tiene el controlador especificado
@@ -275,11 +295,10 @@ public class AdminConcursoController {
         
     }
     
-    @FXML
     public void consultarGanadores(){
         try{
             Concurso c = (Concurso) tablaConcursos.getSelectionModel().getSelectedItem();
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ConsultaConcurso.fxml"));//no tiene el controlador especificado
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ConsultaConcurso.fxml"));
             ConsultaConcursoController ct = new ConsultaConcursoController();
             
             fxmlLoader.setController(ct);
@@ -287,6 +306,8 @@ public class AdminConcursoController {
             BorderPane root = (BorderPane) fxmlLoader.load();
             
             ct.textoTitulo.setText("Mascotas ganadoras del concurso: "+c.getNombre());
+            ct.botonInscribir.setText("ElegirGanadores");
+            
             ct.listMascotas.getItems().setAll(c.getArrGanadores());
             ct.botonInscribir.setVisible(false);
             App.changeRoot(root);
@@ -298,7 +319,6 @@ public class AdminConcursoController {
         
     }
     
-    @FXML
     public void inscribirMascota() {
         try {
             InscribirMascotaController.concurso=(Concurso) tablaConcursos.getSelectionModel().getSelectedItem();
@@ -308,4 +328,25 @@ public class AdminConcursoController {
         }
     }
     
+    @FXML
+    public void enviarCorreo(){
+        
+        Concurso con=(Concurso) tablaConcursos.getSelectionModel().getSelectedItem();
+        ArrayList<String> destinatarios=new ArrayList<String>();
+        
+        for(DueñoMascota d:MenúPrincipalController.getArrDueños()){
+            
+           destinatarios.add(d.email);
+        }        
+            
+            
+        for(String d:destinatarios){   
+        String destinatario=d;
+        String asunto="Inscripciones abiertas al concurso "+con.getNombre()+"!!!";
+        String cuerpo="Se ha abierto un nuevo concurso!! \nFecha del concurso: "+String.valueOf(con.getFechaEvento())+" \nLugar: "+con.getLugar()+", "+con.getCiudad()+" \nHora: "+String.valueOf(con.getHoraEvento())+" \nFecha límite de inscripción: "+String.valueOf(con.getFechaFinInscripcion())+" \nEsperamos tu participación!!";
+        modelo.clases.Correo.enviarCorreo(destinatario, asunto, cuerpo);
+        }
+    
+        
+    }
 }

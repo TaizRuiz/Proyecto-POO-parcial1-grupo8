@@ -26,7 +26,7 @@
       </TableView>
    </center>
    <top>
-      <Label prefHeight="35.0" prefWidth="230.0" text="Administar Dueños " BorderPane.alignment="CENTER">
+      <Label id="titulo" prefHeight="35.0" prefWidth="322.0" text="Administar Dueños " BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

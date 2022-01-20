@@ -32,6 +32,7 @@ import modelo.clases.Auspiciante;
 import modelo.clases.Ciudad;
 import modelo.clases.Concurso;
 import modelo.clases.ConcursoException;
+import modelo.clases.Ganador;
 import modelo.clases.Mascota;
 import modelo.clases.Premio;
 import modelo.enums.TiposAnimal;
@@ -101,7 +102,7 @@ public class CrearConcursoController {
     
     static ArrayList<Object> arrInfo= new ArrayList<Object>();
     
-    @FXML
+    /**@FXML
     private void initialize(){
         cmbTipo.getItems().setAll(modelo.enums.TiposAnimal.values());
         ciudadConc.getItems().setAll(MenúPrincipalController.getArrCiudades());
@@ -119,7 +120,7 @@ public class CrearConcursoController {
                
         btnInscSi.setDisable(true);
         btnInscNo.setDisable(true);
-    }
+    }**/
 
     @FXML
     private void cancelarCrearC() throws IOException {
@@ -153,13 +154,18 @@ public class CrearConcursoController {
         
         ArrayList<Auspiciante> arrAuspiciante=new ArrayList<>();  arrAuspiciante.add((Auspiciante) tablaAusp.getSelectionModel().getSelectedItem());
         ArrayList<Mascota> arrParticipantes=new ArrayList<Mascota>();
-        Concurso conc= new Concurso(nombreConc.getText(),fechaConc.getValue(),LocalTime.parse(horaConc.getText()),inicioInsc.getValue(),finInsc.getValue(),(Ciudad) ciudadConc.getValue(),lugarConc.getText(),AgregarPremioController.arrPremios,arrAuspiciante,(TiposAnimal) cmbTipo.getValue());
+        Premio[] arrPremios= new Premio[]{AgregarPremioController.arrPremios[0],AgregarPremioController.arrPremios[1],AgregarPremioController.arrPremios[2]};
+        
+        Concurso conc= new Concurso(nombreConc.getText(),fechaConc.getValue(),LocalTime.parse(horaConc.getText()),inicioInsc.getValue(),finInsc.getValue(),(Ciudad) ciudadConc.getValue(),lugarConc.getText(),arrPremios,arrAuspiciante,(TiposAnimal) cmbTipo.getValue());
         conc.generarCodConcurso();
         conc.setArrParticipantes(arrParticipantes);
         conc.setAbiertoInscripciones(true);
         conc.setConcursoEnCurso(true);
-     
-       
+        
+        AgregarPremioController.arrPremios[0]=null;
+        AgregarPremioController.arrPremios[1]=null;
+        AgregarPremioController.arrPremios[2]=null;
+        
         if(conc.getNombre().equals("") | conc.getLugar().equals("") ){
             throw new ConcursoException("Debe rellenar todos la información solicitada");
             }
@@ -214,17 +220,23 @@ public class CrearConcursoController {
         if(sel1.equals("Si")){
             conc.setConcursoEnCurso(true);
         }
-        else{
+        else if(sel1.equals("No")){
             conc.setConcursoEnCurso(false);
-            modelo.clases.Ganador.generarGanadores(conc);
+            
         }
         RadioButton rdInsc=(RadioButton) concInsc.getSelectedToggle();
         String sel2=rdInsc.getText();
         if(sel2.equals("Si")){
             conc.setAbiertoInscripciones(true);
         }
-        else{
+        else if(sel2.equals("No")){
             conc.setAbiertoInscripciones(false);
+        }
+        
+        if(conc.isConcursoEnCurso()==false){
+            ArrayList<Ganador> ganadores=new ArrayList<Ganador>();
+            conc.setArrGanadores(ganadores);
+            modelo.clases.Ganador.generarGanadores(conc);
         }
        
         if(conc.getNombre().equals("") | conc.getLugar().equals("") ){
@@ -245,18 +257,19 @@ public class CrearConcursoController {
             throw new ConcursoException("Cree todos los premios requeridos");
         }
         MenúPrincipalController.getArrConcursos().add(conc);
+        modelo.clases.Concurso.serializarConcurso();
         
         
         mostrarAlerta(AlertType.INFORMATION,"Concurso editado exitosamente");
         
-        
         App.setRoot("AdminConcurso");
         }
         
+        /**
         catch (RuntimeException ex) {
             System.out.println("hola");
            mostrarAlerta(AlertType.ERROR,"Formato de hora incorrecto");
-        }
+        }**/
         catch(ConcursoException ex){
            mostrarAlerta(AlertType.ERROR,ex.getMessage());
         }
