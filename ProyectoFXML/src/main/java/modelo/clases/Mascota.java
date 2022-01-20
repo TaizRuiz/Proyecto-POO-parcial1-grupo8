@@ -3,8 +3,10 @@ package modelo.clases;
 
 import com.grupo8p04.proyectofxml.MenúPrincipalController;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -226,6 +228,24 @@ public class Mascota implements Serializable {
         }
 
         return arrMascotas;
+    }
+    
+    public void saveFile() {
+        //String mascotas="";
+        StringBuilder sb = new StringBuilder();
+        try (BufferedWriter bufferedW = new BufferedWriter(new FileWriter("archivos/mascotas.csv", true))) {
+            sb.append("\r\n");
+            sb.append(this.CodMascota).append(";"); 
+            sb.append(this.nombre).append(";"); 
+            sb.append(this.mascota).append(";");
+            sb.append(this.raza).append(";");
+            sb.append(this.fechaNacimiento).append(";");
+            sb.append(this.foto).append(";");
+            sb.append(this.dueño.getCedulaIdentidad());
+            bufferedW.write(sb.toString());
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
     
     public String toString(){

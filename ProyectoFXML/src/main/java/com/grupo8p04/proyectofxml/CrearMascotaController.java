@@ -60,6 +60,7 @@ public class CrearMascotaController {
         Mascota msc= new Mascota(txtNombre.getText(),(TipoEspecie) selecEspecies.getValue(),dateNacimiento.getValue(), txtRaza.getText(),(DueñoMascota) cmbDueño.getValue());
         msc.generarCodMascota();
         MenúPrincipalController.getArrMascotas().add(msc);
+        msc.saveFile();
         //modelo.clases.DueñoMascota.serializar();
         App.setRoot("AdminMascotas");
     }
