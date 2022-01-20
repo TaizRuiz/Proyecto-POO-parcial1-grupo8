@@ -21,6 +21,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import modelo.clases.Concurso;
+import modelo.clases.DueñoMascota;
 import modelo.clases.Mascota;
 
 /**
@@ -137,7 +138,24 @@ public class AdminMascotasController  {
     
     
     private void editarMascota(){
-        
+        try {
+            Mascota pet = (Mascota) tablaMascotas.getSelectionModel().getSelectedItem();
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("CrearMascota.fxml"));//no tiene el controlador especificado
+            CrearMascotaController apet = new CrearMascotaController();
+            
+            fxmlLoader.setController(apet);
+            
+            BorderPane root = (BorderPane) fxmlLoader.load();
+            apet.llenarInfo(pet);
+            
+            
+            
+            App.changeRoot(root);
+            
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+   
     }
     
 }
