@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.grupo8p04.proyectofxml.CrearMascotaController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <GridPane maxHeight="263.0" maxWidth="400.0" prefHeight="263.0" prefWidth="400.0" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -79,7 +79,7 @@
       </HBox>
    </bottom>
    <top>
-      <Label text="Crear Mascota" BorderPane.alignment="CENTER">
+      <Label fx:id="lblTituloMascota" text="Crear Mascota" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>

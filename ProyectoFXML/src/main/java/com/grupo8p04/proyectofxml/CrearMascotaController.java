@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import modelo.clases.*;
@@ -42,6 +43,8 @@ public class CrearMascotaController {
     private ComboBox cmbDueño;
     @FXML
     private ComboBox selecEspecies;
+    @FXML
+    private Label lblTituloMascota;
 
     
     @FXML
@@ -49,7 +52,6 @@ public class CrearMascotaController {
         App.setRoot("AdminMascotas");
     }
     
-    @FXML
     private void initialize(){
         cmbDueño.getItems().setAll(MenúPrincipalController.getArrDueños());
         selecEspecies.getItems().setAll(modelo.enums.TipoEspecie.values());
@@ -63,5 +65,18 @@ public class CrearMascotaController {
         msc.saveFile();
         //modelo.clases.DueñoMascota.serializar();
         App.setRoot("AdminMascotas");
+    }
+    
+    public void llenarEdit(Mascota m){
+        lblTituloMascota.setText("Editar Mascota");
+        txtNombre.setText(m.getNombre());
+        selecEspecies.getItems().setAll(modelo.enums.TipoEspecie.values());
+        selecEspecies.setValue(m.getMascota());
+        dateNacimiento.setValue(m.getFechaNacimiento());
+        txtRaza.setText(m.getRaza());
+        cmbDueño.getItems().setAll(MenúPrincipalController.getArrDueños());
+        cmbDueño.setValue(m.getDueño());
+        txtFoto.setText(m.getFoto());
+        MenúPrincipalController.getArrMascotas().remove(m);
     }
 }

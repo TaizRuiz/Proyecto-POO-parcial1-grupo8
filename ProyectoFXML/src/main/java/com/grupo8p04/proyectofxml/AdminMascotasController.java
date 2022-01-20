@@ -98,7 +98,7 @@ public class AdminMascotasController  {
                             btnDetalle.setOnAction(e ->detalleMascota(mascota));
 
                             Button btnEditar = new Button("Editar");
-                            //btnEditar.setOnAction(e -> eliminarConcurso(conc));
+                            btnEditar.setOnAction(e -> editarMascota());
                             
                             Button btnEliminar =new Button("Eliminar");
                             //botonInscritos.setOnAction(e -> consultarInscritos());
@@ -146,16 +146,12 @@ public class AdminMascotasController  {
             fxmlLoader.setController(apet);
             
             BorderPane root = (BorderPane) fxmlLoader.load();
-            apet.llenarInfo(pet);
-            
-            
+            apet.llenarEdit(pet);
             
             App.changeRoot(root);
             
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-   
     }
-    
 }
