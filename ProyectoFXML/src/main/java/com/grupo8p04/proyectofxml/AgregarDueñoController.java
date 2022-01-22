@@ -20,6 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import modelo.clases.DueñoMascota;
+import modelo.clases.DueñoMascotaException;
 
 /**
  * FXML Controller class
@@ -71,6 +72,20 @@ public class AgregarDueñoController  {
         MenúPrincipalController.getArrDueños().add(due);
         due.saveFile(); //guarda el objeto en el txt
         //modelo.clases.DueñoMascota.serializar();
+        
+        if(due.getCedulaIdentidad().equals("") | due.getApellido().equals("") ){
+            throw new DueñoMascotaException("Debe rellenar todos los campos solicitados");
+            }
+        
+        if(due.getNombre().equals("") | due.getDireccion().equals("") ){
+            throw new DueñoMascotaException("Debe rellenar todos los campos solicitados");
+            }
+        if(due.getTelefono().equals("") | due.getCiudad().equals("") ){
+            throw new DueñoMascotaException("Debe rellenar todos todos los campos solicitados");
+            }
+        if(due.getEmail().equals("") ){
+            throw new DueñoMascotaException("Debe rellenar todos todos los campos solicitados");
+            }
         App.setRoot("AdminDueños");
         } catch(Exception e){
             Alert a = new Alert(AlertType.ERROR,"Se encontro una indeterminacion.");
