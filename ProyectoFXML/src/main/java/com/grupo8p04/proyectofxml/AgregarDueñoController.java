@@ -78,6 +78,7 @@ public class AgregarDueñoController  {
             }
         
         MenúPrincipalController.getArrDueños().add(due);
+        due.setCedulaIdentidad(String.valueOf(MenúPrincipalController.getArrDueños().indexOf(due)+1));
         due.saveFile(); 
         
         mostrarAlerta(AlertType.INFORMATION,"Dueño creado/editado exitosamente");

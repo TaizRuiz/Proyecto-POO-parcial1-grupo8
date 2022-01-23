@@ -163,6 +163,10 @@ public class AdminMascotasController  {
             fxmlLoader.setController(apet);
             
             BorderPane root = (BorderPane) fxmlLoader.load();
+            
+            MenúPrincipalController.getArrMascotas().remove(pet);
+            pet.saveFile();
+            
             apet.llenarEdit(pet);
             
             App.changeRoot(root);

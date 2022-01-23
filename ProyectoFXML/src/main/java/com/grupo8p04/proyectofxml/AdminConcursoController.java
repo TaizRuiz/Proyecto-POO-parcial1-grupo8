@@ -9,6 +9,7 @@ package com.grupo8p04.proyectofxml;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -58,8 +59,9 @@ public class AdminConcursoController {
     private TableColumn<Concurso, Void> opcionesConc;
     @FXML
     private Button enviarCorreo;
-    
     @FXML
+    private Label mensajeEnvio;
+    
     public void initialize() {
         codConc.setCellValueFactory(new PropertyValueFactory<>("CodConcurso"));
         nombreConc.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -148,7 +150,6 @@ public class AdminConcursoController {
                             Button botonGanadores = new Button("Consultar ganadores");
                             botonGanadores.setOnAction(e ->consultarGanadores());
                
-                            System.out.println(conc.getParticipantes().size());
                              
                             Button botonInscritos=new Button("Consultar inscritos");
                             botonInscritos.setOnAction(e -> consultarInscritos());
@@ -158,7 +159,7 @@ public class AdminConcursoController {
                             setGraphic(hbOpciones);
                              
                               
-                            }
+                            }    
                         }
                     }
                 };
@@ -259,7 +260,6 @@ public class AdminConcursoController {
             Concurso c = (Concurso) tablaConcursos.getSelectionModel().getSelectedItem();
             
             if(c.getParticipantes().size()==0){
-                System.out.println("noo");
                 root.getChildren().clear();
                 Label mensaje=new Label("No hay mascotas inscritas");
                 
@@ -332,6 +332,12 @@ public class AdminConcursoController {
     public void enviarCorreo(){
         
         Concurso con=(Concurso) tablaConcursos.getSelectionModel().getSelectedItem();
+        
+        new Thread( ()-> {
+         
+        Platform.runLater(()->mensajeEnvio.setText("Enviando las invitaciones..."));
+        
+        
         ArrayList<String> destinatarios=new ArrayList<String>();
         
         for(DueñoMascota d:MenúPrincipalController.getArrDueños()){
@@ -345,8 +351,14 @@ public class AdminConcursoController {
         String asunto="Inscripciones abiertas al concurso "+con.getNombre()+"!!!";
         String cuerpo="Se ha abierto un nuevo concurso!! \nFecha del concurso: "+String.valueOf(con.getFechaEvento())+" \nLugar: "+con.getLugar()+", "+con.getCiudad()+" \nHora: "+String.valueOf(con.getHoraEvento())+" \nFecha límite de inscripción: "+String.valueOf(con.getFechaFinInscripcion())+" \nEsperamos tu participación!!";
         modelo.clases.Correo.enviarCorreo(destinatario, asunto, cuerpo);
+        
+        if((destinatarios.size()-1)==destinatarios.indexOf(d)){
+            Platform.runLater(()->mensajeEnvio.setText("Proceso finalizado"));
+            Platform.runLater(()->CrearConcursoController.mostrarAlerta(AlertType.INFORMATION,"Invitaciones al concurso "+con.getNombre()+" enviadas"));
         }
-    
+        }
+        }
+        ).start();
         
     }
 }

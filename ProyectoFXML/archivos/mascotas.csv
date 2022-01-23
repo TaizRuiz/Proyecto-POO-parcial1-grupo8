@@ -1,5 +1,4 @@
-﻿id,nombre,tipo,raza,fecha_nac,foto,id_dueno
-1,Max,perro,chow chow,2015-01-01,max.jpg,1
+﻿1,Max,perro,chow chow,2015-01-01,max.jpg,1
 2,Chato,perro,carlino,2015-01-01,chato.jpg,2
 3,Harpo,perro,pug,2015-01-01,harpo.png,3
 4,Chaval,perro,golden,2015-01-01,chaval.png,4
@@ -61,3 +60,4 @@
 60,Tormenta,gato,siberiano,2015-02-23,tormenta.png,29
 61,Peluso,gato,siames,2015-02-24,peluso.png,30
 62,Tortuga,gato,persa,2015-02-25,tortuga.png,31
+63,Minnie,Perro,Chihuahua,2022-01-13,null,3

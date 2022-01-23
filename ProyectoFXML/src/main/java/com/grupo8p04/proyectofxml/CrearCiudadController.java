@@ -40,7 +40,7 @@ public class CrearCiudadController  {
     private void crearCiudad(){
         try{
         Ciudad ciudad= new Ciudad(nombreCiudad.getText(),provinciaCiudad.getText());;
-        ciudad.generarCodCiudad();
+        
         
         if(ciudad.getNombre().equals("")){
             throw new ConcursoException("Nombre de ciudad faltante");
@@ -51,6 +51,7 @@ public class CrearCiudadController  {
         }
         
         MenúPrincipalController.getArrCiudades().add(ciudad);
+        ciudad.setCodCiudad(String.valueOf(MenúPrincipalController.getArrCiudades().indexOf(ciudad)+1));
         ciudad.guardarCiudad();
         
         mostrarAlerta(Alert.AlertType.INFORMATION,"Ciudad creada/editada exitosamente");

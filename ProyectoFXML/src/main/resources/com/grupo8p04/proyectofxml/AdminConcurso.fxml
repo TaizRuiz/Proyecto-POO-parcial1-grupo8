@@ -19,6 +19,11 @@
                   <Insets left="10.0" right="10.0" />
                </HBox.margin></Button>
             <Button fx:id="regresarAdminC" mnemonicParsing="false" onAction="#regresarMenuAdminConcurso" text="Regresar" />
+            <Label fx:id="mensajeEnvio" translateX="60.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
          </children>
       </HBox>
    </bottom>

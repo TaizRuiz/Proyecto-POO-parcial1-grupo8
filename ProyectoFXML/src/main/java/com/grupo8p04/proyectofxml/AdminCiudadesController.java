@@ -134,6 +134,7 @@ public class AdminCiudadesController  {
             cc.provinciaCiudad.setText(c.getProvincia());
            
             MenúPrincipalController.getArrCiudades().remove(c);
+            c.guardarCiudadEliminar();
             App.changeRoot(root);
             
         } catch (IOException ex) {
@@ -154,7 +155,7 @@ public class AdminCiudadesController  {
             if(result.get()==ButtonType.OK){
                 MenúPrincipalController.getArrCiudades().remove(c);
                 c.guardarCiudadEliminar();
-                App.setRoot("AdminCiudad");
+                App.setRoot("AdminCiudades");
             }
             
         } catch (IOException ex) {

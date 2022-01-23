@@ -171,8 +171,8 @@ public class DueñoMascota extends Persona implements Serializable{
         try (BufferedWriter bufferedW = new BufferedWriter(new FileWriter("archivos/dueños.csv", true))) {
             sb.append("\r\n");
             sb.append(this.cedulaIdentidad).append(","); //cedula|
-            sb.append(this.nombre).append(","); //cedula|nombres
             sb.append(this.apellido).append(",");
+            sb.append(this.nombre).append(","); //cedula|nombres
             sb.append(this.direccion).append(",");
             sb.append(this.telefono).append(",");
             sb.append(this.ciudad).append(",");
@@ -191,14 +191,15 @@ public class DueñoMascota extends Persona implements Serializable{
         String dueños="";
         StringBuilder sb = new StringBuilder();
         try (BufferedWriter bufferedW = new BufferedWriter(new FileWriter("archivos/dueños.csv",true))) {
-            sb.append("\r\n");
             sb.append(d.cedulaIdentidad).append(","); //cedula|
-            sb.append(d.nombre).append(","); //cedula|nombres
             sb.append(d.apellido).append(",");
+            sb.append(d.nombre).append(",");
             sb.append(d.direccion).append(",");
             sb.append(d.telefono).append(",");
             sb.append(d.ciudad).append(",");
             sb.append(d.email);
+            if(!(MenúPrincipalController.getArrDueños().indexOf(d)==(MenúPrincipalController.getArrDueños().size()-1))){
+            sb.append("\r\n");}
             bufferedW.write(sb.toString());//Transformamos el StringBuilder a String
         } catch (IOException e) {
             System.out.println(e);
@@ -213,7 +214,6 @@ public class DueñoMascota extends Persona implements Serializable{
         
         try(BufferedReader bufferedReader= new BufferedReader(new FileReader ("archivos/dueños.csv"))){
             String linea;
-            bufferedReader.readLine();
             
             while((linea=bufferedReader.readLine())!=null){
                 String[] info=linea.split(",");

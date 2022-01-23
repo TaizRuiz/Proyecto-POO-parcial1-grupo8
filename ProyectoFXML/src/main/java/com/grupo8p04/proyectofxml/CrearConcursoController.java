@@ -278,7 +278,7 @@ public class CrearConcursoController {
             
     }
     
-    public void mostrarAlerta(AlertType tipo, String msj){
+    public static void mostrarAlerta(AlertType tipo, String msj){
         Alert alert= new Alert(tipo);
         alert.setTitle("Diálogo de información");
         alert.setHeaderText("Resultado de la operación");

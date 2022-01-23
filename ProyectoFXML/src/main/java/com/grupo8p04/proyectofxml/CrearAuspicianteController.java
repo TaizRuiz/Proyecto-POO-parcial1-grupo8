@@ -72,6 +72,7 @@ public class CrearAuspicianteController {
         }
         
         MenúPrincipalController.getArrAuspiciantes().add(ausp);
+        ausp.setCodAuspiciante(String.valueOf(MenúPrincipalController.getArrAuspiciantes().indexOf(ausp)+1));
         modelo.clases.Auspiciante.serializarAuspiciante();
         
         mostrarAlerta(Alert.AlertType.INFORMATION,"Auspiciante creado/editado exitosamente");

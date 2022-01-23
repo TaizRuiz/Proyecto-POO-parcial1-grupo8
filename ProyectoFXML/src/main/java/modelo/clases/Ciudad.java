@@ -5,11 +5,9 @@ import com.grupo8p04.proyectofxml.MenúPrincipalController;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import modelo.admins.AdminCiudades;
@@ -148,7 +146,8 @@ public class Ciudad implements Serializable{
             sb.append(c.codCiudad).append(","); 
             sb.append(c.nombre).append(","); 
             sb.append(c.provincia);
-            sb.append("\r\n");
+            if(!(MenúPrincipalController.getArrCiudades().indexOf(c)==(MenúPrincipalController.getArrCiudades().size()-1))){
+                sb.append("\r\n");}
             bufferedW.write(sb.toString());//Transformamos el StringBuilder a String
         } catch (IOException e) {
             System.out.println(e);

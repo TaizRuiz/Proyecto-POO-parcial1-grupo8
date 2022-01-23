@@ -149,6 +149,9 @@ public class AdminDueñosController {
             fxmlLoader.setController(ad);
             
             BorderPane root = (BorderPane) fxmlLoader.load();
+            
+            MenúPrincipalController.getArrDueños().remove(d);
+            d.saveFileEliminar();
             ad.llenarInfo(de);
             
             

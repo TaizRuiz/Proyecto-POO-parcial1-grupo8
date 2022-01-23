@@ -151,19 +151,19 @@ public class Mascota implements Serializable {
         CodMascota=codMascota.toUpperCase();;
     }
 
-    @Override
-    public boolean equals(Object obj){
-        if (this==obj){
-            return true;
-        }
-
-        if (obj !=null && obj instanceof Mascota){
-            Mascota other= (Mascota) obj;
-            return CodMascota.equals(other.CodMascota);
-        }
-
-        return false;
-    }
+//    @Override
+//    public boolean equals(Object obj){
+//        if (this==obj){
+//            return true;
+//        }
+//
+//        if (obj !=null && obj instanceof Mascota){
+//            Mascota other= (Mascota) obj;
+//            return CodMascota.equals(other.CodMascota);
+//        }
+//
+//        return false;
+//    }
 
     public static Mascota busquedMascota(String codMascota){
         Mascota busquedaMascota = new Mascota(codMascota);
@@ -200,7 +200,6 @@ public class Mascota implements Serializable {
         
         try(BufferedReader bufferedReader= new BufferedReader(new FileReader ("archivos/mascotas.csv"))){
             String linea;
-            bufferedReader.readLine();
             
             while((linea=bufferedReader.readLine())!=null){
                 String[] info=linea.split(",");
@@ -262,7 +261,6 @@ public class Mascota implements Serializable {
         for(Mascota m:MenúPrincipalController.getArrMascotas()){
         StringBuilder sb = new StringBuilder();
         try (BufferedWriter bufferedW = new BufferedWriter(new FileWriter("archivos/mascotas.csv", true))) {
-            sb.append("\r\n");
             sb.append(m.CodMascota).append(","); 
             sb.append(m.nombre).append(","); 
             sb.append(m.mascota).append(",");
@@ -270,7 +268,8 @@ public class Mascota implements Serializable {
             sb.append(m.fechaNacimiento).append(",");
             sb.append(m.foto).append(",");
             sb.append(m.dueño.getCedulaIdentidad());
-            //sb.append("\r\n");
+            if(!(MenúPrincipalController.getArrMascotas().indexOf(m)==(MenúPrincipalController.getArrMascotas().size()-1))){
+            sb.append("\r\n");}
             bufferedW.write(sb.toString());
         } catch (IOException e) {
             System.out.println(e);
