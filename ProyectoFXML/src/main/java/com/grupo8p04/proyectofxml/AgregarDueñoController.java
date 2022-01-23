@@ -71,10 +71,10 @@ public class AgregarDueñoController  {
             throw new DueñoMascotaException("Debe rellenar todos los campos solicitados");
             }
         if(due.getTelefono().equals("") | due.getCiudad().equals("") ){
-            throw new DueñoMascotaException("Debe rellenar todos todos los campos solicitados");
+            throw new DueñoMascotaException("Debe rellenar todos los campos solicitados");
             }
         if(due.getEmail().equals("") ){
-            throw new DueñoMascotaException("Debe rellenar todos todos los campos solicitados");
+            throw new DueñoMascotaException("Debe rellenar todos los campos solicitados");
             }
         
         MenúPrincipalController.getArrDueños().add(due);
@@ -88,7 +88,6 @@ public class AgregarDueñoController  {
         } catch(IOException e){
             System.out.println(e.getMessage());
         }   
-          
 
     
     }

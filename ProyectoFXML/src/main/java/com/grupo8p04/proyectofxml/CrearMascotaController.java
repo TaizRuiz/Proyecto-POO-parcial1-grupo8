@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -59,12 +60,23 @@ public class CrearMascotaController {
     
     @FXML
     private void guardarMascota() throws IOException{
+        try{
         Mascota msc= new Mascota(txtNombre.getText(),(TipoEspecie) selecEspecies.getValue(),dateNacimiento.getValue(), txtRaza.getText(),(DueñoMascota) cmbDueño.getValue());
+        
+        if(msc.getNombre().equals("") | msc.getMascota()==null | msc.getFechaNacimiento()==null | msc.getRaza().equals("") | msc.getDueño()==null){
+            throw new MascotaException("Debe rellenar todos los campos");
+        }
+        
         MenúPrincipalController.getArrMascotas().add(msc);
         msc.setCodMascota(String.valueOf(MenúPrincipalController.getArrMascotas().indexOf(msc)+1));
         msc.saveFile();
-        
+        mostrarAlerta(Alert.AlertType.INFORMATION,"Mascota creada/editada exitosamente");
         App.setRoot("AdminMascotas");
+        }catch(MascotaException em){
+            mostrarAlerta(Alert.AlertType.ERROR,em.getMessage());
+        }catch(IOException ioe){
+            System.out.println(ioe.getMessage());
+        }
     }
     
     public void llenarEdit(Mascota m){
@@ -77,5 +89,14 @@ public class CrearMascotaController {
         cmbDueño.getItems().setAll(MenúPrincipalController.getArrDueños());
         cmbDueño.setValue(m.getDueño());
         txtFoto.setText(m.getFoto());
+    }
+    
+    public void mostrarAlerta(Alert.AlertType tipo, String msj){
+        Alert alert= new Alert(tipo);
+        alert.setTitle("Diálogo de información");
+        alert.setHeaderText("Resultado de la operación");
+        alert.setContentText(msj);
+        alert.showAndWait();
+        
     }
 }
