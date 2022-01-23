@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="200.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.grupo8p04.proyectofxml.MenúPrincipalController">
    <center>
@@ -15,6 +14,16 @@
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#cambiarAdminCiudades" text="Administrar Ciudades">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#cambiarAdminAuspiciantes" text="Administrar Auspiciantes">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
             <Button fx:id="adminDueños" mnemonicParsing="false" onAction="#cambiarAdminDueños" text="Administrar Dueños">
                <VBox.margin>
                   <Insets bottom="10.0" />
@@ -24,9 +33,11 @@
       </VBox>
    </center>
    <top>
-      <Label id="titulo" text="Menú Principal" translateY="10.0" BorderPane.alignment="BOTTOM_CENTER">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font></Label>
+      <VBox alignment="CENTER" prefHeight="29.0" prefWidth="360.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label id="tituloPrincipal" text="Fundación Amigos Peludos EC" />
+            <Label id="titulo" text="Menú Principal" />
+         </children>
+      </VBox>
    </top>
 </BorderPane>

@@ -51,27 +51,17 @@ public class AgregarDueñoController  {
     @FXML
      Label labelDueño;
     
-    
-//    @FXML
-//    private void initialize(){
-//        
-//        selecCiudad.getItems().setAll(MenúPrincipalController.getArrCiudades());
-//
-//    }
    
     @FXML
     private void Cancelar2() throws IOException {
         App.setRoot("AdminDueños");
 }
 
-@FXML
+    @FXML
     private void guardarDueno() throws IOException{
         try{
         
         DueñoMascota due= new DueñoMascota(cedulaDueño.getText(),apellidoDueño.getText(), nombreDueño.getText(), direccionDueño.getText(), telefonoDueño.getText(), ciudadDueño.getText(), correoDueño.getText());
-        MenúPrincipalController.getArrDueños().add(due);
-        due.saveFile(); //guarda el objeto en el txt
-        //modelo.clases.DueñoMascota.serializar();
         
         if(due.getCedulaIdentidad().equals("") | due.getApellido().equals("") ){
             throw new DueñoMascotaException("Debe rellenar todos los campos solicitados");
@@ -86,12 +76,18 @@ public class AgregarDueñoController  {
         if(due.getEmail().equals("") ){
             throw new DueñoMascotaException("Debe rellenar todos todos los campos solicitados");
             }
-        App.setRoot("AdminDueños");
-        } catch(Exception e){
-            Alert a = new Alert(AlertType.ERROR,"Se encontro una indeterminacion.");
-            a.show();
         
-        }
+        MenúPrincipalController.getArrDueños().add(due);
+        due.saveFile(); 
+        
+        mostrarAlerta(AlertType.INFORMATION,"Dueño creado/editado exitosamente");
+        App.setRoot("AdminDueños");
+        } catch(DueñoMascotaException d){
+            mostrarAlerta(AlertType.ERROR,d.getMessage());
+        } catch(IOException e){
+            System.out.println(e.getMessage());
+        }   
+          
 
     
     }
@@ -105,6 +101,15 @@ public class AgregarDueñoController  {
         ciudadDueño.setText(du.getCiudad());
         correoDueño.setText(du.getEmail());
     MenúPrincipalController.getArrDueños().remove(du);
+    }
+    
+    public void mostrarAlerta(AlertType tipo, String msj){
+        Alert alert= new Alert(tipo);
+        alert.setTitle("Diálogo de información");
+        alert.setHeaderText("Resultado de la operación");
+        alert.setContentText(msj);
+        alert.showAndWait();
+        
     }
 }
     

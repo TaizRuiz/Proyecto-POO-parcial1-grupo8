@@ -1,9 +1,13 @@
 
 package modelo.clases;
 
+import com.grupo8p04.proyectofxml.MenúPrincipalController;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -118,23 +122,39 @@ public class Ciudad implements Serializable{
         return nombre;
     }
     
-    public static void serializarCiudad(){
-          
-        try{
-            FileOutputStream fout= new FileOutputStream("archivos/ciudades.ser");
-            ObjectOutputStream out=new ObjectOutputStream(fout);
-            out.writeObject(AdminCiudades.arrCiudades);
-            out.flush();
-            
-        }
+    public void guardarCiudad(){
         
-        catch (IOException e){
+        String ciudad="";
+        StringBuilder sb = new StringBuilder();
+        try (BufferedWriter bufferedW = new BufferedWriter(new FileWriter("archivos/ciudades.csv", true))) {
+            sb.append("\r\n");
+            sb.append(this.codCiudad).append(","); 
+            sb.append(this.nombre).append(","); 
+            sb.append(this.provincia);
+            bufferedW.write(sb.toString());
+        } catch (IOException e) {
             System.out.println(e);
         }
-
-    
+        
     }
     
+    public  void guardarCiudadEliminar() {
+        File archivo=new File("archivos/ciudades.csv");
+        archivo.delete();
+        for(Ciudad c:MenúPrincipalController.getArrCiudades()){
+        StringBuilder sb = new StringBuilder();
+        try (BufferedWriter bufferedW = new BufferedWriter(new FileWriter("archivos/ciudades.csv",true))) {
+            
+            sb.append(c.codCiudad).append(","); 
+            sb.append(c.nombre).append(","); 
+            sb.append(c.provincia);
+            sb.append("\r\n");
+            bufferedW.write(sb.toString());//Transformamos el StringBuilder a String
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+        }
+    }
     public static ArrayList<Ciudad> lecturaCiudades(){
         
        ArrayList<Ciudad> arrCiudades=new ArrayList<Ciudad>();
@@ -145,7 +165,6 @@ public class Ciudad implements Serializable{
             while((linea=bufferedReader.readLine())!=null){
                 String[] info=linea.split(",");
                 Ciudad ciudad= new Ciudad(info[0],info[1],info[2]);
-                //System.out.println(dueño);
                 arrCiudades.add(ciudad);
             }
    

@@ -1,6 +1,7 @@
 
 package modelo.clases;
 
+import com.grupo8p04.proyectofxml.MenúPrincipalController;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -130,7 +131,7 @@ public class Auspiciante extends Persona implements Serializable{
         try{
             FileOutputStream fout= new FileOutputStream("archivos/auspiciantes.ser");
             ObjectOutputStream out=new ObjectOutputStream(fout);
-            out.writeObject(AdminAuspiciantes.arrAuspiciantes);
+            out.writeObject(MenúPrincipalController.getArrAuspiciantes());
             out.flush();
             
         }

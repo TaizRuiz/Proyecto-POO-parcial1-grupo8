@@ -40,9 +40,9 @@ public class CrearMascotaController {
     @FXML
     private TextField txtFoto;
     @FXML
-    private ComboBox cmbDueño;
+    ComboBox cmbDueño;
     @FXML
-    private ComboBox selecEspecies;
+    ComboBox selecEspecies;
     @FXML
     private Label lblTituloMascota;
 

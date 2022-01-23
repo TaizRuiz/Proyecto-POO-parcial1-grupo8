@@ -79,7 +79,7 @@
       </HBox>
    </bottom>
    <top>
-      <Label fx:id="lblTituloMascota" text="Crear Mascota" BorderPane.alignment="CENTER">
+      <Label id="titulo" fx:id="lblTituloMascota" text="Crear Mascota" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>

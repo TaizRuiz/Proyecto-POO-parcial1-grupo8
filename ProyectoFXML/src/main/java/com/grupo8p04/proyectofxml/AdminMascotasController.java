@@ -71,7 +71,21 @@ public class AdminMascotasController  {
     
     @FXML
     private void menuCrearM() throws IOException {
-        App.setRoot("CrearMascota");
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("CrearMascota.fxml"));
+            CrearMascotaController apet = new CrearMascotaController();
+            
+            fxmlLoader.setController(apet);
+            
+            BorderPane root = (BorderPane) fxmlLoader.load();
+            apet.selecEspecies.getItems().setAll(modelo.enums.TipoEspecie.values());
+            apet.cmbDueño.getItems().setAll(MenúPrincipalController.getArrDueños());
+            
+            App.changeRoot(root);
+            
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
     
     @FXML

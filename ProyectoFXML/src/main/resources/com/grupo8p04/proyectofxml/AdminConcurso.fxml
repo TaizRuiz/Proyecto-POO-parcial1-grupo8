@@ -35,7 +35,7 @@
    <center>
       <TableView fx:id="tablaConcursos" editable="true" maxHeight="600.0" maxWidth="-Infinity" prefHeight="289.0" prefWidth="900.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="codConc" maxWidth="1000.0" prefWidth="10.0" text="Código" />
+          <TableColumn fx:id="codConc" maxWidth="1500.0" prefWidth="10.0" text="Código" />
           <TableColumn fx:id="nombreConc" maxWidth="4000.0" prefWidth="274.0" text="Nombre" />
             <TableColumn fx:id="fechaConc" maxWidth="2000.0" prefWidth="56.0" text="Fecha" />
             <TableColumn fx:id="ciudadConc" maxWidth="3000.0" prefWidth="56.0" text="Ciudad" />

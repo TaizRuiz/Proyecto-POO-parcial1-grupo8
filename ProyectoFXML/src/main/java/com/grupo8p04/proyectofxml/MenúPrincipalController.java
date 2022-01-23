@@ -61,6 +61,16 @@ public class MenúPrincipalController {
     }
     
     @FXML
+    private void cambiarAdminCiudades() throws IOException {
+        App.setRoot("AdminCiudades");
+    }
+    
+    @FXML
+    private void cambiarAdminAuspiciantes() throws IOException {
+        App.setRoot("AdminAuspiciantes");
+    }
+    
+    @FXML
     private void cambiarAdminMascotas() throws IOException {
         App.setRoot("AdminMascotas");
     }

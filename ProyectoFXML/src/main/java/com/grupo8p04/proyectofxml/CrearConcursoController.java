@@ -101,26 +101,7 @@ public class CrearConcursoController {
     
     
     static ArrayList<Object> arrInfo= new ArrayList<Object>();
-    
-    /**@FXML
-    private void initialize(){
-        cmbTipo.getItems().setAll(modelo.enums.TiposAnimal.values());
-        ciudadConc.getItems().setAll(MenúPrincipalController.getArrCiudades());
-        
-        nombreAuspiciante.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        tablaAusp.getItems().setAll(MenúPrincipalController.getArrAuspiciantes());
-        
-        lugarPrem.setCellValueFactory(new PropertyValueFactory<>("puesto"));
-        descPrem.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
-        auspPrem.setCellValueFactory(new PropertyValueFactory<>("auspiciante"));
-        tablaPremio.getItems().setAll(AgregarPremioController.getArrPremios());
-        
-        btnSi.setDisable(true);
-        btnNo.setDisable(true);
-               
-        btnInscSi.setDisable(true);
-        btnInscNo.setDisable(true);
-    }**/
+   
 
     @FXML
     private void cancelarCrearC() throws IOException {
@@ -265,11 +246,11 @@ public class CrearConcursoController {
         App.setRoot("AdminConcurso");
         }
         
-        /**
+       
         catch (RuntimeException ex) {
             System.out.println("hola");
            mostrarAlerta(AlertType.ERROR,"Formato de hora incorrecto");
-        }**/
+        }
         catch(ConcursoException ex){
            mostrarAlerta(AlertType.ERROR,ex.getMessage());
         }
