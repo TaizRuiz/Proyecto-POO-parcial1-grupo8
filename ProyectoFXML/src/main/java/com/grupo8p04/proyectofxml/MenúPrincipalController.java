@@ -38,8 +38,12 @@ public class MenúPrincipalController {
     
     
     @FXML
-    private void initialize(){
+    private void initialize() throws IOException{
         arrConcursos=Concurso.lecturaConcurso();
+        //arrConcursos.clear();
+//        arrConcursos=new ArrayList<Concurso>();
+//        arrConcursos.add(new Concurso("hola"));
+//        modelo.clases.Concurso.serializarConcurso();
         arrDueños=DueñoMascota.lecturaDueños();
         arrMascotas=Mascota.lecturaMascotas();
         arrAuspiciantes=Auspiciante.lecturaAuspiciante();

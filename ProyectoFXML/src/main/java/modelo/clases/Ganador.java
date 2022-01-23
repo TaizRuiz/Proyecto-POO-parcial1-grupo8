@@ -1,9 +1,7 @@
 package modelo.clases;
 
-import com.grupo8p04.proyectofxml.AdminConcursoController;
 import java.io.Serializable;
 import modelo.enums.Puesto;
-import java.math.*;
 import java.util.Random;
 
 public class Ganador implements Serializable{

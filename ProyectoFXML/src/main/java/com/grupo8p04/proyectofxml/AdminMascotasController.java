@@ -6,12 +6,9 @@
 package com.grupo8p04.proyectofxml;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.Optional;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -23,8 +20,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
-import modelo.clases.Concurso;
-import modelo.clases.DueñoMascota;
 import modelo.clases.Mascota;
 
 /**
@@ -138,7 +133,7 @@ public class AdminMascotasController  {
     
     private void detalleMascota(Mascota m){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("DetalleMascota.fxml"));//no tiene el controlador especificado
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("DetalleMascota.fxml"));
             DetalleMascotaController dmc = new DetalleMascotaController();
             
             fxmlLoader.setController(dmc);
@@ -157,7 +152,7 @@ public class AdminMascotasController  {
     private void editarMascota(){
         try {
             Mascota pet = (Mascota) tablaMascotas.getSelectionModel().getSelectedItem();
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("CrearMascota.fxml"));//no tiene el controlador especificado
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("CrearMascota.fxml"));
             CrearMascotaController apet = new CrearMascotaController();
             
             fxmlLoader.setController(apet);

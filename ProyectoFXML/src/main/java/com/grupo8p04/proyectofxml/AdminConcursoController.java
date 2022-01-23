@@ -17,7 +17,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import static javafx.scene.control.ContentDisplay.CENTER;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -27,11 +26,7 @@ import modelo.clases.Concurso;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
-import modelo.clases.ConcursoException;
 import modelo.clases.DueñoMascota;
-import modelo.clases.Mascota;
-import modelo.enums.TipoEspecie;
-import modelo.enums.TiposAnimal;
 
 
 /**
@@ -175,10 +170,10 @@ public class AdminConcursoController {
     private void editarConcurso(Concurso conc){
         try {
             Concurso e = (Concurso) tablaConcursos.getSelectionModel().getSelectedItem();
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("CrearConcurso.fxml"));//no tiene el controlador especificado
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("CrearConcurso.fxml"));
             CrearConcursoController ct = new CrearConcursoController();
             
-            fxmlLoader.setController(ct);//se asigna el controlador
+            fxmlLoader.setController(ct);
             
             BorderPane root = (BorderPane) fxmlLoader.load();
             
@@ -350,7 +345,7 @@ public class AdminConcursoController {
         String destinatario=d;
         String asunto="Inscripciones abiertas al concurso "+con.getNombre()+"!!!";
         String cuerpo="Se ha abierto un nuevo concurso!! \nFecha del concurso: "+String.valueOf(con.getFechaEvento())+" \nLugar: "+con.getLugar()+", "+con.getCiudad()+" \nHora: "+String.valueOf(con.getHoraEvento())+" \nFecha límite de inscripción: "+String.valueOf(con.getFechaFinInscripcion())+" \nEsperamos tu participación!!";
-        modelo.clases.Correo.enviarCorreo(destinatario, asunto, cuerpo);
+        modelo.utils.Correo.enviarCorreo(destinatario, asunto, cuerpo);
         
         if((destinatarios.size()-1)==destinatarios.indexOf(d)){
             Platform.runLater(()->mensajeEnvio.setText("Proceso finalizado"));

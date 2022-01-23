@@ -48,7 +48,7 @@ public class AgregarPremioController {
     
     @FXML
     private void cancelarCrearPremio() throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("CrearConcurso.fxml"));//no tiene el controlador especificado
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("CrearConcurso.fxml"));
         CrearConcursoController ct = new CrearConcursoController();
             
         fxmlLoader.setController(ct);
@@ -80,7 +80,7 @@ public class AgregarPremioController {
         alert.setContentText("Premio creado exitosamente");
         alert.showAndWait();
         
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("CrearConcurso.fxml"));//no tiene el controlador especificado
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("CrearConcurso.fxml"));
         CrearConcursoController ct = new CrearConcursoController();
             
         fxmlLoader.setController(ct);

@@ -10,7 +10,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import modelo.admins.AdminCiudades;
 
 
 public class Ciudad implements Serializable{
@@ -84,38 +83,8 @@ public class Ciudad implements Serializable{
         return false;
     }
 
-    public static Ciudad busquedaCiudad(String nombreCiudad){
 
-
-        Ciudad ciudadBusqueda=new Ciudad(nombreCiudad);
-        Ciudad ciudadEncontrada= new Ciudad();
-
-        if (AdminCiudades.arrCiudades.contains(ciudadBusqueda)){
-            int indCiudad=AdminCiudades.arrCiudades.indexOf(ciudadBusqueda);
-            ciudadEncontrada= (Ciudad) AdminCiudades.arrCiudades.get(indCiudad);
-        }
-
-        return ciudadEncontrada;
-    }
-
-    public void generarCodCiudad(){
-        
-        String [] arrNombre= nombre.split("");
-        int tamaño=arrNombre.length;
-        for (int i=0;i<2;i++){
-            double ind= Math.floor(Math.random()*tamaño);
-            String letraAleatoria=arrNombre[(int)ind];
-            codCiudad=codCiudad+letraAleatoria;
-        }
-
-        for (int i=0;i<2;i++){
-            String numero= String.valueOf((int) (Math.random()*10));
-            codCiudad=codCiudad+numero;
-        }
-
-        codCiudad=codCiudad.toUpperCase();;
-    }
-    
+   
     public String toString(){
         return nombre;
     }

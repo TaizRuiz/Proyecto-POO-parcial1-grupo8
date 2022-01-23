@@ -5,16 +5,12 @@ import com.grupo8p04.proyectofxml.MenúPrincipalController;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
-import modelo.admins.AdminDueños;
 
 
 public class DueñoMascota extends Persona implements Serializable{
@@ -130,40 +126,7 @@ public class DueñoMascota extends Persona implements Serializable{
             return false;
         }
         return true;
-    }   
-    
-    public boolean equalsDos(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final DueñoMascota other = (DueñoMascota) obj;
-        if (!Objects.equals(this.nombre, other.nombre)) {
-            return false;
-        }
-        return true;
-    }   
-    
-    
-    public static DueñoMascota busquedaDueño(String nombreDueño){
-
-        DueñoMascota dueñoBusqueda = new DueñoMascota(nombreDueño);
-        DueñoMascota dueñoEncontrado = new DueñoMascota();
-
-        if (AdminDueños.arrDueño.contains(dueñoBusqueda)){
-            int indDueño = AdminDueños.arrDueño.indexOf(dueñoBusqueda);
-            dueñoEncontrado = (DueñoMascota) AdminDueños.arrDueño.get(indDueño);
-        }else{
-            System.out.println("Dueño no registrado");
-        }
-
-        return dueñoEncontrado;
-    }
+    }     
     
     public  void saveFile() {
         String dueños="";

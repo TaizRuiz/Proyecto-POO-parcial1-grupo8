@@ -5,15 +5,12 @@ import com.grupo8p04.proyectofxml.MenúPrincipalController;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import modelo.admins.AdminMascotas;
 import modelo.enums.TipoEspecie;
 
 public class Mascota implements Serializable {
@@ -130,68 +127,18 @@ public class Mascota implements Serializable {
         
     // metodos
     
-    public void generarCodMascota(){
-
-        String codMascota="";
-        String nombreSinEspacios=nombre.replace(" ", "");
-        
-        String [] arrNombre= nombreSinEspacios.split("");
-        int tamaño=arrNombre.length;
-        for (int i=0;i<2;i++){
-            double ind= Math.floor(Math.random()*tamaño);
-            String letraAleatoria=arrNombre[(int)ind];
-            codMascota=codMascota+letraAleatoria;
+    @Override
+    public boolean equals(Object obj){
+        if (this==obj){
+            return true;
         }
 
-        for (int i=0;i<2;i++){
-            String numero= String.valueOf((int) (Math.random()*10));
-            codMascota=codMascota+numero;
-        }
-        
-        CodMascota=codMascota.toUpperCase();;
-    }
-
-//    @Override
-//    public boolean equals(Object obj){
-//        if (this==obj){
-//            return true;
-//        }
-//
-//        if (obj !=null && obj instanceof Mascota){
-//            Mascota other= (Mascota) obj;
-//            return CodMascota.equals(other.CodMascota);
-//        }
-//
-//        return false;
-//    }
-
-    public static Mascota busquedMascota(String codMascota){
-        Mascota busquedaMascota = new Mascota(codMascota);
-        Mascota mascotaRegistrar = new Mascota();
-
-        if (AdminMascotas.arrMascotas.contains(busquedaMascota)){
-            int ind=AdminMascotas.arrMascotas.indexOf(busquedaMascota);
-            mascotaRegistrar= (Mascota) AdminMascotas.arrMascotas.get(ind);
+        if (obj !=null && obj instanceof Mascota){
+            Mascota other= (Mascota) obj;
+            return CodMascota.equals(other.CodMascota);
         }
 
-        return mascotaRegistrar;
-    }
-    
-    public static void serializarMascotas(){
-          
-        try{
-            FileOutputStream fout= new FileOutputStream("archivos/mascotas.ser");
-            ObjectOutputStream out=new ObjectOutputStream(fout);
-            out.writeObject(AdminMascotas.arrMascotas);
-            out.flush();
-            
-        }
-        
-        catch (IOException e){
-            System.out.println(e);
-        }
-
-    
+        return false;
     }
     
     public static ArrayList<Mascota> lecturaMascotas(){

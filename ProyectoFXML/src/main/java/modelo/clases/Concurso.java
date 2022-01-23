@@ -5,8 +5,6 @@ import com.grupo8p04.proyectofxml.MenúPrincipalController;
 import java.io.*;
 import java.time.*;
 import java.util.ArrayList;
-import modelo.admins.AdminConcursos;
-
 import modelo.enums.TiposAnimal;
 
 
@@ -221,20 +219,6 @@ public class Concurso implements Serializable {
         CodConcurso=codConcurso.toUpperCase();;
     }
 
-    public static Concurso busquedaConcurso(String codigoConcurso){
-
-        Concurso concursoBusqueda=new Concurso(codigoConcurso);
-        Concurso concursoEncontrado= new Concurso();
-
-        if (AdminConcursos.arrConcursos.contains(concursoBusqueda)){
-            int indConcurso=AdminConcursos.arrConcursos.indexOf(concursoBusqueda);
-            concursoEncontrado= (Concurso) AdminConcursos.arrConcursos.get(indConcurso);
-        }
-
-        return concursoEncontrado;
-    }
-    
-
     
     @Override
     public String toString(){
@@ -244,8 +228,6 @@ public class Concurso implements Serializable {
     
     public static void serializarConcurso() throws IOException{
             
-            
-        
             FileOutputStream fout= new FileOutputStream("archivos/concursos.ser");
             ObjectOutputStream out=new ObjectOutputStream(fout);
             out.writeObject(MenúPrincipalController.getArrConcursos());

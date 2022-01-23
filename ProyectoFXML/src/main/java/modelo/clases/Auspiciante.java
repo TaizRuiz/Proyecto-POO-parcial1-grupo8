@@ -10,7 +10,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import modelo.admins.AdminAuspiciantes;
 
 public class Auspiciante extends Persona implements Serializable{
 
@@ -106,20 +105,6 @@ public class Auspiciante extends Persona implements Serializable{
        
     
     // métodos 
-
-    public static Auspiciante busquedaAuspiciante(String nombreAuspiciante){
-
-        Auspiciante auspicianteBusqueda=new Auspiciante(nombreAuspiciante);
-        Auspiciante auspicianteEncontrado= new Auspiciante();
-
-        if (AdminAuspiciantes.arrAuspiciantes.contains(auspicianteBusqueda)){
-            int indAuspiciante=AdminAuspiciantes.arrAuspiciantes.indexOf(auspicianteBusqueda);
-            auspicianteEncontrado= (Auspiciante) AdminAuspiciantes.arrAuspiciantes.get(indAuspiciante);
-        }
-
-        return auspicianteEncontrado;
-    }
-    
 
     @Override
     public String toString(){

@@ -10,7 +10,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -20,7 +19,7 @@ import modelo.clases.Mascota;
  *
  * @author hp
  */
-public class DetalleMascotaController implements Initializable {
+public class DetalleMascotaController {
 
 
     @FXML
@@ -35,13 +34,7 @@ public class DetalleMascotaController implements Initializable {
     ImageView imgMascota;
     @FXML
     Button btnRegresar;
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
-    }    
+      
     
     public void llenarInfo(Mascota m){
         lblNombreMascota.setText(m.getNombre());

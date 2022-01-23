@@ -6,18 +6,12 @@
 package com.grupo8p04.proyectofxml;
 
 import java.io.IOException;
-import java.net.URL;
-import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.Optional;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -69,7 +63,7 @@ public class AdminDueñosController {
     @FXML
     private void AgregarDueño() throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("AgregarDueño.fxml"));//no tiene el controlador especificado
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("AgregarDueño.fxml"));
             AgregarDueñoController ad = new AgregarDueñoController();
             
             fxmlLoader.setController(ad);
@@ -143,7 +137,7 @@ public class AdminDueñosController {
        private void editarDueñoMascota(DueñoMascota d){
            try {
             DueñoMascota de = (DueñoMascota) tablaDueños.getSelectionModel().getSelectedItem();
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("AgregarDueño.fxml"));//no tiene el controlador especificado
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("AgregarDueño.fxml"));
             AgregarDueñoController ad = new AgregarDueñoController();
             
             fxmlLoader.setController(ad);

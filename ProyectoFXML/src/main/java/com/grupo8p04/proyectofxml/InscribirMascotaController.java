@@ -6,16 +6,13 @@
 package com.grupo8p04.proyectofxml;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import modelo.clases.Concurso;
-import modelo.clases.ConcursoException;
+import modelo.utils.ConcursoException;
 import modelo.clases.Mascota;
 
 /**
