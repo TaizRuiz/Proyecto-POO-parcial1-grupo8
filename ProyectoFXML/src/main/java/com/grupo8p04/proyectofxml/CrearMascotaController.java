@@ -36,13 +36,13 @@ public class CrearMascotaController {
     @FXML
     private DatePicker dateNacimiento;
     @FXML
-    private TextField txtFoto;
-    @FXML
     ComboBox cmbDueño;
     @FXML
     ComboBox selecEspecies;
     @FXML
     private Label lblTituloMascota;
+    @FXML
+    private Button btnFoto;
 
     
     @FXML
@@ -86,7 +86,7 @@ public class CrearMascotaController {
         txtRaza.setText(m.getRaza());
         cmbDueño.getItems().setAll(MenúPrincipalController.getArrDueños());
         cmbDueño.setValue(m.getDueño());
-        txtFoto.setText(m.getFoto());
+        //txtFoto.setText(m.getFoto());
     }
     
     public void mostrarAlerta(Alert.AlertType tipo, String msj){
