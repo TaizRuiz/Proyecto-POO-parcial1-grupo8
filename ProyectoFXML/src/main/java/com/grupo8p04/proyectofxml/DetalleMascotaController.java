@@ -41,6 +41,7 @@ public class DetalleMascotaController {
         lblNacimiento.setText(m.getFechaNacimiento().toString());
         lblRaza.setText(m.getRaza());
         lblDueño.setText(m.getDueño().getNombre());
+        
     }
     
     public void regresarAccion() throws IOException{

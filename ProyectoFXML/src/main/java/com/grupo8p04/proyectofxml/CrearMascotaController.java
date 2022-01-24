@@ -5,8 +5,12 @@
  */
 package com.grupo8p04.proyectofxml;
 
+import java.io.File;
 import modelo.clases.MascotaException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -14,6 +18,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
 import modelo.clases.*;
 import modelo.enums.*;
 
@@ -96,5 +102,28 @@ public class CrearMascotaController {
         alert.setContentText(msj);
         alert.showAndWait();
 
+    }
+    
+     
+    public void buscarImg() throws IOException{
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Buscar Imagen");
+        
+        //filtros para la búsqueda
+        fc.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("All Images", "*.*"),
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png")
+        );
+        
+        //obtener imagen seleccionada
+        File imgFile = fc.showOpenDialog(null);
+        
+        if(imgFile != null){
+            Image img = new Image("file:"+imgFile.getAbsolutePath());
+            Path from = Paths.get(imgFile.toURI());
+            Path to = Paths.get("archivos/ImagenesMascotas"+imgFile.getName());
+            Files.copy(from,to);
+        }
     }
 }
