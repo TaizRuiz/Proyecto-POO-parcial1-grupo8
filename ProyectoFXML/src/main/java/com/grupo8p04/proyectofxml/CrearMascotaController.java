@@ -110,19 +110,15 @@ public class CrearMascotaController {
         fc.setTitle("Buscar Imagen");
         
         //filtros para la búsqueda
-        fc.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("All Images", "*.*"),
-                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
-                new FileChooser.ExtensionFilter("PNG", "*.png")
-        );
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG", "*.png"));
         
         //obtener imagen seleccionada
         File imgFile = fc.showOpenDialog(null);
         
         if(imgFile != null){
-            Image img = new Image("file:"+imgFile.getAbsolutePath());
+            //Image img = new Image("file:"+imgFile.getAbsolutePath());
             Path from = Paths.get(imgFile.toURI());
-            Path to = Paths.get("archivos/ImagenesMascotas"+imgFile.getName());
+            Path to = Paths.get("imgs/"+imgFile.getName());
             Files.copy(from,to);
         }
     }

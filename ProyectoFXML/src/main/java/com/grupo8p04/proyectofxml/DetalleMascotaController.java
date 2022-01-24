@@ -45,20 +45,17 @@ public class DetalleMascotaController {
         lblDueño.setText(m.getDueño().getNombre());
         
         InputStream input = null;
-        try {
-            String fileName = "ImagenesMascotas/"+ m.getNombre()+ ".png";
-           
-            input = App.class.getResource(fileName).openStream();
-
-            //crear la imagen 
-            Image image = new Image(input, 80, 80, false, false);
-            imgMascota.setImage(image);
-
+        try{
+           String fileName = "imgs/"+ m.getNombre()+".png";  //armar la ruta de la foto
+           input = App.class.getResource(fileName).openStream();
+           //crear la imagen 
+           Image image = new Image(input, 80, 80, false, false);
+           imgMascota.setImage(image);
         } catch (Exception ex) {
             System.out.println("no se encuentra archivo de imagen");
           
         }
-        
+
     }
     
     public void regresarAccion() throws IOException{
