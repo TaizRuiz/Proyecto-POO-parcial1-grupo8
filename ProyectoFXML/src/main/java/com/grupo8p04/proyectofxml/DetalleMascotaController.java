@@ -6,12 +6,14 @@
 package com.grupo8p04.proyectofxml;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import modelo.clases.Mascota;
 /**
@@ -41,6 +43,21 @@ public class DetalleMascotaController {
         lblNacimiento.setText(m.getFechaNacimiento().toString());
         lblRaza.setText(m.getRaza());
         lblDueño.setText(m.getDueño().getNombre());
+        
+        InputStream input = null;
+        try {
+            String fileName = "ImagenesMascotas/"+ m.getNombre()+ ".png";
+           
+            input = App.class.getResource(fileName).openStream();
+
+            //crear la imagen 
+            Image image = new Image(input, 80, 80, false, false);
+            imgMascota.setImage(image);
+
+        } catch (Exception ex) {
+            System.out.println("no se encuentra archivo de imagen");
+          
+        }
         
     }
     
