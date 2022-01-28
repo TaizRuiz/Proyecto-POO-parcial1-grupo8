@@ -118,7 +118,7 @@ public class CrearMascotaController {
         if(imgFile != null){
             //Image img = new Image("file:"+imgFile.getAbsolutePath());
             Path from = Paths.get(imgFile.toURI());
-            Path to = Paths.get("imgs/"+imgFile.getName());
+            Path to = Paths.get("archivos/ImagenesMascotas/"+imgFile.getName());
             Files.copy(from,to);
         }
     }
