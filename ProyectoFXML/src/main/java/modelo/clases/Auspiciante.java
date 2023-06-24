@@ -111,22 +111,6 @@ public class Auspiciante extends Persona implements Serializable{
         return nombre;
     }
     
-    public static void serializarAuspiciante(){
-          
-        try{
-            FileOutputStream fout= new FileOutputStream("archivos/auspiciantes.ser");
-            ObjectOutputStream out=new ObjectOutputStream(fout);
-            out.writeObject(MenúPrincipalController.getArrAuspiciantes());
-            out.flush();
-            
-        }
-        
-        catch (IOException e){
-            System.out.println(e);
-        }
-
-    
-    }
     
     public static ArrayList<Auspiciante> lecturaAuspiciante(){
         
@@ -149,5 +133,22 @@ public class Auspiciante extends Persona implements Serializable{
 
         return arrAuspiciantes;
     }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Persona other = (Persona) obj;
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        return true;
+    }   
     
 }
